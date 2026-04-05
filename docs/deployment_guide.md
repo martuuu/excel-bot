@@ -2,7 +2,16 @@
 
 Este documento contiene las instrucciones precisas para encender tu bot SaaS de forma resiliente, asegurando que se auto-recupere tras reinicios del servidor y pueda ejecutar navegadores invisibles.
 
-## 0. Requisitos Previos
+## 0.1 Setup Inicial en macOS Limpia
+Si acabas de formatear la Mac o es una MacBook Pro dedicada desde cero, ejecuta esto primero:
+
+1. **Xcode Command Line Tools:** `xcode-select --install`
+2. **Homebrew:** `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+3. **Dependencias Core:** `brew install python@3.11 tmux git`
+
+---
+
+## 0. Requisitos del Proyecto
 
 En cualquier servidor que decidas usar (tu Mac de casa o la Lenovo con Ubuntu headless), asegúrate de clonar el repositorio, entrar a la carpeta y ejecutar:
 
@@ -116,6 +125,35 @@ Para consumir lo mínimo indispensable:
 1. **Baja el Brillo a Cero:** Si no usas la pantalla.
 2. **Usa `playwright` limpio:** El bot en `session_manager.py` ya está diseñado para ejecutarse en modo `headless=True`, esto asegura que el navegador virtual (Chromium) no genere renderizado gráfico real, reduciendo la carga de CPU y GPU a la mitad.
 3. **Tmux de Fondo:** Nunca dejes la ventana de tu Mac Terminal maximizada de frente, dejalo adjuntado en `tmux` en el background y apaga la pantalla, así WindowServer de macOS no gasta procesador re-dibujando la consola con cada log `print`.
+
+### 3.3 Auto-Arranque tras Cortes de Luz (Mac)
+¡Sí! macOS también tiene un excelente manejo para auto-recuperarse como un servidor real, solo necesitas configurar dos cosas:
+
+**Paso 1: Encender la Mac sola cuando vuelva la tensión**
+Abre la terminal y ejecuta este comando para modificar la energía desde el hardware:
+```bash
+sudo pmset -a autorestart 1
+```
+
+**Paso 2: Auto-Logueo**
+Ve a **Preferencias del Sistema (System Settings) > Usuarios y Grupos** y configura **"Iniciar sesión automáticamente como: [Tu Usuario]"**. Si la Mac se reinicia y se queda en la pantalla de contraseña, los programas de usuario no arrancan.
+
+**Paso 3: Que arranque el bot solo (Automator o Launchd)**
+La forma más sencilla y sin usar código para ejecutar tu `tmux` con el bot al arrancar es usar la app nativa **Automator**:
+1. Abre Autómator y crea una nueva **"Aplicación"**.
+2. Arrastra la acción **"Ejecutar script de la shell"** (Run Shell Script).
+3. Pega este código (ajustando las rutas):
+   ```bash
+   # Carga las variables de entorno de tu usuario
+   source ~/.zshrc
+   cd /Users/martinnavarro/Documents/bot
+   # Crea una sesion tmux detached e inicia el bot con caffeinate
+   /usr/local/bin/tmux new-session -d -s fifabot 'source venv/bin/activate && /usr/bin/caffeinate -is python main.py'
+   ```
+4. Guarda como `FifaBot_Start.app`.
+5. Ve a **Preferencias del Sistema > General > Ítems de inicio (Login Items)** y agrega tu nueva app `FifaBot_Start.app`.
+
+Listo, si se corta la luz, la Mac se encenderá sola, pondrá tu usuario sola, y lanzará el bot de fondo.
 
 ---
 

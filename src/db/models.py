@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, Float, DateTime
+from sqlalchemy import Column, Integer, String, Boolean, Float, DateTime, UniqueConstraint
 from sqlalchemy.sql import func
 from .database import Base
 
@@ -19,10 +19,12 @@ class FifaAlert(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, nullable=False) # ForeignKey omitted in SQLite simple setup
-    product_code = Column(String, nullable=False) # ej ARG
+    product_code = Column(String, nullable=False) # ej ARG_GROUP, ARG_KNOCKOUT, FINAL
     ticket_category = Column(String, nullable=True) # ej FMT_P
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (UniqueConstraint('user_id', 'product_code', name='uix_user_product'),)
 
 
 class AuditLog(Base):
