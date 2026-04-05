@@ -1,0 +1,3842 @@
+Luego de iniciar sesion y apretar en buy tickets, me salen estas opciones en el link: https://fwc26-shop-usd.tickets.fifa.com/secured/content
+
+{widgetInfo: "TicketShop [UsageTracking] [Interval: 10000 ms] [wheel: 11]",…}
+debugClientId
+: 
+"24.232.244.15, 1775251516722"
+usagePlaceURL
+: 
+"https://fwc26-shop-usd.tickets.fifa.com/secured/content"
+version
+: 
+"0.0.6821"
+widgetInfo
+: 
+"TicketShop [UsageTracking] [Interval: 10000 ms] [wheel: 11]"
+
+/* production and test tags in order to have CSS dependent on environment */
+if (window.location.hostname.indexOf('.fifa.com')>=0)
+	$('html').addClass('eda_productionenv');
+else $('html').addClass('eda_testenv');
+
+
+// /*FIFASTX-3534 FCFS dom and inlt: have display only available matches unchecked by default*/
+// $(window).on('load',function() {
+//     setTimeout(function(){
+// 		if($("#page_selection_eventDate #toggle_unavailable_matches").length > 0 && $("#toggle_unavailable_matches").prop("checked"))
+//             $("#toggle_unavailable_matches").click();
+// 		/* Not Resale:
+// 		if($("#page_selection_resale_eventDate #toggle_unavailable_matches").length > 0 && $("#toggle_unavailable_matches").prop("checked"))
+//             $("#toggle_unavailable_matches").click(); */
+// 	}, 1200);
+// });
+
+//Add "from" to price table + align table header
+try {
+	document.addEventListener('DOMContentLoaded', () => {
+		const selectionEventSeat = document.querySelector('#page_selection_eventSeat');
+		const ASPMessage = document.querySelector('#seat_based_price_info_container');
+		const prefixText = "From ";
+		if (!ASPMessage || !selectionEventSeat) return;
+
+		const seatTableContainer = Array.from(document.getElementsByClassName("table_container"))[0];
+		const tableHeaderUnitPrice = selectionEventSeat.getElementsByClassName('unit_price large_column');
+		const rows = seatTableContainer.querySelectorAll('.unit_price .amount')
+
+		rows.forEach(row => {
+			row.textContent = prefixText + row?.textContent;
+		});
+	});
+} catch (error) {
+}
+
+//hide the price range on seatmap
+// try {
+//   function hiddenPriceRange() {
+//     const priceData = Array.from(document.querySelectorAll('.stx-blockAvaibilityContent .cat'))[1];
+//     console.log('priceData', priceData);
+//     if (priceData?.textContent.includes('-')) {
+//       priceData.style.visibility = 'hidden';
+//     }
+//   }
+//   const observer = new MutationObserver(() => {
+//     try { hiddenPriceRange(); } catch (e) { }
+//   });
+//   observer.observe(document.body, {
+//     childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class']
+//   });
+ 
+// } catch (error) {
+//   console.error(error);
+// }
+//END 
+
+
+/*Remove location text in label - Hide stand information - FIFASTX-3383*/
+function eda_prefix(prefix,txt) { if (txt.indexOf(prefix)<0) return prefix+' '+txt; else return txt; }
+$(function() {
+	$("html[lang='en'] .seat_infomation").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Block',eda_seat[1])+' / '+eda_prefix('Row',eda_seat[2])+' / '+eda_prefix('Seat',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Block',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Row',eda_seat[3])+' / '+eda_prefix('Seat',eda_seat[4]));
+	});
+
+	$("html[lang='ar'] .seat_infomation").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('بلوك',eda_seat[1])+' / '+eda_prefix('صف',eda_seat[2])+' / '+eda_prefix('مقعد ',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('بلوك',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('صف',eda_seat[3])+' / '+eda_prefix('مقعد ',eda_seat[4]));
+	});
+
+	$("html[lang='fr'] .seat_infomation").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Section',eda_seat[1])+' / '+eda_prefix('Rang',eda_seat[2])+' / '+eda_prefix('Siège',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Section',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Rang',eda_seat[3])+' / '+eda_prefix('Siège',eda_seat[4]));
+	});
+
+	$("html[lang='es'] .seat_infomation").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Bloque',eda_seat[1])+' / '+eda_prefix('Fila',eda_seat[2])+' / '+eda_prefix('Asiento',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Bloque',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Fila',eda_seat[3])+' / '+eda_prefix('Asiento',eda_seat[4]));
+	});
+
+	$("html[lang='pt'] .seat_infomation").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Bloco',eda_seat[1])+' / '+eda_prefix('Fila',eda_seat[2])+' / '+eda_prefix('Assento',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Bloco',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Fila',eda_seat[3])+' / '+eda_prefix('Assento',eda_seat[4]));
+	});
+
+	$("html[lang='de'] .seat_infomation").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Block',eda_seat[1])+' / '+eda_prefix('Reihe',eda_seat[2])+' / '+eda_prefix('Sitz',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Block',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Reihe',eda_seat[3])+' / '+eda_prefix('Sitz',eda_seat[4]));
+	});
+});
+
+/*Same as over but for "My Ticket" page*/
+function eda_prefix(prefix,txt) { if (txt.indexOf(prefix)<0) return prefix+' '+txt; else return txt; }
+$(function() {
+	$("html[lang='en'] .seat_category_tickets .seat").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Block',eda_seat[1])+' / '+eda_prefix('Row',eda_seat[2])+' / '+eda_prefix('Seat',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Block',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Row',eda_seat[3])+' / '+eda_prefix('Seat',eda_seat[4]));
+	});
+
+	$("html[lang='ar'] .seat_category_tickets .seat").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('بلوك',eda_seat[1])+' / '+eda_prefix('صف',eda_seat[2])+' / '+eda_prefix('مقعد ',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('بلوك',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('صف',eda_seat[3])+' / '+eda_prefix('مقعد ',eda_seat[4]));
+	});
+
+	$("html[lang='pt'] .seat_category_tickets .seat").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('بلوك',eda_seat[1])+' / '+eda_prefix('صف',eda_seat[2])+' / '+eda_prefix('مقعد ',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('بلوك',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('صف',eda_seat[3])+' / '+eda_prefix('مقعد ',eda_seat[4]));
+	});
+
+	$("html[lang='fr']  .seat_category_tickets .seat").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Section',eda_seat[1])+' / '+eda_prefix('Rang',eda_seat[2])+' / '+eda_prefix('Siège',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Section',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Rang',eda_seat[3])+' / '+eda_prefix('Siège',eda_seat[4]));
+	});
+
+	$("html[lang='es'] .seat_category_tickets .seat").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Bloque',eda_seat[1])+' / '+eda_prefix('Fila',eda_seat[2])+' / '+eda_prefix('Asiento',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Bloque',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Fila',eda_seat[3])+' / '+eda_prefix('Asiento',eda_seat[4]));
+	});
+
+	$("html[lang='de']  .seat_category_tickets .seat").each(function( index ) {
+		var eda_seat = $(this).html().split("<")[0].split("-");
+		if (eda_seat.length == 4) $(this).html(eda_prefix('Block',eda_seat[1])+' / '+eda_prefix('Reihe',eda_seat[2])+' / '+eda_prefix('Sitz',eda_seat[3]));
+		if (eda_seat.length == 5) $(this).html(eda_prefix('Block',eda_seat[1])+'-'+eda_seat[2]+' / '+eda_prefix('Reihe',eda_seat[3])+' / '+eda_prefix('Sitz',eda_seat[4]));
+	});
+});
+
+
+/*FIFASTX-3181 hide date/time of conditional match (with advantage) in match selection page*/
+if ($('#page_selection_eventDate .product_space_CONDTKT').length>0) {
+	$('#page_selection_eventDate .date_time.perf_info_list_element.with-advantage .day_month_hour').css('display','none');
+	$('#page_selection_eventDate .date_time.perf_info_list_element.with-advantage .day_of_week').css('display','none');
+}
+
+
+/*deactivate PESEL check for Polish customers*/
+pesel.isValidPesel = function() {return true;}
+
+
+
+/*JIRA FIFASTX-3000 restrict list of teams to real teams in the competition filters
+if (typeof jQuery !== 'undefined') { $(function (){
+
+if ($('#page_selection_eventDate').length > 0 ){
+               $('.criteria.team.sporting_event [value="101396756080"]').remove();
+               $('.criteria.team.sporting_event [value="101396756086"]').remove();
+               $('.criteria.team.sporting_event [value="101396756081"]').remove();
+               $('.criteria.team.sporting_event [value="101396756087"]').remove();
+               $('.criteria.team.sporting_event [value="101396756096"]').remove();
+               $('.criteria.team.sporting_event [value="101396756097"]').remove();
+               $('.criteria.team.sporting_event [value="101396756106"]').remove();
+               $('.criteria.team.sporting_event [value="101396756107"]').remove();
+               $('.criteria.team.sporting_event [value="101396756091"]').remove();
+               $('.criteria.team.sporting_event [value="101396756089"]').remove();
+               $('.criteria.team.sporting_event [value="101396756095"]').remove();
+               $('.criteria.team.sporting_event [value="101396756093"]').remove();
+               $('.criteria.team.sporting_event [value="101396756085"]').remove();
+               $('.criteria.team.sporting_event [value="101396756083"]').remove();
+               $('.criteria.team.sporting_event [value="101396756088"]').remove();
+               $('.criteria.team.sporting_event [value="101396756090"]').remove();
+               $('.criteria.team.sporting_event [value="101396756092"]').remove();
+               $('.criteria.team.sporting_event [value="101396756094"]').remove();
+               $('.criteria.team.sporting_event [value="101396756084"]').remove();
+               $('.criteria.team.sporting_event [value="101396756082"]').remove();
+               $('.criteria.team.sporting_event [value="101396756109"]').remove();
+               $('.criteria.team.sporting_event [value="101396756108"]').remove();
+               $('.criteria.team.sporting_event [value="101396756104"]').remove();
+               $('.criteria.team.sporting_event [value="101396756105"]').remove();
+               $('.criteria.team.sporting_event [value="101396756099"]').remove();
+               $('.criteria.team.sporting_event [value="101396756098"]').remove();
+               $('.criteria.team.sporting_event [value="101396756103"]').remove();
+               $('.criteria.team.sporting_event [value="101396756102"]').remove();
+               $('.criteria.team.sporting_event [value="101396756101"]').remove();
+               $('.criteria.team.sporting_event [value="101396756110"]').remove();
+               $('.criteria.team.sporting_event [value="101396756111"]').remove();
+               $('.criteria.team.sporting_event [value="101396756100"]').remove();
+               $('.criteria.team.sporting_event [value="101396870324"]').remove();
+               $('.criteria.team.sporting_event [value="101396870323"]').remove();
+               $('.criteria.team.sporting_event [value="101396870322"]').remove();
+               $('.criteria.team.sporting_event [value="101396870321"]').remove();
+               $('.criteria.team.sporting_event [value="101396870320"]').remove();
+               $('.criteria.team.sporting_event [value="101396870319"]').remove();
+               $('.criteria.team.sporting_event [value="101396870318"]').remove();
+               $('.criteria.team.sporting_event [value="101396870317"]').remove();
+               $('.criteria.team.sporting_event [value="101396870316"]').remove();
+               $('.criteria.team.sporting_event [value="101396870315"]').remove();
+               $('.criteria.team.sporting_event [value="101396870314"]').remove();
+               $('.criteria.team.sporting_event [value="101396870313"]').remove();
+               $('.criteria.team.sporting_event [value="101396870312"]').remove();
+               $('.criteria.team.sporting_event [value="101396870311"]').remove();
+               $('.criteria.team.sporting_event [value="101396870310"]').remove();
+               $('.criteria.team.sporting_event [value="101396870309"]').remove();
+               $('.criteria.team.sporting_event [value="101396870328"]').remove();
+               $('.criteria.team.sporting_event [value="101396870327"]').remove();
+               $('.criteria.team.sporting_event [value="101396870329"]').remove();
+               $('.criteria.team.sporting_event [value="101396870330"]').remove();
+               $('.criteria.team.sporting_event [value="101396870331"]').remove();
+               $('.criteria.team.sporting_event [value="101396870332"]').remove();
+               $('.criteria.team.sporting_event [value="101396870333"]').remove();
+               $('.criteria.team.sporting_event [value="101396870334"]').remove();
+               $('.criteria.team.sporting_event [value="101396870335"]').remove();
+               $('.criteria.team.sporting_event [value="101396870336"]').remove();
+               $('.criteria.team.sporting_event [value="101396870337"]').remove();
+               $('.criteria.team.sporting_event [value="101396870338"]').remove();
+               $('.criteria.team.sporting_event [value="101396870339"]').remove();
+               $('.criteria.team.sporting_event [value="101396870340"]').remove();
+               $('.criteria.team.sporting_event [value="101396870341"]').remove();
+               $('.criteria.team.sporting_event [value="101396870342"]').remove();
+}});
+}
+
+*/
+
+
+/*have custom header displayed on landing page*/
+window.jQuery || document.write('<script src="/resources/js/lib/jquery.min.js"><\/script>')
+
+
+/*Move a Fan Of to Personal Details section - FIFASTX-1542*/
+$(".criterion_RADIO").appendTo('div.fieldset_container.details > fieldset');
+
+/*FIFASTX-1258 Display VISA logo by adding secondary element, do not use the existing payment method logo as the default logo will flash before the custom logo*/
+/*International:
+Fifa prefers Visa --> each of the 5 languages.
+Pay with Visa --> only on payments page in each of the 5 languages (.css)
+Domestic:
+We Accept only Visa --> AR for Arabic, EN for the rest language.
+No pay with visa on domestic. (.css)*/
+
+if (typeof jQuery !== 'undefined') { $(function () {
+	if (window.location.href.indexOf("intl") > -1){
+		$('html[lang="en"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/prefersVisa/Visa-FWC2022_FpV_fc_h_sm_EN_020222.png">');
+		$('html[lang="ar"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/prefersVisa/Visa-FWC2022_FpV_fc_h_sm_AR_020222.png">');
+		$('html[lang="de"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/prefersVisa/Visa-FWC2022_FpV_fc_h_sm_DE_020222.png">');
+		$('html[lang="fr"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/prefersVisa/Visa-FWC2022_FpV_fc_h_sm_FR_020222.png">');
+		$('html[lang="es"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/prefersVisa/Visa-FWC2022_FpV_fc_h_sm_ES_020222.png">');
+	}
+}); }
+
+if (typeof jQuery !== 'undefined') { $(function () {
+	if (window.location.href.indexOf("dom") > -1) {
+		$('html[lang="en"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/acceptOnlyVisa/Visa-FWC2022_WaoV_fc_h_sm_EN_020422.png">');
+		$('html[lang="ar"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/acceptOnlyVisa/Visa-FWC2022_WaoV_fc_h_sm_AR_020422.png">');
+		$('html[lang="de"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/acceptOnlyVisa/Visa-FWC2022_WaoV_fc_h_sm_EN_020422.png">');
+		$('html[lang="fr"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.com/FIFAT/FWC22/img/FCFS_RESALE/acceptOnlyVisa/Visa-FWC2022_WaoV_fc_h_sm_EN_020422.png">');
+		$('html[lang="es"] #collapsiblePanel_secondary_content_payment_modes').append('<img id="ff_visa" class="visa_payment_method" src="https://content.secutix.coms/FIFAT/FWC22/img/FCFS_RESALE/acceptOnlyVisa/Visa-FWC2022_WaoV_fc_h_sm_EN_020422.png">');
+	}
+}); }
+
+/*JIRA FIFASTX-4112 - 00332564 and 2084 limit to 6 selectable tariff quantities for IMTs - update productID if needed
+if ($('#page_selection_eventSeat #prod_10229227661800').length ){
+	$('.quantity option[value="7"]').remove();
+	$('.quantity option[value="8"]').remove();
+	$('.quantity option[value="9"]').remove();
+	$('.quantity option[value="10"]').remove();
+	$('.quantity option[value="11"]').remove();
+	$('.quantity option[value="12"]').remove();
+	$('.quantity option[value="13"]').remove();
+	$('.quantity option[value="14"]').remove();
+	$('.quantity option[value="15"]').remove();
+	$('.quantity option[value="16"]').remove();
+	$('.quantity option[value="17"]').remove();
+	$('.quantity option[value="18"]').remove();
+	$('.quantity option[value="19"]').remove();
+	$('.quantity option[value="20"]').remove();
+	$('.quantity option[value="21"]').remove();
+	$('.quantity option[value="22"]').remove();
+	$('.quantity option[value="23"]').remove();
+	$('.quantity option[value="24"]').remove();
+	$('.quantity option[value="25"]').remove();
+	$('.quantity option[value="26"]').remove();
+	$('.quantity option[value="27"]').remove();
+	$('.quantity option[value="28"]').remove();
+	$('.quantity option[value="29"]').remove();
+	$('.quantity option[value="30"]').remove();
+	$('.quantity option[value="31"]').remove();
+	$('.quantity option[value="32"]').remove();
+	$('.quantity option[value="33"]').remove();
+	$('.quantity option[value="34"]').remove();
+	$('.quantity option[value="35"]').remove();
+	$('.quantity option[value="36"]').remove();
+	$('.quantity option[value="37"]').remove();
+	$('.quantity option[value="38"]').remove();
+	$('.quantity option[value="39"]').remove();
+	$('.quantity option[value="40"]').remove();
+	$('.quantity option[value="41"]').remove();
+	$('.quantity option[value="42"]').remove();
+	$('.quantity option[value="43"]').remove();
+	$('.quantity option[value="44"]').remove();
+	$('.quantity option[value="45"]').remove();
+	$('.quantity option[value="46"]').remove();
+	$('.quantity option[value="47"]').remove();
+	$('.quantity option[value="48"]').remove();
+	$('.quantity option[value="49"]').remove();
+	$('.quantity option[value="50"]').remove();
+
+}
+*/
+
+
+
+/*FIFASTX-2178 add back button to match list/Product List when you select a match
+$(function() {
+//link to Match selection PRE-PRODUCTION 
+$("html[lang='en'].eda_testenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229287891636/lang/en" class="eda_back2matchlist">Back to Match Selection</a>');
+
+$("html[lang='ar'].eda_testenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229287891636/lang/ar" class="eda_back2matchlist">العودة إلى اختيار المباراة</a>');
+
+$("html[lang='fr'].eda_testenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229287891636/lang/fr" class="eda_back2matchlist">Retour à Sélection des matchs</a>');
+
+$("html[lang='pt'].eda_testenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229287891636/lang/en" class="eda_back2matchlist">Voltar à seleção de partidas</a>');
+
+$("html[lang='de'].eda_testenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229287891636/lang/de" class="eda_back2matchlist">Zurück zu Spielauswahl</a>');
+
+$("html[lang='es'].eda_testenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229287891636/lang/es" class="eda_back2matchlist">Volver a Selección de partidos</a>');
+
+//link to Match selection in PRODUCTION
+$("html[lang='en'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229227661800/lang/en" class="eda_back2matchlist">Back to Match Selection</a>');
+
+$("html[lang='ar'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229227661800/lang/ar" class="eda_back2matchlist">العودة إلى اختيار المباراة</a>');
+
+$("html[lang='pt'].eda_testenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229287891636/lang/en" class="eda_back2matchlist">Voltar à seleção de partidas</a>');
+
+$("html[lang='fr'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229227661800/lang/fr" class="eda_back2matchlist">Retour à Sélection des matchs</a>');
+
+$("html[lang='de'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229227661800/lang/de" class="eda_back2matchlist">Zurück zu Spielauswahl</a>');
+
+$("html[lang='es'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append
+('<a href="/secure/selection/event/date/product/10229227661800/lang/es" class="eda_back2matchlist">Volver a Selección de partidos</a>');
+
+*/
+
+
+//return to landing page from match selection
+/*FIFASTX-2651 hide Back to Product Selection link //
+$("html[lang='en'] #page_selection_eventSeat #event_form .table_container").append
+('<a href="/content" class="eda_back2matchlist">Back to Product Selection</a>');
+
+$("html[lang='fr'] #page_selection_eventSeat #event_form .table_container").append
+('<a href="/content" class="eda_back2matchlist">Retour à Sélection de produits</a>');
+
+$("html[lang='es'] #page_selection_eventSeat #event_form .table_container").append
+('<a href="/content" class="eda_back2matchlist">Volver a Selección de productos</a>');
+
+$("html[lang='pt'] #page_selection_eventSeat #event_form .table_container").append
+('<a href="/content" class="eda_back2matchlist">Voltar à seleção de produtos</a>');
+
+$("html[lang='de'] #page_selection_eventSeat #event_form .table_container").append
+('<a href="/content" class="eda_back2matchlist">Zurück zu Produktauswahl</a>');
+
+$("html[lang='ar'] #page_selection_eventSeat #event_form .table_container").append
+('<a href="/content" class="eda_back2matchlist">العودة إلى اختيار المنتج</a>');
+*/
+
+
+
+/*Fix header min height to avoid scrollbar in header*/
+$('#isolated_header_iframe').attr('style','min-height:127px;');
+
+
+
+/*Move a contact criteria to Personal Details section
+$("#field_contactCriteria-FCWC_FAN").appendTo('div.fieldset_container.details > fieldset');*/
+
+
+/*Zip codes force to -- */
+COUNTRIESNOZIP = ['AO',
+	'AG',
+	'AQ',
+	'AW',
+	'BS',
+	'BZ',
+	'BJ',
+	'BT',
+	'BO',
+	'BW',
+	'BV',
+	'BF',
+	'BI',
+	'CM',
+	'BQ',
+	'CF',
+	'TD',
+	'KM',
+	'CD',
+	'CG',
+	'CK',
+	'CI',
+	'CW',
+	'DJ',
+	'DM',
+	'GQ',
+	'ER',
+	'ET',
+	'FJ',
+	'FK',
+	'GA',
+	'GM',
+	'GD',
+	'GN',
+	'GW',
+	'GY',
+	'HN',
+	'HK',
+	'KE',
+	'KI',
+	'LA',
+	'LB',
+	'LR',
+	'LY',
+	'MO',
+	'MW',
+	'ML',
+	'MR',
+	'ME',
+	'MS',
+	'MZ',
+	'MM',
+	'NA',
+	'NR',
+	'NE',
+	'NU',
+	'KP',
+	'OM',
+	'PA',
+	'QA',
+	'RW',
+	'WS',
+	'ST',
+	'SN',
+	'SC',
+	'SL',
+	'SX',
+	'SB',
+	'SO',
+	'SS',
+	'LK',
+	'VC',
+	'SD',
+	'SR',
+	'SY',
+	'TL',
+	'TG',
+	'TK',
+	'TO',
+	'TT',
+	'TV',
+	'UG',
+	'AE',
+	'VU',
+	'YE',
+	'ZM',
+	'ZW',
+]; // update the list of countries!
+
+//Push country to the list of alphanumeric zip
+for (var i=0;i<COUNTRIESNOZIP.length;i++)
+	validation.countriesWithAlphanumericZip.push(COUNTRIESNOZIP[i]);
+//Set zip code = '--' if it's blank and country is in the list 
+function hideZipForQatar() {
+	if ($("#address_zipcode").length >0){
+		var azc = $("#address_zipcode");
+		var zc = azc.val().trim();
+		if (COUNTRIESNOZIP.indexOf($("#address_country").val())>=0) {
+			$('html[lang="en"] #address_zipcode').attr('title','Please ensure "--" remains in this field if zip codes do not apply in your country.');
+			$('html[lang="ar"] #address_zipcode').attr('title','يرجى التأكد من البقاء "-" في هذا الحقل إذا لم يتم تطبيق الرموز البريدية في بلدك.');
+			$('html[lang="fr"] #address_zipcode').attr('title','Veuillez vous assurer que "--" reste dans ce champ si les codes postaux ne s’appliquent pas dans votre pays.');
+			$('html[lang="pt"] #address_zipcode').attr('title','Certifique-se de que "--" permanece neste campo se os códigos postais não se aplicarem no seu país.');
+			$('html[lang="es"] #address_zipcode').attr('title','Asegúrese de mantener "--" en este campo si su país no tiene código postal.');
+			$('html[lang="de"] #address_zipcode').attr('title','Bitte vergewissern Sie sich, dass "--" in diesem Feld stehen bleibt, wenn die Postleitzahlen in Ihrem Land nicht gelten.');
+			if (zc === "" || zc === "-"){
+				azc.val("--");
+			}
+		}
+	}
+}
+
+$(document).ready(hideZipForQatar);
+
+
+// 00331396
+if (!window.location.pathname.includes("/content")) {
+	try {
+		//First block
+		var oneTrustScript = document.createElement("script");
+		oneTrustScript.type = "text/javascript";
+		oneTrustScript.src = "https://cdn.cookielaw.org/consent/996debe1-708b-4ebc-95c8-5b7ee0d77d76/OtAutoBlock.js";
+
+		var oneTrustScriptTag = document.createElement("script");
+		oneTrustScriptTag.type = "text/javascript";
+		oneTrustScriptTag.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+		oneTrustScriptTag.charset = 'UTF-8';
+		oneTrustScriptTag.setAttribute("data-document-language", "true");
+		oneTrustScriptTag.setAttribute("data-domain-script", "996debe1-708b-4ebc-95c8-5b7ee0d77d76");
+
+		//Second block
+		var scriptTag = document.createElement("script");
+		scriptTag.type = "text/javascript";
+		scriptTag.innerHTML = "function OptanonWrapper() {}";
+		(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(oneTrustScript);
+		(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(oneTrustScriptTag);
+		(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(scriptTag);
+	} catch (err) {
+		console.log("00331396 failed");
+		console.log(err);
+	}
+}
+// 00331396
+
+//FIFASTX-6757 - Add adobe tracking for playoff.pROD
+(function() {
+    try {
+        if (window.location.href.includes('playoff')) {
+            
+            var adobeScript = document.createElement("script");
+            adobeScript.src = "https://assets.adobedtm.com/7db34e84caae/759763b5faef/launch-ENf264c4ce0fad4ce4bf7503fd7be51245.min.js";
+            adobeScript.async = true;
+            adobeScript.id = "adobe-launch-loader";
+
+            var head = document.getElementsByTagName("head")[0] || document.documentElement;
+
+            var otScripts = document.querySelectorAll('script[src*="cookielaw.org"]');
+            
+            if (otScripts.length > 0) {
+                var lastOTScript = otScripts[otScripts.length - 1];
+                head.insertBefore(adobeScript, lastOTScript.nextSibling);
+            } else {
+
+                head.insertBefore(adobeScript, head.firstChild);
+            }
+        }
+    } catch (e) {
+        console.error("Adobe Injection Error:", e);
+    }
+})();
+//END - FIFASTX-6757
+
+// 00332766
+if(document.querySelector('html[lang=ar]')){
+	document.querySelector('html[lang=ar]').setAttribute('dir','rtl')
+}
+// 00332766 END
+// Fix the footer at the bottom
+try{
+	if (!document.querySelector('#root') && document.querySelector('#isolated_footer_iframe') && window.innerWidth>991) {
+		setTimeout(function(){
+			$('#content').css('min-height',window.innerHeight-70-150);
+			$(window).resize(function(){
+				$('#content').css('min-height',window.innerHeight-70-$('#isolated_footer_iframe').height())
+			})
+		},500)
+	}
+}catch (error) {
+	console.log("Set body height failed");
+	console.log(error);
+}
+
+/*SF-00334076 move Access Code box*/
+$(document).ready(function () {
+	if ($("#secondary_content_special_offer").length > 0) {
+		//Mobile: move Access Code on top of list/events page
+		if (
+			window.innerWidth < 1250 && window.location.href.indexOf("/list/events") >= 0 && $("#main_content_container").length > 0) {
+			$("#secondary_content_special_offer").insertBefore(
+				$("#main_content_container")
+			);
+			$("#secondary_content_special_offer").css("margin-bottom", "25px");
+			if ($("#secondary_content_special_offer .collapsibleLabel").length > 0)
+				$("#secondary_content_special_offer .collapsibleLabel").click();
+		}
+		//Desktop: swap Access code and Shopping cart
+		if (
+			window.innerWidth >= 1250 && window.location.href.indexOf("/list/events") >= 0 && $("#main_content_container").length > 0) {
+			$("#secondary_content_special_offer").prependTo(
+				$("#main_content_container")
+			);
+			$("#secondary_content_special_offer").css("margin-bottom", "25px");
+		}
+	}
+});
+/*SF-00334076 end */
+
+/*FIFASTX-4549*/
+if (window.location.href.includes('/account/editPersonalDetails') || document.querySelector("#page_account_completeAccount")){
+	$('.fieldset_container.criteria').insertBefore('#field_language');
+	$('.criterion_CHECKBOX').insertAfter('#field_lastname');
+	$('#field_contactCriteria-EXTDEL').insertAfter(".legend_container.address");
+	$('#field_contactCriteria-OPTINUS').insertAfter(".legend_container.address");
+	$('#field_contactCriteria-OPTINMEX').insertAfter(".legend_container.address");
+	$('#field_contactCriteria-OPTINCAN').insertAfter(".legend_container.address");
+	$('#field_contactCriteria-EXTDELPD').insertAfter(".legend_container.address");
+    $('#field_contactCriteria-EXTDELlD').insertAfter(".legend_container.address");
+
+	$('.semantic-no-styling.legend').insertAfter('.criterion_CHECKBOX');
+	$('.field_locked_hint').insertAfter('.criterion_CHECKBOX');
+	$('#field_language').insertAfter('.criterion_CHECKBOX');
+
+	// $('.legend_container.criteria legend').css('display','none')
+	$('.fieldset_container.criteria').css('padding-top','0px');
+};
+/*END FIFASTX-4549*/
+
+/*FIFASTX-4552*/
+try{
+	const mobileNumOnly = document.querySelector('.phone');
+	if (mobileNumOnly) {
+		const phoneNumbers = mobileNumOnly.textContent.split(',');
+		const lastPhoneNumber = phoneNumbers[phoneNumbers.length - 1].trim();
+		mobileNumOnly.textContent = lastPhoneNumber;
+	}
+}catch (error) {
+	console.log("remove phone number");
+	console.log(error);
+}
+
+/*FIFASTX-4606*/
+try{
+	document.querySelectorAll("label").forEach(function(label) {
+		if (label.textContent.trim() === "English") {
+			label.style.width = "100%";
+			label.style.display = "block";
+			label.style.opacity = "0.5";
+		}
+	});
+}catch (error) {
+	console.log("customize preferred language English");
+	console.log(error);
+}
+
+/*FIFASTX-5485 - The back to match selection button doesnt go to the right location*/
+try{
+	const a1 = document.querySelectorAll('div[class^="product_description_header product_"]');
+	const resultStrings1 = Array.from(a1).map(element => {
+		const className = element.getAttribute('class');
+		const match = className.match(/product_(\d+)/);
+		return match ? match[1].toString() : null;
+	});
+	const PDIdNum = resultStrings1.filter(item => item !== null);
+
+	const currentUrl = window.location.href;
+	const match = currentUrl.match(/\/contact-advantages\/(\d+)/);
+
+	const ADIdNum = match ? match[1] : null;
+
+	/* var href = "/secure/selection/event/date/product/" + PDIdNum + "/contact-advantages/" + ADIdNum + "/lang/en"; */
+	var href = "/secured/selection/event/date?productId=" + PDIdNum;
+	// Event Seat
+	$("html[lang='en'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Back to Match Selection</a>'
+	);
+	$("html[lang='es'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Volver a la selección de partidos</a>'
+	);
+	$("html[lang='fr'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Retour à la sélection des parties</a>'
+	);
+	$("html[lang='de'].eda_productionenv #page_selection_eventSeat #event_form .table_container").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Zurück zur Spielauswahl</a>'
+	);
+
+	// Seat map
+	$("html[lang='en'].eda_productionenv #page_selection_seatMap #seat_map_group #collapsiblePanel_").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Back to Match Selection</a>'
+	);
+	$("html[lang='es'].eda_productionenv #page_selection_seatMap #seat_map_group #collapsiblePanel_").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Volver a la selección de partidos</a>'
+	);
+	$("html[lang='fr'].eda_productionenv #page_selection_seatMap #seat_map_group #collapsiblePanel_").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Retour à la sélection des parties</a>'
+	);
+	$("html[lang='de'].eda_productionenv #page_selection_seatMap #seat_map_group #collapsiblePanel_").append(
+		'<a href="' + href + '" class="eda_back2matchlist">Zurück zur Spielauswahl</a>'
+	);
+}catch (error) {
+	console.log("CLUB25 Back to Match Selection button");
+	console.log(error);
+}
+
+/*FIFASTX-4673 - add CONDITIONAL*/
+try{
+	if (document.getElementById("page_selection_eventSeat")) {
+		if (document.querySelector(".team.opposing")?.textContent.trim() === "To be determined") {
+			const kindElement = document.querySelector(".kind");
+			if (kindElement) {
+				kindElement.textContent += " (CONDITIONAL*)";
+				kindElement.style.color = "#000";
+			}
+
+			const contentInfo = document.querySelector(".content_product_info");
+			const roundKind = document.querySelector(".round_kind");
+			if (contentInfo && roundKind) {
+				const span = document.createElement("span");
+				span.className = "conditional_message";
+				span.textContent = 'The validity of Conditional Club Fans Tickets is subject to your club qualifying for the specific play-off match for which you have purchased tickets. If your team is eliminated from the competition and you have Conditional Club Fans Tickets to attend subsequent play-off matches, the validity of these tickets will cease to exist. You will receive then a refund of the Conditional Club Fans Tickets for all matches that you were unable to attend due to the elimination of your team (Refund Administration Fee: 10 USD).';
+				span.style.color = "#000";
+				contentInfo.insertBefore(span, roundKind.nextSibling);
+			}
+		}
+	}
+}catch (error) {
+	console.log("add CONDITIONAL");
+	console.log(error);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+	/*FIFASTX-5358 - Removing the tariff name from the portal*/
+	let packageLineInfo = document.querySelectorAll(".package_line_info");
+	if (packageLineInfo) {
+		packageLineInfo.forEach((packageLineInfo) => {
+			packageLineInfo.innerHTML = packageLineInfo.innerHTML.replace("TM General Public", "");
+		});
+	}
+
+	/*FIFASTX-5384 - Removing preferences from table Entirely*/
+	function hidePreferences() {
+		let preferences = document.querySelectorAll(".area");
+		preferences.forEach((area) => {
+			if (area) area.remove();
+		})
+	}
+
+	/* FIFASTX-5376 - Hide the price if the Category is not available on the right */
+	function hidePriceIfUnavailable() {
+		document.querySelectorAll(".unit_price").forEach((priceDisplay) => {
+			if (priceDisplay.querySelector(".availability")) {
+				let amountSpan = priceDisplay.querySelector(".amount");
+				if (amountSpan) {
+					amountSpan.remove();
+				}
+			}
+		});
+	}
+
+	/*FIFASTX-5485 - The back to match selection button doesnt go to the right location*/
+	function getQueryParam(param) {
+		const urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get(param);
+	}
+	const code = getQueryParam('code');
+	if (code) {
+		const expiryDate = new Date();
+		expiryDate.setTime(expiryDate.getTime() + (15 * 60 * 1000));
+		document.cookie = `AccessCode=${encodeURIComponent(code)}; expires=${expiryDate.toUTCString()}; path=/`;
+	}
+
+	function getCookie(name) {
+		const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+		if (match) return decodeURIComponent(match[2]);
+		return null;
+	}
+
+	const multipleMatches = getQueryParam('perfId');
+
+	function changeBuyLinkLocation() {
+		const a1 = document.querySelectorAll('div[class^="product_description_header product_"]');
+		const resultStrings1 = Array.from(a1).map(element => {
+			const className = element.getAttribute('class');
+			const match = className.match(/product_(\d+)/);
+			return match ? match[1].toString() : null;
+		});
+		const PDIdNum = resultStrings1.filter(item => item !== null);
+
+		const currentUrl = window.location.href;
+		const match = new URL(currentUrl);
+		const ADIdNum = match.searchParams.get("advantageId");
+
+		let isAdvantageCode = document.querySelector(".advantage_CODE");
+		let buyTicketsButton = document.querySelector(".eda_back2matchlist");
+
+		if (isAdvantageCode && buyTicketsButton) {
+			const newHref =  "/secured/selection/event/date?productId=" + PDIdNum + "&advantageId=" + ADIdNum;
+			buyTicketsButton.setAttribute("href", newHref);
+		}
+	}
+
+	function changeBuyLinkLocationSingleMatch() {
+		const code = getCookie("AccessCode");
+		let isAdvantageCode = document.querySelector(".advantage_CODE");
+		let buyTicketsButton = document.querySelector(".eda_back2matchlist");
+
+		if (isAdvantageCode && buyTicketsButton && code) {
+			const newHref = `/list/partnerAdvantage?code=${encodeURIComponent(code)}`;
+			buyTicketsButton.setAttribute("href", newHref);
+		}
+	}
+
+	if (multipleMatches) {
+		changeBuyLinkLocation();
+	} else {
+		changeBuyLinkLocationSingleMatch();
+	}
+
+	function buyNowBurgerMenu() {
+		let container = document.querySelector(".tickets_menu_add_products");
+
+		if (container) {
+			const anchor = container.querySelector("a");
+			if (anchor) {
+				console.log("THIS IS THE BUY NOW ANCHOR");
+				anchor.setAttribute("href", "/list/events");
+			}
+		}
+	}
+
+	/*FIFASTX-5700 - Add custom classes for easier removal*/
+	function lotteryApplicationCustomClasses() {
+		const entireApplication = document.querySelectorAll('[id^="stx-lt-product-subscription"]');
+		const applyPart = document.querySelectorAll('[id^="stx-performance-category-container"]');
+
+		entireApplication.forEach(el => {
+			el.classList.add("stx_product_container");
+		});
+
+		applyPart.forEach(el => {
+			el.classList.add("stx_apply_container");
+		});
+	}
+
+	/*FIFASTX-5531 - Replace Hardcoded playoff*/
+	let performanceInfo = document.querySelector(".performance_info");
+	if (performanceInfo) {
+		performanceInfo.innerHTML = performanceInfo.innerHTML.replace("playoff", "play-off");
+		performanceInfo.innerHTML = performanceInfo.innerHTML.replace("USD 10.00", "10%");
+	}
+
+	/*FIFASTX-5704  - Replace the 0/1 with Yes and NO*/
+	function replaceWithYesNoButtons() {
+		const container = document.querySelector(
+			'[id^="stx-expandable-tariffs-container"]'
+		);
+		if (!container) return;
+
+		const legacyDetails = container.querySelector(".stx-tariff-details-container");
+		if (legacyDetails) legacyDetails.style.display = "none";
+
+		if (container.querySelector(".yes-no-container")) return;
+
+		const increaseBtn = container.querySelector(".stx-tariff-quantity-increase-button");
+		const decreaseBtn = container.querySelector(".stx-tariff-quantity-decrease-button");
+
+		const yesNoDiv = document.createElement("div");
+		yesNoDiv.className = "yes-no-container";
+		if(document.querySelector('html[lang=en]')){
+			yesNoDiv.innerHTML = `
+			<button class="no-btn active">No</button>
+			<button class="yes-btn">Enter the FIFA World Cup 26™ Early Ticket Draw</button>
+			<img class="yes-no-checked" src = "/custom/images/Checked.png">`
+		}
+		if(document.querySelector('html[lang=es]')){
+			yesNoDiv.innerHTML = `
+			<button class="no-btn active">No</button>
+			<button class="yes-btn">Participa en el sorteo anticipado de boletos para la Copa Mundial de la FIFA 26™</button>
+			<img class="yes-no-checked" src = "/custom/images/Checked.png">`
+		}
+		if(document.querySelector('html[lang=fr]')){
+			yesNoDiv.innerHTML = `
+			<button class="no-btn active">Non</button>
+			<button class="yes-btn">Participez au tirage anticipé pour la Coupe du Monde de la FIFA 2026™</button>
+			<img class="yes-no-checked" src = "/custom/images/Checked.png">`
+		}
+		if(document.querySelector('html[lang=de]')){
+			yesNoDiv.innerHTML = `
+			<button class="no-btn active">NEIN</button>
+			<button class="yes-btn">Nehmen Sie an der Frühticketziehung der FIFA Fußball-Weltmeisterschaft 26™ teil</button>
+			<img class="yes-no-checked" src = "/custom/images/Checked.png">`
+		}
+		;
+		container.appendChild(yesNoDiv);
+
+		const yesBtn = yesNoDiv.querySelector(".yes-btn");
+		const noBtn = yesNoDiv.querySelector(".no-btn");
+		const checked = yesNoDiv.querySelector(".yes-no-checked");
+
+		yesBtn.addEventListener("click", () => {
+			increaseBtn?.click();
+			yesBtn.classList.add("active");
+			noBtn.classList.remove("active");
+			checked.classList.add("show");
+		});
+
+		noBtn.addEventListener("click", () => {
+			decreaseBtn?.click();
+			noBtn.classList.add("active");
+			yesBtn.classList.remove("active");
+		});
+	}
+
+	/*FIFASTX-5701  - Autocomplete off*/
+	function autocompleteOff() {
+		document.querySelectorAll("fieldset.legend_container.address input").forEach(input => {
+			input.setAttribute("autocomplete", "false");
+			input.setAttribute("autocomplete", "chrome-off");
+		});
+	}
+
+	/*Showing the AIRBNB widget if there is a valid application*/
+	function insertAirbnbWidget() {
+		if (!location.pathname.includes("/account/lotteryApplications")) return;
+		const subscriptionNote = document.querySelector(".stx-lt-subscriptionSummary-note-container");
+		if (!subscriptionNote) return;
+
+		if (document.getElementById("airbnb_test")) return;
+
+		let wrapper = document.createElement("div");
+		wrapper.id = "airbnb_test";
+
+		let iframe = document.createElement("iframe");
+		iframe.src =
+			"https://www.airbnb.com/widgets/events/fifa_world_cup_2026?locale=en&currency=USD&c=.pi129.pkew_widget_ticket_purchased_fifa";
+		iframe.width = "100%";
+		iframe.height = "1200px";
+		iframe.style.border = "0";
+
+		if (document.getElementById("hospitality_display")) return;
+
+		let divWrapper = document.createElement("div");
+		divWrapper.id = "hospitality_display";
+
+		const link = document.createElement("a");
+		link.href = "https://fifaworldcup26.hospitality.fifa.com?utm_source=FIFA&utm_medium=fifa-banner&utm_campaign=FWC26_Awareness_B2C_lmts_lmtsBanner&xref=FIFA_fifa-banner_B2C";
+		link.target = "_blank";
+		link.rel = "noopener noreferrer";
+
+		const bigImg = document.createElement("img");
+		bigImg.src = "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg";
+		bigImg.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg");
+
+		link.appendChild(bigImg);
+
+		// const visaBanner = document.querySelector(".custom-image-wrapper.secondary_content");
+		// if (visaBanner) {
+		// 	const smallWrapper = document.createElement("section");
+		// 	smallWrapper.classList.add("custom-image-wrapper", "secondary_content");
+		//
+		// 	const smallLink = document.createElement("a");
+		// 	smallLink.href = "https://fifaworldcup26.hospitality.fifa.com/us/en?utm_source=FIFA&utm_medium=display&utm_campaign=FWC26_Awareness_B2C_TD2_TD2HospitalityBanner&xref=FIFA_display_B2C";
+		// 	smallLink.target = "_blank";
+		// 	smallLink.rel = "noopener noreferrer";
+		//
+		// 	const smallLogo = document.createElement("img");
+		// 	smallLogo.src = "/custom/images/onLoc_hos_small.jpg";
+		// 	smallLogo.setAttribute("data-original", "/custom/images/onLoc_hos_small.jpg");
+		// 	smallLogo.classList.add("small-hospitality-logo");
+		//
+		// 	smallWrapper.appendChild(smallLink);
+		// 	smallLink.appendChild(smallLogo);
+		//
+		// 	visaBanner.insertAdjacentElement("afterend", smallWrapper);
+		// }
+
+		divWrapper.appendChild(link);
+		wrapper.appendChild(iframe);
+
+		let target = document.getElementById("main_content_container");
+		if (target) {
+			target.appendChild(divWrapper);
+			target.appendChild(wrapper);
+		}
+	}
+
+	/*FIFASTX-5666  - Error when not entering a card*/
+	function handleErrorIcon() {
+		const header = document.querySelector(".stx-lt-paymentSelection-header-title");
+		if (!header) return;
+
+		const svg = header.querySelector("svg");
+		if (!svg) return;
+
+		if (!svg.classList.contains("visa-error-icon")) {
+			svg.classList.add("visa-error-icon");
+		}
+
+		const isError = svg.classList.contains("tw-text-[var(--messageErrorTitleColor,_#bc1c00)]");
+		const isSuccess = svg.classList.contains("tw-text-[var(--messageSuccessTitleColor,_#257a56)]");
+
+		let msg = header.querySelector(".visa-error-text");
+
+		if (isError) {
+			if (!msg) {
+				msg = document.createElement("span");
+				msg.className = "visa-error-text";
+				msg.style.color = "#bc1c00";
+				msg.style.marginLeft = "8px";
+
+				if (document.querySelector("html[lang=en]")) {
+					msg.textContent = "You must use a valid payment method to complete your entry.";
+				}
+				if (document.querySelector("html[lang=es]")) {
+					msg.textContent = "Debes usar un método de pago válido para completar tu inscripción.";
+				}
+				if (document.querySelector("html[lang=fr]")) {
+					msg.textContent = "Vous devez utiliser un moyen de paiement valide pour finaliser votre inscription.";
+				}
+				if (document.querySelector("html[lang=de]")) {
+					msg.textContent = "Sie müssen eine gültige Zahlungsmethode verwenden, um Ihre Anmeldung abzuschließen.";
+				}
+
+				header.appendChild(msg);
+			} else {
+				msg.style.display = "inline";
+			}
+		} else if (isSuccess && msg) {
+			msg.style.display = "none";
+		}
+	}
+
+	/*FIFASTX-5751  - Inset Custom image under the secondary nav hide on certain pages*/
+	function insertCustomImage() {
+		const excludedPaths = ["/account/register", "/secured/content", "/content"];
+		if (excludedPaths.includes(window.location.pathname)) return;
+
+		const target = document.getElementById("secondary_content_navigation");
+		if (!target) return;
+
+		const wrapper = document.createElement("section");
+		wrapper.classList.add("custom-image-wrapper", "secondary_content");
+
+		const img = document.createElement("img");
+		img.src = "/custom/images/Visa-FWC2026_TOWTP_fc_h_xs_EN_240904.png";
+		img.setAttribute("data-original", "/custom/images/Visa-FWC2026_TOWTP_fc_h_xs_EN_240904.png");
+
+		wrapper.appendChild(img);
+		target.insertAdjacentElement("afterend", wrapper);
+	}
+
+	/*FIFASTX-5737  - Captial not changing on language switch*/
+	function updateLocalityLabels() {
+		const translations = {
+			state: {
+				en: "Province/State",
+				fr: "Province/État",
+				es: "Provincia/Estado",
+				de: "Provinz/Bundesland"
+			},
+			region: {
+				en: "Region",
+				fr: "Région",
+				es: "Región",
+				de: "Region"
+			},
+			dept: {
+				en: "Department",
+				fr: "Département",
+				es: "Municipio",
+				de: "Gemeinde"
+			}
+		};
+
+		const htmlLang = document.documentElement.lang;
+
+		const stateLabel = document.querySelector(
+			'#field_locality_criteria label[for="locality_STATE"], #field_locality_criteria label[for="locality_PROVINCE"], #field_locality_criteria label[for="locality_PROVINCI"]'
+		);
+		if (stateLabel && translations.state[htmlLang]) {
+			stateLabel.childNodes[0].nodeValue = translations.state[htmlLang] + " ";
+		}
+
+		const regionLabel = document.querySelector('#field_locality_criteria label[for="locality_REGION"]');
+		if (regionLabel && translations.region[htmlLang]) {
+			regionLabel.childNodes[0].nodeValue = translations.region[htmlLang] + " ";
+		}
+
+		const deptLabel = document.querySelector('#field_locality_criteria label[for="locality_DEPT"]');
+		if (deptLabel && translations.dept[htmlLang]) {
+			deptLabel.childNodes[0].nodeValue = translations.dept[htmlLang] + " ";
+		}
+	}
+
+	/*FIFASTX-5788  - Hiding the title before the name on the homepage*/
+	function hideTitle() {
+		let homeTitle = document.querySelector('h3.title4');
+		if (homeTitle) {
+			homeTitle.childNodes.forEach(node => {
+				if (node.nodeType === Node.TEXT_NODE) {
+					node.remove();
+				}
+			});
+		}
+	}
+
+	/*FIFASTX-5796  - Link wrapping the entire terms and conditions line*/
+	function fixTermsAndConditions() {
+		const wrapper = document.querySelector(
+			".stx-confirmation-terms-and-conditions .tw-mx-2 > a[href='General terms and conditions']"
+		);
+
+		if (!wrapper) return;
+
+		const parent = wrapper.parentNode;
+		while (wrapper.firstChild) {
+			parent.insertBefore(wrapper.firstChild, wrapper);
+		}
+		parent.removeChild(wrapper);
+	}
+
+	/*FIFASTX-5822 - Remove the time from the matches*/
+	function removeTheTimeFromMatches() {
+		document.querySelectorAll('.package_line_performance_selector').forEach(el => {
+			let text = el.textContent.trim();
+			if (text.includes('-')) {
+				el.textContent = text.split('-')[0].trim();
+			}
+		});
+	}
+
+	/*FIFASTX-5886 - Placeholder text on the secured/content page*/
+	function appendDivOnPath() {
+		const includePaths = ["/secured/content", "/content"];
+		if (!includePaths.some(path => window.location.pathname.startsWith(path))) return;
+	
+		const domain = window.location.hostname;
+		let portal = "USD";
+	
+		if (domain.includes("shop-cad")) portal = "CAD";
+		else if (domain.includes("shop-mex") || domain.includes("shop-mxn")) portal = "MXN";
+		else portal = "USD";
+	
+		const translations = {
+			USD: {
+				en: `
+					<p>
+						The Last-Minute sales phase opened on 1 April 2026 at 11:00 am (Eastern Time) / 17:00 (Central European Time).
+					</p>
+					&nbsp;
+					<p>
+						Please scroll down to purchase Single Match tickets for one of the 104 matches of the FIFA World Cup 2026™ until the end of the tournament on 19 July 2026. Tickets can be purchased up to 20 minutes after kick-off for each match on a first come, first served basis (subject to availability).
+					</p>
+					&nbsp;
+					<p>
+						You are limited in purchasing up to four tickets per match and a maximum of 40 tickets per household across the entire FIFA World Cup 2026™. All ticket purchases linked to the postal address associated with your FIFA ticketing account will count toward the household limit. This limit includes (i) tickets you purchased during any previous sales phase, (ii) tickets purchased via the FIFA Resale Marketplace, and (iii) tickets received via a ticket transfer.
+					</p>
+					&nbsp;
+					<p>
+						You will need to choose the matches, seat locations and number of tickets you wish to purchase during the purchasing process. The seat we assign to a ticket may be relocated in FIFA Ticketing’s sole discretion at any time. In the event that your seat is relocated, you will be assigned to the same or an upgraded ticket category as the one you purchased. Please note that seat options may vary and are subject to availability. All ticket purchases made during this sales phase are subject to the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank"><strong>Ticket Terms of Sale for General Public</strong></a>. For all details and information concerning this sales phase, we strongly encourage you to review the <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb" target="_blank"><strong>FAQs</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Fans of the Participating Member Associations (PMAs) that have recently qualified for the FIFA World Cup 2026™ through the Play-Off Tournament and UEFA Qualifiers are considered Late Qualifier Supporters. Late Qualifier Supporters can purchase PMA Late Qualifier Supporter tickets <a href="https://fifa-fwc26-us.tickets.fifa.com/" target="_blank"><strong>here</strong></a>.
+					</p>
+				`,
+				es: `
+					<p>
+						La fase de ventas de última hora abrió el 1 de abril de 2026 a las 11:00 am (hora del este) / 17:00 (hora central europea).
+					</p>
+					&nbsp;
+					<p>
+						Desplázate hacia abajo para comprar boletos de partido individual para uno de los 104 partidos de la Copa Mundial de la FIFA 2026™ hasta el final del torneo, el 19 de julio de 2026. Los boletos pueden comprarse hasta 20 minutos después del inicio de cada partido, por orden de llegada (según disponibilidad).
+					</p>
+					&nbsp;
+					<p>
+						Estás limitado a comprar hasta cuatro boletos por partido y un máximo de 40 boletos por hogar durante toda la Copa Mundial de la FIFA 2026™. Todas las compras de boletos vinculadas a la dirección postal asociada con tu cuenta de boletos FIFA contarán para el límite por hogar. Este límite incluye (i) boletos que compraste en cualquier fase de venta anterior, (ii) boletos adquiridos a través del Mercado de Reventa de la FIFA, y (iii) boletos recibidos mediante una transferencia de boletos.
+					</p>
+					&nbsp;
+					<p>
+						Deberás elegir los partidos, las ubicaciones de los asientos y la cantidad de boletos que deseas comprar durante el proceso de compra. El asiento asignado a un boleto puede ser reubicado a discreción exclusiva de FIFA Ticketing en cualquier momento. En caso de que tu asiento sea reubicado, se te asignará la misma categoría de boleto o una categoría superior a la que compraste. Ten en cuenta que las opciones de asiento pueden variar y están sujetas a disponibilidad.
+					</p>
+					&nbsp;
+					<p>
+						Todas las compras de boletos realizadas durante esta fase de venta están sujetas a los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank"><strong>Términos de Venta de Boletos para el Público General</strong></a>. Para obtener todos los detalles e información sobre esta fase de venta, te recomendamos revisar las <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/es" target="_blank"><strong>FAQs</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Los aficionados de las Federaciones Miembro Participantes (PMA) que se hayan clasificado recientemente para la Copa Mundial de la FIFA 2026™ a través del Torneo clasificatorio y las clasificatorias de la UEFA se consideran aficionados de PMA clasificadas de última hora y pueden comprar boletos <a href="https://fifa-fwc26-us.tickets.fifa.com/" target="_blank"><strong>aquí</strong></a>.
+					</p>
+				`,
+				fr: `
+					<p>
+						La phase de vente de dernière minute a ouvert le 1er avril 2026 à 11h00 (heure de l’Est) / 17h00 (heure d'Europe Centrale).
+					</p>
+					&nbsp;
+					<p>
+						Veuillez faire défiler la page pour acheter des billets de partie individuelle pour l’une des 104 parties de la Coupe du Monde de la FIFA 2026™ jusqu’à la fin du tournoi, le 19 juillet 2026. Les billets peuvent être achetés jusqu’à 20 minutes après le coup d’envoi de chaque partie, selon le principe du premier arrivé, premier servi (selon disponibilité).
+					</p>
+					&nbsp;
+					<p>
+						Vous pouvez acheter jusqu’à quatre billets par partie et un maximum de 40 billets par foyer pour l’ensemble de la Coupe du Monde de la FIFA 2026™. Tous les achats de billets liés à l’adresse postale associée à votre compte de billetterie de la FIFA seront pris en compte dans cette limite par foyer. Cette limite inclut (i) les billets achetés lors de toute phase de vente précédente, (ii) les billets achetés via le Marché de revente, et (iii) les billets reçus via un transfert de billets.
+					</p>
+					&nbsp;
+					<p>
+						Lors du processus d’achat, vous devrez choisir les parties, les emplacements des sièges et le nombre de billets souhaités. Le siège attribué à un billet peut être modifié à tout moment à la seule discrétion de la billetterie de la FIFA. En cas de modification de votre siège, vous serez replacé dans une catégorie équivalente ou supérieure à celle achetée. Veuillez noter que les options de sièges peuvent varier et sont soumises à disponibilité. Tous les achats de billets effectués lors de cette phase de vente sont soumis aux <a href="https://digitalhub.fifa.com/m/6c44f13a311f4846/original/FWC2026-Ticket-Terms-of-Sale-for-General-Public-FINAL-F.pdf" target="_blank"><strong>Conditions générales de vente de billets pour le public</strong></a>. Pour plus de détails concernant cette phase de vente, nous vous recommandons vivement de consulter la <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/fr" target="_blank"><strong>FAQ</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Les supporters des Associations Membres Participantes (PMA) récemment qualifiées pour la Coupe du Monde de la FIFA 2026™ via le tournoi de barrage et les qualifications UEFA sont considérés comme des supporters d’une PMA qualifiée tardivement. Les supporters d’une PMA qualifiée tardivement peuvent acheter leurs billets dédiés <a href="https://fifa-fwc26-us.tickets.fifa.com/" target="_blank"><strong>ici</strong></a>.
+					</p>
+				`,
+				de: `
+					<p>
+						Die Last-MinuteVerkaufsphase wurde am 1. April 2026 um 11:00 Uhr (Eastern-Zeit) / 17:00 Uhr (MEZ) eröffnet.
+					</p>
+					&nbsp;
+					<p>
+						Bitte scrollen Sie nach unten, um Einzeltickets für eines der 104 Spiele der FIFA FussballWeltmeisterschaft 2026™ bis zum Ende des Turniers am 19. Juli 2026 zu erwerben. Tickets können bis zu 20 Minuten nach Anpfiff jedes Spiels nach dem Prinzip „Wer zuerst kommt, mahlt zuerst“ gekauft werden (vorbehaltlich der Verfügbarkeit).
+					</p>
+					&nbsp;
+					<p>
+						Sie können bis zu vier Tickets pro Spiel und maximal 40 Tickets pro Haushalt für die gesamte FIFA FussballWeltmeisterschaft 2026™ erwerben. Alle Ticketkäufe, die mit der Postadresse verknüpft sind, die Ihrem FIFATicketkonto zugeordnet ist, zählen zu den Haushaltsbeschränkungen. Dieses Limit umfasst (i) Tickets, die Sie in einer früheren Verkaufsphase gekauft haben, (ii) Tickets, die über den FIFAWeiterverkaufsmarktplatz erworben wurden, und (iii) Tickets, die Sie über eine Ticketübertragung erhalten haben.
+					</p>
+					&nbsp;
+					<p>
+						Während des Kaufvorgangs müssen Sie die Spiele, Sitzplätze und die Anzahl der gewünschten Tickets auswählen. Der Sitzplatz, den wir einem Ticket zuweisen, kann jederzeit nach alleinigem Ermessen von FIFA-Ticketing verlegt werden. Falls Ihr Sitzplatz verlegt wird, erhalten Sie eine Ticketkategorie, die der von Ihnen gekauften entspricht oder höherwertig ist. Bitte beachten Sie, dass die Sitzplatzoptionen variieren können und der Verfügbarkeit unterliegen. Alle Ticketkäufe, die während dieser Verkaufsphase getätigt werden, unterliegen den <a href="https://digitalhub.fifa.com/m/2f1ee0cc639add36/original/FWC2026-Ticket-Terms-of-Sale-for-General-Public_v2_DE.pdf" target="_blank"><strong>Ticketverkaufsbedingungen für die allgemeine Öffentlichkeit</strong></a>. Für alle Details und Informationen zu dieser Verkaufsphase empfehlen wir Ihnen, die <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/de" target="_blank"><strong>häufigen Fragen</strong></a> zu lesen.
+					</p>
+					&nbsp;
+					<p>
+						Fans der teilnehmenden Mitgliedsverbände (PMAs), die sich kürzlich über das PlayOffTurnier und die europäischen Play-offs für die FIFA FussballWeltmeisterschaft 2026™ qualifiziert haben, gelten als Fans der spät qualifizierten PMAs. Fans der spät qualifizierten PMAs können <a href="https://fifa-fwc26-us.tickets.fifa.com/" target="_blank"><strong>hier</strong></a> entsprechend Tickets erwerben.
+					</p>
+				`
+			},
+	
+			CAD: {
+				en: `
+					<p>
+						The Last-Minute sales phase opened on 1 April 2026 at 11:00 am (Eastern Time) / 8:00 am (Pacific Time).
+					</p>
+					&nbsp;
+					<p>
+						Please scroll down to purchase Single Match tickets for one of the 104 matches of the FIFA World Cup 2026™ until the end of the tournament on 19 July 2026. Tickets can be purchased up to 20 minutes after kick-off for each match on a first come, first served basis (subject to availability).
+					</p>
+					&nbsp;
+					<p>
+						You are limited in purchasing up to four tickets per match and a maximum of 40 tickets per household across the entire FIFA World Cup 2026™. All ticket purchases linked to the postal address associated with your FIFA ticketing account will count toward the household limit. This limit includes (i) tickets you purchased during any previous sales phase, (ii) tickets purchased via the FIFA Resale Marketplace, and (iii) tickets received via a ticket transfer.
+					</p>
+					&nbsp;
+					<p>
+						You will need to choose the matches, seat locations and number of tickets you wish to purchase during the purchasing process. The seat we assign to a ticket may be relocated in FIFA Ticketing’s sole discretion at any time. In the event that your seat is relocated, you will be assigned to the same or an upgraded ticket category as the one you purchased. Please note that seat options may vary and are subject to availability. All ticket purchases made during this sales phase are subject to the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank"><strong>Ticket Terms of Sale for General Public</strong></a>. For all details and information concerning this sales phase, we strongly encourage you to review the <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb" target="_blank"><strong>FAQs</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Fans of the Participating Member Associations (PMAs) that have recently qualified for the FIFA World Cup 2026™ through the Play-Off Tournament and UEFA Qualifiers are considered Late Qualifier Supporters. Late Qualifier Supporters can purchase PMA Late Qualifier Supporter tickets <a href="https://fifa-fwc26-cad.tickets.fifa.com/" target="_blank"><strong>here</strong></a>.
+					</p>
+				`,
+				es: `
+					<p>
+						La fase de ventas de última hora abrió el 1 de abril de 2026 a las 11:00 am (hora del este) / 08:00 am (hora del Pacífico).
+					</p>
+					&nbsp;
+					<p>
+						Desplázate hacia abajo para comprar boletos de partido individual para uno de los 104 partidos de la Copa Mundial de la FIFA 2026™ hasta el final del torneo, el 19 de julio de 2026. Los boletos pueden comprarse hasta 20 minutos después del inicio de cada partido, por orden de llegada (según disponibilidad).
+					</p>
+					&nbsp;
+					<p>
+						Estás limitado a comprar hasta cuatro boletos por partido y un máximo de 40 boletos por hogar durante toda la Copa Mundial de la FIFA 2026™. Todas las compras de boletos vinculadas a la dirección postal asociada con tu cuenta de boletos FIFA contarán para el límite por hogar. Este límite incluye (i) boletos que compraste en cualquier fase de venta anterior, (ii) boletos adquiridos a través del Mercado de Reventa de la FIFA, y (iii) boletos recibidos mediante una transferencia de boletos.
+					</p>
+					&nbsp;
+					<p>
+						Deberás elegir los partidos, las ubicaciones de los asientos y la cantidad de boletos que deseas comprar durante el proceso de compra. El asiento asignado a un boleto puede ser reubicado a discreción exclusiva de FIFA Ticketing en cualquier momento. En caso de que tu asiento sea reubicado, se te asignará la misma categoría de boleto o una categoría superior a la que compraste. Ten en cuenta que las opciones de asiento pueden variar y están sujetas a disponibilidad.
+					</p>
+					&nbsp;
+					<p>
+						Todas las compras de boletos realizadas durante esta fase de venta están sujetas a los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank"><strong>Términos de Venta de Boletos para el Público General</strong></a>. Para obtener todos los detalles e información sobre esta fase de venta, te recomendamos revisar las <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/es" target="_blank"><strong>FAQs</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Los aficionados de las Federaciones Miembro Participantes (PMA) que se hayan clasificado recientemente para la Copa Mundial de la FIFA 2026™ a través del Torneo clasificatorio y las clasificatorias de la UEFA se consideran aficionados de PMA clasificadas de última hora y pueden comprar boletos <a href="https://fifa-fwc26-cad.tickets.fifa.com/" target="_blank"><strong>aquí</strong></a>.
+					</p>
+				`,
+				fr: `
+					<p>
+						La phase de vente de dernière minute a ouvert le 1er avril 2026 à 11h00 (heure de l’Est) / 8h00 (heure du Pacifique).
+					</p>
+					&nbsp;
+					<p>
+						Veuillez faire défiler la page pour acheter des billets de partie individuelle pour l’une des 104 parties de la Coupe du Monde de la FIFA 2026™ jusqu’à la fin du tournoi, le 19 juillet 2026. Les billets peuvent être achetés jusqu’à 20 minutes après le coup d’envoi de chaque partie, selon le principe du premier arrivé, premier servi (selon disponibilité).
+					</p>
+					&nbsp;
+					<p>
+						Vous pouvez acheter jusqu’à quatre billets par partie et un maximum de 40 billets par foyer pour l’ensemble de la Coupe du Monde de la FIFA 2026™. Tous les achats de billets liés à l’adresse postale associée à votre compte de billetterie de la FIFA seront pris en compte dans cette limite par foyer. Cette limite inclut (i) les billets achetés lors de toute phase de vente précédente, (ii) les billets achetés via le Marché de revente, et (iii) les billets reçus via un transfert de billets.
+					</p>
+					&nbsp;
+					<p>
+						Lors du processus d’achat, vous devrez choisir les parties, les emplacements des sièges et le nombre de billets souhaités. Le siège attribué à un billet peut être modifié à tout moment à la seule discrétion de la billetterie de la FIFA. En cas de modification de votre siège, vous serez replacé dans une catégorie équivalente ou supérieure à celle achetée. Veuillez noter que les options de sièges peuvent varier et sont soumises à disponibilité. Tous les achats de billets effectués lors de cette phase de vente sont soumis aux <a href="https://digitalhub.fifa.com/m/6c44f13a311f4846/original/FWC2026-Ticket-Terms-of-Sale-for-General-Public-FINAL-F.pdf" target="_blank"><strong>Conditions générales de vente de billets pour le public</strong></a>. Pour plus de détails concernant cette phase de vente, nous vous recommandons vivement de consulter la <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/fr" target="_blank"><strong>FAQ</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Les supporters des Associations Membres Participantes (PMA) récemment qualifiées pour la Coupe du Monde de la FIFA 2026™ via le tournoi de barrage et les qualifications UEFA sont considérés comme des supporters d’une PMA qualifiée tardivement. Les supporters d’une PMA qualifiée tardivement peuvent acheter leurs billets dédiés <a href="https://fifa-fwc26-cad.tickets.fifa.com/" target="_blank"><strong>ici</strong></a>.
+					</p>
+				`,
+				de: `
+					<p>
+						Die Last-MinuteVerkaufsphase wurde am 1. April 2026 um 11:00 Uhr (Eastern-Zeit) / 8:00 Uhr (Pazifik-Zeit) eröffnet.
+					</p>
+					&nbsp;
+					<p>
+						Bitte scrollen Sie nach unten, um Einzeltickets für eines der 104 Spiele der FIFA FussballWeltmeisterschaft 2026™ bis zum Ende des Turniers am 19. Juli 2026 zu erwerben. Tickets können bis zu 20 Minuten nach Anpfiff jedes Spiels nach dem Prinzip „Wer zuerst kommt, mahlt zuerst“ gekauft werden (vorbehaltlich der Verfügbarkeit).
+					</p>
+					&nbsp;
+					<p>
+						Sie können bis zu vier Tickets pro Spiel und maximal 40 Tickets pro Haushalt für die gesamte FIFA FussballWeltmeisterschaft 2026™ erwerben. Alle Ticketkäufe, die mit der Postadresse verknüpft sind, die Ihrem FIFATicketkonto zugeordnet ist, zählen zu den Haushaltsbeschränkungen. Dieses Limit umfasst (i) Tickets, die Sie in einer früheren Verkaufsphase gekauft haben, (ii) Tickets, die über den FIFAWeiterverkaufsmarktplatz erworben wurden, und (iii) Tickets, die Sie über eine Ticketübertragung erhalten haben.
+					</p>
+					&nbsp;
+					<p>
+						Während des Kaufvorgangs müssen Sie die Spiele, Sitzplätze und die Anzahl der gewünschten Tickets auswählen. Der Sitzplatz, den wir einem Ticket zuweisen, kann jederzeit nach alleinigem Ermessen von FIFA-Ticketing verlegt werden. Falls Ihr Sitzplatz verlegt wird, erhalten Sie eine Ticketkategorie, die der von Ihnen gekauften entspricht oder höherwertig ist. Bitte beachten Sie, dass die Sitzplatzoptionen variieren können und der Verfügbarkeit unterliegen. Alle Ticketkäufe, die während dieser Verkaufsphase getätigt werden, unterliegen den <a href="https://digitalhub.fifa.com/m/2f1ee0cc639add36/original/FWC2026-Ticket-Terms-of-Sale-for-General-Public_v2_DE.pdf" target="_blank"><strong>Ticketverkaufsbedingungen für die allgemeine Öffentlichkeit</strong></a>. Für alle Details und Informationen zu dieser Verkaufsphase empfehlen wir Ihnen, die <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/de" target="_blank"><strong>häufigen Fragen</strong></a> zu lesen.
+					</p>
+					&nbsp;
+					<p>
+						Fans der teilnehmenden Mitgliedsverbände (PMAs), die sich kürzlich über das PlayOffTurnier und die europäischen Play-offs für die FIFA FussballWeltmeisterschaft 2026™ qualifiziert haben, gelten als Fans der spät qualifizierten PMAs. Fans der spät qualifizierten PMAs können <a href="https://fifa-fwc26-cad.tickets.fifa.com/" target="_blank"><strong>hier</strong></a> entsprechend Tickets erwerben.
+					</p>
+				`
+			},
+	
+			MXN: {
+				en: `
+					<p>
+						The Last-Minute sales phase opened on 1 April 2026 at 11:00 am (Eastern Time) / 9:00 am (Mexico City Time).
+					</p>
+					&nbsp;
+					<p>
+						Please scroll down to purchase Single Match tickets for one of the 104 matches of the FIFA World Cup 2026™ until the end of the tournament on 19 July 2026. Tickets can be purchased up to 20 minutes after kick-off for each match on a first come, first served basis (subject to availability).
+					</p>
+					&nbsp;
+					<p>
+						You are limited in purchasing up to four tickets per match and a maximum of 40 tickets per household across the entire FIFA World Cup 2026™. All ticket purchases linked to the postal address associated with your FIFA ticketing account will count toward the household limit. This limit includes (i) tickets you purchased during any previous sales phase, (ii) tickets purchased via the FIFA Exchange Marketplace, and (iii) tickets received via a ticket transfer.
+					</p>
+					&nbsp;
+					<p>
+						You will need to choose the matches, seat locations and number of tickets you wish to purchase during the purchasing process. The seat we assign to a ticket may be relocated in FIFA Ticketing’s sole discretion at any time. In the event that your seat is relocated, you will be assigned to the same or an upgraded ticket category as the one you purchased. Please note that seat options may vary and are subject to availability. All ticket purchases made during this sales phase are subject to the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank"><strong>Ticket Terms of Sale for General Public</strong></a>. For all details and information concerning this sales phase, we strongly encourage you to review the <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb" target="_blank"><strong>FAQs</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Fans of the Participating Member Associations (PMAs) that have recently qualified for the FIFA World Cup 2026™ through the Play-Off Tournament and UEFA Qualifiers are considered Late Qualifier Supporters. Late Qualifier Supporters can purchase PMA Late Qualifier Supporter tickets <a href="https://fifa-fwc26-mex.tickets.fifa.com/" target="_blank"><strong>here</strong></a>.
+					</p>
+				`,
+				es: `
+					<p>
+						La fase de ventas de última hora abrió el 1 de abril de 2026 a las 11:00 am (hora del este) / 09:00 am (hora de Ciudad de México).
+					</p>
+					&nbsp;
+					<p>
+						Desplázate hacia abajo para comprar boletos de partido individual para uno de los 104 partidos de la Copa Mundial de la FIFA 2026™ hasta el final del torneo, el 19 de julio de 2026. Los boletos pueden comprarse hasta 20 minutos después del inicio de cada partido, por orden de llegada (según disponibilidad).
+					</p>
+					&nbsp;
+					<p>
+						Estás limitado a comprar hasta cuatro boletos por partido y un máximo de 40 boletos por hogar durante toda la Copa Mundial de la FIFA 2026™. Todas las compras de boletos vinculadas a la dirección postal asociada con tu cuenta de boletos FIFA contarán para el límite por hogar. Este límite incluye (i) boletos que compraste en cualquier fase de venta anterior, (ii) boletos adquiridos a través del Mercado de Intercambio de la FIFA, y (iii) boletos recibidos mediante una transferencia de boletos.
+					</p>
+					&nbsp;
+					<p>
+						Deberás elegir los partidos, las ubicaciones de los asientos y la cantidad de boletos que deseas comprar durante el proceso de compra. El asiento asignado a un boleto puede ser reubicado a discreción exclusiva de FIFA Ticketing en cualquier momento. En caso de que tu asiento sea reubicado, se te asignará la misma categoría de boleto o una categoría superior a la que compraste. Ten en cuenta que las opciones de asiento pueden variar y están sujetas a disponibilidad.
+					</p>
+					&nbsp;
+					<p>
+						Todas las compras de boletos realizadas durante esta fase de venta están sujetas a los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank"><strong>Términos de Venta de Boletos para el Público General</strong></a>. Para obtener todos los detalles e información sobre esta fase de venta, te recomendamos revisar las <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/es" target="_blank"><strong>FAQs</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Los aficionados de las Federaciones Miembro Participantes (PMA) que se hayan clasificado recientemente para la Copa Mundial de la FIFA 2026™ a través del Torneo clasificatorio y las clasificatorias de la UEFA se consideran aficionados de PMA clasificadas de última hora y pueden comprar boletos <a href="https://fifa-fwc26-mex.tickets.fifa.com/" target="_blank"><strong>aquí</strong></a>.
+					</p>
+				`,
+				fr: `
+					<p>
+						La phase de vente de dernière minute a ouvert le 1er avril 2026 à 11h00 (heure de l’Est) / 9h00 (heure de Mexico).
+					</p>
+					&nbsp;
+					<p>
+						Veuillez faire défiler la page pour acheter des billets de partie individuelle pour l’une des 104 parties de la Coupe du Monde de la FIFA 2026™ jusqu’à la fin du tournoi, le 19 juillet 2026. Les billets peuvent être achetés jusqu’à 20 minutes après le coup d’envoi de chaque partie, selon le principe du premier arrivé, premier servi (selon disponibilité).
+					</p>
+					&nbsp;
+					<p>
+						Vous pouvez acheter jusqu’à quatre billets par partie et un maximum de 40 billets par foyer pour l’ensemble de la Coupe du Monde de la FIFA 2026™. Tous les achats de billets liés à l’adresse postale associée à votre compte de billetterie de la FIFA seront pris en compte dans cette limite par foyer. Cette limite inclut (i) les billets achetés lors de toute phase de vente précédente, (ii) les billets achetés via le Marché d’échange, et (iii) les billets reçus via un transfert de billets.
+					</p>
+					&nbsp;
+					<p>
+						Lors du processus d’achat, vous devrez choisir les parties, les emplacements des sièges et le nombre de billets souhaités. Le siège attribué à un billet peut être modifié à tout moment à la seule discrétion de la billetterie de la FIFA. En cas de modification de votre siège, vous serez replacé dans une catégorie équivalente ou supérieure à celle achetée. Veuillez noter que les options de sièges peuvent varier et sont soumises à disponibilité. Tous les achats de billets effectués lors de cette phase de vente sont soumis aux <a href="https://digitalhub.fifa.com/m/6c44f13a311f4846/original/FWC2026-Ticket-Terms-of-Sale-for-General-Public-FINAL-F.pdf" target="_blank"><strong>Conditions générales de vente de billets pour le public</strong></a>. Pour plus de détails concernant cette phase de vente, nous vous recommandons vivement de consulter la <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/fr" target="_blank"><strong>FAQ</strong></a>.
+					</p>
+					&nbsp;
+					<p>
+						Les supporters des Associations Membres Participantes (PMA) récemment qualifiées pour la Coupe du Monde de la FIFA 2026™ via le tournoi de barrage et les qualifications UEFA sont considérés comme des supporters d’une PMA qualifiée tardivement. Les supporters d’une PMA qualifiée tardivement peuvent acheter leurs billets dédiés <a href="https://fifa-fwc26-mex.tickets.fifa.com/" target="_blank"><strong>ici</strong></a>.
+					</p>
+				`,
+				de: `
+					<p>
+						Die Last-MinuteVerkaufsphase wurde am 1. April 2026 um 11:00 Uhr (Eastern-Zeit) / 9:00 Uhr (Mexiko-Stadt-Zeit) eröffnet.
+					</p>
+					&nbsp;
+					<p>
+						Bitte scrollen Sie nach unten, um Einzeltickets für eines der 104 Spiele der FIFA FussballWeltmeisterschaft 2026™ bis zum Ende des Turniers am 19. Juli 2026 zu erwerben. Tickets können bis zu 20 Minuten nach Anpfiff jedes Spiels nach dem Prinzip „Wer zuerst kommt, mahlt zuerst“ gekauft werden (vorbehaltlich der Verfügbarkeit).
+					</p>
+					&nbsp;
+					<p>
+						Sie können bis zu vier Tickets pro Spiel und maximal 40 Tickets pro Haushalt für die gesamte FIFA FussballWeltmeisterschaft 2026™ erwerben. Alle Ticketkäufe, die mit der Postadresse verknüpft sind, die Ihrem FIFATicketkonto zugeordnet ist, zählen zu den Haushaltsbeschränkungen. Dieses Limit umfasst (i) Tickets, die Sie in einer früheren Verkaufsphase gekauft haben, (ii) Tickets, die über den FIFATauschmarktplatz erworben wurden, und (iii) Tickets, die Sie über eine Ticketübertragung erhalten haben.
+					</p>
+					&nbsp;
+					<p>
+						Während des Kaufvorgangs müssen Sie die Spiele, Sitzplätze und die Anzahl der gewünschten Tickets auswählen. Der Sitzplatz, den wir einem Ticket zuweisen, kann jederzeit nach alleinigem Ermessen von FIFA-Ticketing verlegt werden. Falls Ihr Sitzplatz verlegt wird, erhalten Sie eine Ticketkategorie, die der von Ihnen gekauften entspricht oder höherwertig ist. Bitte beachten Sie, dass die Sitzplatzoptionen variieren können und der Verfügbarkeit unterliegen. Alle Ticketkäufe, die während dieser Verkaufsphase getätigt werden, unterliegen den <a href="https://digitalhub.fifa.com/m/2f1ee0cc639add36/original/FWC2026-Ticket-Terms-of-Sale-for-General-Public_v2_DE.pdf" target="_blank"><strong>Ticketverkaufsbedingungen für die allgemeine Öffentlichkeit</strong></a>. Für alle Details und Informationen zu dieser Verkaufsphase empfehlen wir Ihnen, die <a href="https://gpcustomersupportfwc2026.tickets.fifa.com/hc/de" target="_blank"><strong>häufigen Fragen</strong></a> zu lesen.
+					</p>
+					&nbsp;
+					<p>
+						Fans der teilnehmenden Mitgliedsverbände (PMAs), die sich kürzlich über das PlayOffTurnier und die europäischen Play-offs für die FIFA FussballWeltmeisterschaft 2026™ qualifiziert haben, gelten als Fans der spät qualifizierten PMAs. Fans der spät qualifizierten PMAs können <a href="https://fifa-fwc26-mex.tickets.fifa.com/" target="_blank"><strong>hier</strong></a> entsprechend Tickets erwerben.
+					</p>
+				`
+			}
+		};
+	
+		const injectContent = () => {
+			const container = document.querySelector(".stx-Catalog");
+			if (!container || container.querySelector("#my-placeholder")) return false;
+	
+			const newDiv = document.createElement("div");
+			newDiv.id = "my-placeholder";
+	
+			const rawLang = (document.documentElement.lang || "en").toLowerCase();
+			const lang = rawLang.split("-")[0];
+	
+			const content =
+				translations[portal]?.[lang] ||
+				translations[portal]?.en ||
+				translations.USD.en;
+	
+			newDiv.innerHTML = content;
+			container.prepend(newDiv);
+	
+			return true;
+		};
+	
+		if (injectContent()) return;
+	
+		const observer = new MutationObserver((mutations, obs) => {
+			if (injectContent()) {
+				obs.disconnect();
+			}
+		});
+	
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+	/*FIFASTX-5886 - Placeholder text on the secured/content page*/
+	// function appendDivOnPath() {
+	// 	const includePaths = ["/secured/content", "/content"];
+	// 	if (!includePaths.includes(window.location.pathname)) return;
+
+	// 	const observer = new MutationObserver((mutations, obs) => {
+	// 		const container = document.querySelector(".stx-Catalog");
+	// 		// const container = document.querySelector(".stx-AdvantageCode");
+	// 		if (container && !container.querySelector("#my-placeholder")) {
+	// 			const newDiv = document.createElement("div");
+	// 			newDiv.id = "my-placeholder";
+
+	// 			if (document.querySelector("html[lang=en]")) {
+	// 				newDiv.innerHTML = `
+	// 			<p>
+	// 				Following your recent unsuccessful FIFA World Cup 2026™ ticket application in the Random Selection Draw and the availability of a limited number of additional tickets, you have been granted exclusive access to a dedicated ticket window with single-match tickets in the host city(ies) that you applied for.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				If you have received an email in which you were granted an exclusive 48-hour access window(s) to purchase tickets and would like to purchase tickets for select matches, please access your FIFA ticketing account within the 48-hour access window(s) provided to you via email.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				Tickets are available only to invited customers and can be accessed by logging into your FIFA ticketing account. Availability is extremely limited and offered on a first-come, first-served basis, subject to household and other restrictions.
+	// 			</p>
+
+	// 		`;
+	// 			}
+	// 			if (document.querySelector("html[lang=es]")) {
+	// 				newDiv.innerHTML = `
+	// 			<p>
+	// 				Luego de que tu reciente solicitud de boletos resultara no seleccionada en el sorteo aleatorio de la Copa Mundial de la FIFA 2026™, y debido a la disponibilidad de un número limitado de boletos adicionales, se te ha otorgado acceso exclusivo a una ventana dedicada a compra de boletos para partidos individuales en la(s) ciudad(es) anfitriona(s) por la(s) que aplicaste.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				Si recibiste un correo electrónico en el que se te otorgó una ventana exclusiva de 48 horas para comprar boletos y deseas adquirir boletos para partidos seleccionados, accede a tu cuenta de boletos de la FIFA dentro de la(s) ventana(s) de acceso de 48 horas que te fueron proporcionadas por correo electrónico.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				Los boletos están disponibles únicamente para clientes invitados y se puede acceder a ellos iniciando sesión en tu cuenta de boletos de la FIFA. La disponibilidad es extremadamente limitada y se ofrece por orden de llegada, sujeta a restricciones por hogar y otras limitaciones.
+	// 			</p>
+	// 		`;
+	// 			}
+	// 			if (document.querySelector("html[lang=fr]")) {
+	// 				newDiv.innerHTML = `
+	// 			<p>
+	// 				Suite à votre récente demande de billets pour la Coupe du Monde de la FIFA 2026™ non retenue lors du tirage de sélection aléatoire, et compte tenu de la disponibilité limitée de billets supplémentaires, vous bénéficiez d’un créneau d’accès exclusif à une vente dédiée de billets à l’unité dans la/les ville(s) hôte(s) pour lesquelles vous avez effectué une demande.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				Si recibiste un correo electrónico en el que se te otorgó una ventana exclusiva de 48 horas para comprar boletos y deseas adquirir boletos para partidos seleccionados, accede a tu cuenta de boletos de la FIFA dentro de la(s) ventana(s) de acceso de 48 horas que te fueron proporcionadas por correo electrónico.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				Les billets sont disponibles uniquement pour les clients invités et peuvent être consultés en vous connectant à votre compte de billetterie de la FIFA. Les disponibilités sont extrêmement limitées et attribuées selon le principe du premier arrivé, premier servi, sous réserve de restrictions par foyer et autres limitations.
+	// 			</p>
+	// 		`;
+	// 			}
+	// 			if (document.querySelector("html[lang=de]")) {
+	// 				newDiv.innerHTML = `
+	// 			<p>
+	// 				Nach Ihrer kürzlich erfolglosen Bewerbung für Tickets zur FIFA Fussball-Weltmeisterschaft 2026™ im Rahmen der Zufallsziehung und aufgrund der Verfügbarkeit einer begrenzten Anzahl zusätzlicher Tickets wurde Ihnen ein exklusiver Zugang zu einem speziellen Ticketfenster mit Einzeltickets in dem/den von Ihnen ausgewählten Spielort(en) gewährt.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				Wenn Sie eine E‑Mail erhalten haben, in der Ihnen ein exklusives 48‑Stunden‑fenster zum Ticketkauf gewährt wurde und Sie Tickets für ausgewählte Spiele erwerben möchten, greifen Sie bitte innerhalb dieses Ihnen per E‑Mail mitgeteilten 48‑Stunden‑fenster auf Ihr FIFA‑Ticketkonto zu.
+	// 			</p>
+	// 			&nbsp;
+	// 			<p>
+	// 				Tickets stehen ausschließlich eingeladenen Kundinnen und Kunden zur Verfügung und können durch Einloggen in Ihr FIFA‑Ticketkonto abgerufen werden. Die Verfügbarkeit ist äußerst begrenzt und erfolgt nach dem Prinzip „Wer zuerst kommt, mahlt zuerst“, vorbehaltlich haushaltsbeschränkungen und anderer Einschränkungen.
+	// 			</p>
+	// 		`;
+	// 			}
+
+	// 			container.prepend(newDiv);
+	// 			obs.disconnect();
+	// 		}
+	// 	});
+
+	// 	observer.observe(document.body, { childList: true, subtree: true });
+	// }
+	appendDivOnPath();
+
+	function appendDivtoPerformancePage() {
+		const includePaths = ["/secure/selection/event/seat/performance"];
+		if (!includePaths.some(path => window.location.pathname.startsWith(path))) return;
+
+		const domain = window.location.hostname;
+		let currency = "USD";
+
+		if (domain.includes("shop-cad") || domain.includes("fwc26-cad")) currency = "CAD";
+		else if (domain.includes("shop-mex") || domain.includes("shop-mxn") || domain.includes("fwc26-mex")) currency = "MXN";
+
+		const translations = {
+			en: {
+				USD: `<strong>PLEASE NOTE:</strong> THE TICKET PRICES BELOW ARE IN US DOLLARS (USD) AND INCLUSIVE OF APPLICABLE TAXES.`,
+				CAD: `<strong>PLEASE NOTE:</strong> THE TICKET PRICES BELOW ARE IN CANADIAN DOLLARS (CAD) AND INCLUSIVE OF APPLICABLE TAXES.`,
+				MXN: `<strong>PLEASE NOTE:</strong> THE TICKET PRICES BELOW ARE IN MEXICAN PESOS (MXN) AND INCLUSIVE OF APPLICABLE TAXES.`
+			},
+			fr: {
+				USD: `<strong>VEUILLEZ NOTER:</strong> LES PRIX DES BILLETS CI-DESSOUS SONT EN DOLLARS AMÉRICAINS (USD) ET INCLUENT LES TAXES APPLICABLES.`,
+				CAD: `<strong>VEUILLEZ NOTER:</strong> LES PRIX DES BILLETS CI-DESSOUS SONT EN DOLLARS CANADIENS (CAD) ET INCLUENT LES TAXES APPLICABLES.`,
+				MXN: `<strong>VEUILLEZ NOTER:</strong> LES PRIX DES BILLETS CI-DESSOUS SONT EN PESOS MEXICAINS (MXN) ET INCLUENT LES TAXES APPLICABLES.`
+			},
+			es: {
+				USD: `<strong>TEN EN CUENTA:</strong> LOS PRECIOS DE LOS BOLETOS QUE APARECEN A CONTINUACIÓN ESTÁN EN DÓLARES ESTADOUNIDENSES (USD) E INCLUYEN LOS IMPUESTOS APLICABLES.`,
+				CAD: `<strong>TEN EN CUENTA:</strong> LOS PRECIOS DE LOS BOLETOS QUE APARECEN A CONTINUACIÓN ESTÁN EN DÓLARES CANADIENSES (CAD) E INCLUYEN LOS IMPUESTOS APLICABLES.`,
+				MXN: `<strong>TEN EN CUENTA:</strong> LOS PRECIOS DE LOS BOLETOS QUE APARECEN A CONTINUACIÓN ESTÁN EN PESOS MEXICANOS (MXN) E INCLUYEN LOS IMPUESTOS APLICABLES.`
+			},
+			de: {
+				USD: `<strong>BITTE BEACHTEN SIE:</strong> DIE UNTEN AUFGEFÜHRTEN TICKETPREISE SIND IN US-DOLLAR (USD) ANGEGEBEN UND BEINHALTEN DIE ANFALLENDEN STEUERN.`,
+				CAD: `<strong>BITTE BEACHTEN SIE:</strong> DIE UNTEN AUFGEFÜHRTEN TICKETPREISE SIND IN KANADISCHEN DOLLAR (CAD) ANGEGEBEN UND BEINHALTEN DIE ANFALLENDEN STEUERN.`,
+				MXN: `<strong>BITTE BEACHTEN SIE:</strong> DIE UNTEN AUFGEFÜHRTEN TICKETPREISE SIND IN MEXIKANISCHEN PESO (MXN) ANGEGEBEN UND BEINHALTEN DIE ANFALLENDEN STEUERN.`
+			}
+		};
+
+		const seatmapTranslations = {
+			en: `Please note that seat locations for each ticket category shown on the seat map may vary by match.`,
+			fr: `Veuillez noter que l’emplacement des sièges pour chaque catégorie de billets indiquée sur le plan peut varier selon la partie.`,
+			es: `Tenga en cuenta que la ubicación de los asientos para cada categoría de boletos que se muestra en el mapa puede variar según el partido.`,
+			de: `Bitte beachten Sie, dass die Sitzplätze für jede Ticketkategorie je nach Spiel variieren können.`
+		};
+
+		const observer = new MutationObserver((mutations, obs) => {
+			const lang = document.documentElement.lang || "en";
+
+			const container = document.querySelector("#page_selection_seatMap #product_header") ||
+				document.querySelector("#page_selection_eventSeat #product_header");
+
+			if (container && !container.querySelector("#my-performance-placeholder")) {
+				const newDiv = document.createElement("div");
+				newDiv.id = "my-performance-placeholder";
+
+				const content = translations[lang]?.[currency] || translations.en.USD;
+				newDiv.innerHTML = `<p>${content}</p><br>`;
+				container.append(newDiv);
+			}
+
+			const containerSeatmap = document.querySelector("#page_selection_seatMap #seat_map_group .content");
+			if (containerSeatmap && !containerSeatmap.querySelector("#my-performance-placeholder")) {
+				const newDiv = document.createElement("div");
+				newDiv.id = "my-performance-placeholder";
+
+				const content = seatmapTranslations[lang] || seatmapTranslations.en;
+				newDiv.innerHTML = `<p>${content}</p><br>`;
+				containerSeatmap.append(newDiv);
+			}
+
+			const priceAdded = document.getElementById("my-performance-placeholder");
+			const seatmapAdded = document.getElementById("my-performance-placeholder");
+
+			if (priceAdded || seatmapAdded) {
+				obs.disconnect();
+			}
+		});
+
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+	appendDivtoPerformancePage();
+
+	function appendDivtoListEvents() {
+		const includePaths = ["/secured/list/events", "/list/events"];
+		if (!includePaths.some(path => window.location.pathname.startsWith(path))) return;
+	
+		const domain = window.location.hostname;
+		let portal = "USD";
+	
+		if (domain.includes("fwc26-cad")) portal = "CAD";
+		else if (domain.includes("fwc26-mex") || domain.includes("fwc26-mxn")) portal = "MXN";
+		else portal = "USD";
+	
+		const translations = {
+			USD: {
+				en: `
+					<p>
+						Supporter Ticket(s) are available for all three group stage matches that the selected PMA will play. Please note that the three group stage matches are not considered conditional, as national teams are guaranteed to play in those matches regardless of the outcome. Conditional Supporter Ticket(s) are available for all six types of knockout stage matches that the selected PMA may play (provided they qualify for the knockout stage matches, as these tickets are considered conditional). These Conditional Supporter Tickets are valid only if the PMA qualifies for the respective knockout stage match(es). If the PMA is eliminated from the competition and you have Conditional Supporter Ticket(s) for subsequent second-round matches, the validity of these tickets will cease to exist. In such cases, FIFA Ticketing will refund the affected Conditional Supporter Ticket(s), minus a refund fee of 10 United States Dollars (USD).
+					</p>
+				`,
+				es: `
+					<p>
+						Los boletos de aficionado están disponibles para los tres partidos de la fase de grupos que la PMA seleccionada disputará. Ten en cuenta que estos tres partidos de la fase de grupos no se consideran condicionales, ya que las selecciones nacionales tienen garantizado disputar dichos encuentros independientemente del resultado. Los boletos condicionales para aficionados están disponibles para los seis tipos de partidos de la fase de eliminación directa que la PMA seleccionada podría disputar (siempre que se clasifique a dichos partidos, ya que estos boletos se consideran condicionales). Estos boletos condicionales para aficionados solo serán válidos si la PMA se clasifica para el/los partido(s) correspondiente(s) de la fase de eliminación directa. Si la PMA es eliminada de la competición y posees boletos condicionales para aficionados para partidos posteriores de la fase de eliminación directa, dichos boletos dejarán de ser válidos. En este caso, los boletos condicionales para aficionados afectados serán reembolsados, menos una comisión de reembolso de 10 dólares estadounidenses (USD).
+					</p>
+				`,
+				fr: `
+					<p>
+						Les billets pour supporters sont disponibles pour les trois parties de la phase de groupes que la PMA sélectionnée disputera. Veuillez noter que ces trois parties de la phase de groupes ne sont pas considérées comme conditionnelles, les équipes nationales étant assurées de les jouer quel que soit le résultat. Les billets conditionnels de supporters sont disponibles pour les six types de parties de la phase à élimination directe que la PMA sélectionnée pourrait disputer (à condition qu’elle se qualifie pour ces parties, ces billets étant considérés comme conditionnels). Ces billets conditionnels pour supporters ne sont valables que si la PMA se qualifie pour la/les partie(s) correspondante(s) de la phase à élimination directe. Si la PMA est éliminée de la compétition et que vous détenez des billets conditionnels de supporters pour des parties ultérieures de la phase à élimination directe, ces billets cesseront d’être valables. Dans ce cas, les billets conditionnels de supporters concernés seront remboursés, moins des frais de remboursement de 10 dollars américains (USD).
+					</p>
+				`,
+				de: `
+					<p>
+						Fantickets sind für alle drei Gruppenspiele verfügbar, an denen der teilnehmende Mitgliedsverband (PMA) teilnehmen wird. Bitte beachten Sie, dass die drei Gruppenspiele nicht als bedingt gelten, da die Nationalmannschaften unabhängig vom Ausgang garantiert an diesen Spielen teilnehmen. Bedingte Fantickets sind für alle sechs Arten von K.-o.-Rundenspielen verfügbar, an denen die ausgewählte PMA möglicherweise teilnimmt (vorausgesetzt, sie qualifiziert sich für die K.-o.-Runde, da diese Tickets als bedingt gelten). Diese bedingten Fantickets sind nur gültig, wenn sich die PMA für das jeweilige K.-o.-Rundenspiel qualifiziert. Wenn die PMA aus dem Wettbewerb ausscheidet und Sie bedingte Fantickets für nachfolgende Spiele der zweiten Runde besitzen, verlieren diese Tickets ihre Gültigkeit. In solchen Fällen erstattet FIFA-Ticketing die betroffenen bedingten Fantickets, abzüglich einer Rückerstattungsgebühr von 10 US-Dollar (USD).
+					</p>
+				`
+			},
+	
+			CAD: {
+				en: `
+					<p>
+						Supporter Ticket(s) are available for all three group stage matches that the selected PMA will play. Please note that the three group stage matches are not considered conditional, as national teams are guaranteed to play in those matches regardless of the outcome. Conditional Supporter Ticket(s) are available for all six types of knockout stage matches that the selected PMA may play (provided they qualify for the knockout stage matches, as these tickets are considered conditional). These Conditional Supporter Tickets are valid only if the PMA qualifies for the respective knockout stage match(es). If the PMA is eliminated from the competition and you have Conditional Supporter Ticket(s) for subsequent second-round matches, the validity of these tickets will cease to exist. In such cases, FIFA Ticketing will refund the affected Conditional Supporter Ticket(s), minus a refund fee of 15 Canadian dollars (CAD).
+					</p>
+				`,
+				es: `
+					<p>
+						Los boletos de aficionado están disponibles para los tres partidos de la fase de grupos que la PMA seleccionada disputará. Ten en cuenta que estos tres partidos de la fase de grupos no se consideran condicionales, ya que las selecciones nacionales tienen garantizado disputar dichos encuentros independientemente del resultado. Los boletos condicionales para aficionados están disponibles para los seis tipos de partidos de la fase de eliminación directa que la PMA seleccionada podría disputar (siempre que se clasifique a dichos partidos, ya que estos boletos se consideran condicionales). Estos boletos condicionales para aficionados solo serán válidos si la PMA se clasifica para el/los partido(s) correspondiente(s) de la fase de eliminación directa. Si la PMA es eliminada de la competición y posees boletos condicionales para aficionados para partidos posteriores de la fase de eliminación directa, dichos boletos dejarán de ser válidos. En este caso, los boletos condicionales para aficionados afectados serán reembolsados, menos una comisión de reembolso de 15 dólares canadienses (CAD).
+					</p>
+				`,
+				fr: `
+					<p>
+						Les billets pour supporters sont disponibles pour les trois parties de la phase de groupes que la PMA sélectionnée disputera. Veuillez noter que ces trois parties de la phase de groupes ne sont pas considérées comme conditionnelles, les équipes nationales étant assurées de les jouer quel que soit le résultat. Les billets conditionnels de supporters sont disponibles pour les six types de parties de la phase à élimination directe que la PMA sélectionnée pourrait disputer (à condition qu’elle se qualifie pour ces parties, ces billets étant considérés comme conditionnels). Ces billets conditionnels pour supporters ne sont valables que si la PMA se qualifie pour la/les partie(s) correspondante(s) de la phase à élimination directe. Si la PMA est éliminée de la compétition et que vous détenez des billets conditionnels de supporters pour des parties ultérieures de la phase à élimination directe, ces billets cesseront d’être valables. Dans ce cas, les billets conditionnels de supporters concernés seront remboursés, moins des frais de remboursement de 15 dollars canadiens (CAD).
+					</p>
+				`,
+				de: `
+					<p>
+						Fantickets sind für alle drei Gruppenspiele verfügbar, an denen der teilnehmende Mitgliedsverband (PMA) teilnehmen wird. Bitte beachten Sie, dass die drei Gruppenspiele nicht als bedingt gelten, da die Nationalmannschaften unabhängig vom Ausgang garantiert an diesen Spielen teilnehmen. Bedingte Fantickets sind für alle sechs Arten von K.-o.-Rundenspielen verfügbar, an denen die ausgewählte PMA möglicherweise teilnimmt (vorausgesetzt, sie qualifiziert sich für die K.-o.-Runde, da diese Tickets als bedingt gelten). Diese bedingten Fantickets sind nur gültig, wenn sich die PMA für das jeweilige K.-o.-Rundenspiel qualifiziert. Wenn die PMA aus dem Wettbewerb ausscheidet und Sie bedingte Fantickets für nachfolgende Spiele der zweiten Runde besitzen, verlieren diese Tickets ihre Gültigkeit. In solchen Fällen erstattet FIFA-Ticketing die betroffenen bedingten Fantickets, abzüglich einer Rückerstattungsgebühr von 15 kanadischen Dollar (CAD).
+					</p>
+				`
+			},
+	
+			MXN: {
+				en: `
+					<p>
+						Supporter Ticket(s) are available for all three group stage matches that the selected PMA will play. Please note that the three group stage matches are not considered conditional, as national teams are guaranteed to play in those matches regardless of the outcome. Conditional Supporter Ticket(s) are available for all six types of knockout stage matches that the selected PMA may play (provided they qualify for the knockout stage matches, as these tickets are considered conditional). These Conditional Supporter Tickets are valid only if the PMA qualifies for the respective knockout stage match(es). If the PMA is eliminated from the competition and you have Conditional Supporter Ticket(s) for subsequent second-round matches, the validity of these tickets will cease to exist. In such cases, FIFA Ticketing will refund the affected Conditional Supporter Ticket(s), minus a refund fee of 200 Mexican pesos (MXN).
+					</p>
+					&nbsp;
+					<p>
+						Ticket Prices Range from 1,120 to 245,000 Mexican pesos (MXN).
+					</p>
+				`,
+				es: `
+					<p>
+						Los boletos de aficionado están disponibles para los tres partidos de la fase de grupos que la PMA seleccionada disputará. Ten en cuenta que estos tres partidos de la fase de grupos no se consideran condicionales, ya que las selecciones nacionales tienen garantizado disputar dichos encuentros independientemente del resultado. Los boletos condicionales para aficionados están disponibles para los seis tipos de partidos de la fase de eliminación directa que la PMA seleccionada podría disputar (siempre que se clasifique a dichos partidos, ya que estos boletos se consideran condicionales). Estos boletos condicionales para aficionados solo serán válidos si la PMA se clasifica para el/los partido(s) correspondiente(s) de la fase de eliminación directa. Si la PMA es eliminada de la competición y posees boletos condicionales para aficionados para partidos posteriores de la fase de eliminación directa, dichos boletos dejarán de ser válidos. En este caso, los boletos condicionales para aficionados afectados serán reembolsados, menos una comisión de reembolso de 200 pesos mexicanos (MXN).
+					</p>
+					&nbsp;
+					<p>
+						Los precios de los boletos oscilan entre 1,120 y 245,000 pesos mexicanos (MXN).
+					</p>
+				`,
+				fr: `
+					<p>
+						Les billets pour supporters sont disponibles pour les trois parties de la phase de groupes que la PMA sélectionnée disputera. Veuillez noter que ces trois parties de la phase de groupes ne sont pas considérées comme conditionnelles, les équipes nationales étant assurées de les jouer quel que soit le résultat. Les billets conditionnels de supporters sont disponibles pour les six types de parties de la phase à élimination directe que la PMA sélectionnée pourrait disputer (à condition qu’elle se qualifie pour ces parties, ces billets étant considérés comme conditionnels). Ces billets conditionnels pour supporters ne sont valables que si la PMA se qualifie pour la/les partie(s) correspondante(s) de la phase à élimination directe. Si la PMA est éliminée de la compétition et que vous détenez des billets conditionnels de supporters pour des parties ultérieures de la phase à élimination directe, ces billets cesseront d’être valables. Dans ce cas, les billets conditionnels de supporters concernés seront remboursés, moins des frais de remboursement de 200 pesos mexicains (MXN).
+					</p>
+					&nbsp;
+					<p>
+						Les prix des billets varient entre 1 120 et 245 000 pesos mexicains (MXN).
+					</p>
+				`,
+				de: `
+					<p>
+						Fantickets sind für alle drei Gruppenspiele verfügbar, an denen der teilnehmende Mitgliedsverband (PMA) teilnehmen wird. Bitte beachten Sie, dass die drei Gruppenspiele nicht als bedingt gelten, da die Nationalmannschaften unabhängig vom Ausgang garantiert an diesen Spielen teilnehmen. Bedingte Fantickets sind für alle sechs Arten von K.-o.-Rundenspielen verfügbar, an denen die ausgewählte PMA möglicherweise teilnimmt (vorausgesetzt, sie qualifiziert sich für die K.-o.-Runde, da diese Tickets als bedingt gelten). Diese bedingten Fantickets sind nur gültig, wenn sich die PMA für das jeweilige K.-o.-Rundenspiel qualifiziert. Wenn die PMA aus dem Wettbewerb ausscheidet und Sie bedingte Fantickets für nachfolgende Spiele der zweiten Runde besitzen, verlieren diese Tickets ihre Gültigkeit. In solchen Fällen erstattet FIFA-Ticketing die betroffenen bedingten Fantickets, abzüglich einer Rückerstattungsgebühr von 200 mexikanischen Pesos (MXN).
+					</p>
+					&nbsp;
+					<p>
+						Die Ticketpreise reichen von 1.120 bis 245.000 mexikanischen Pesos (MXN).
+					</p>
+				`
+			}
+		};
+	
+		const injectContent = () => {
+			const container = document.querySelector("#collapsiblePanel_secondary_content_special_offer .content label");
+			if (!container || container.querySelector("#my-placeholder")) return false;
+	
+			const newDiv = document.createElement("div");
+			newDiv.id = "my-placeholder-list-events";
+	
+			const rawLang = (document.documentElement.lang || "en").toLowerCase();
+			const lang = rawLang.split("-")[0];
+	
+			const content =
+				translations[portal]?.[lang] ||
+				translations[portal]?.en ||
+				translations.USD.en;
+	
+			newDiv.innerHTML = content;
+			container.append(newDiv);
+	
+			return true;
+		};
+	
+		if (injectContent()) return;
+	
+		const observer = new MutationObserver((mutations, obs) => {
+			if (injectContent()) {
+				obs.disconnect();
+			}
+		});
+	
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+	appendDivtoListEvents();
+
+	function appendDivtoProductPage() {
+		const includePaths = ["/secure/selection/event/date/product"];
+		if (!includePaths.some(path => window.location.pathname.startsWith(path))) return;
+
+		const domain = window.location.hostname;
+		let currency = "USD";
+
+		if (domain.includes("fwc26-shop-cad")) currency = "CAD";
+		else if (domain.includes("fwc26-shop-mex")) currency = "MXN";
+		else currency = "USD";
+
+		const translations = {
+			en: {
+				USD: `The total price below is stated in US Dollars (USD) and is inclusive of all and any applicable taxes. Teams will be confirmed at a later date. Ticket prices are subject to change. For more information see the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Terms of Sale</a>.`,
+				CAD: `The total price below is stated in Canadian Dollars (CAD) and is inclusive of all and any applicable taxes. Teams will be confirmed at a later date. Ticket prices are subject to change. For more information see the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Terms of Sale</a>.`,
+				MXN: `The total price below is stated in Mexican Pesos (MXN) and is inclusive of all and any applicable taxes. Teams will be confirmed at a later date. Ticket prices are subject to change. For more information see the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Terms of Sale</a>.`
+			},
+			fr: {
+				USD: `Le prix total indiqué ci-dessous est exprimé en dollars américains (USD) et inclut toutes les taxes applicables. Les équipes seront confirmées à une date ultérieure. Les prix des billets sont susceptibles d’être modifiés. Pour plus d’informations, veuillez consulter les <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">« Terms of Sale »</a>.`,
+				CAD: `Le prix total indiqué ci-dessous est exprimé en dollars canadiens (CAD) et inclut toutes les taxes applicables. Les équipes seront confirmées à une date ultérieure. Les prix des billets sont susceptibles d’être modifiés. Pour plus d’informations, veuillez consulter les <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">« Terms of Sale »</a>.`,
+				MXN: `Le prix total indiqué ci-dessous est exprimé en pesos mexicains (MXN) et inclut toutes les taxes applicables. Les équipes seront confirmées à une date ultérieure. Les prix des billets sont susceptibles d’être modifiés. Pour plus d’informations, veuillez consulter les <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">« Terms of Sale »</a>.`
+			},
+			es: {
+				USD: `El precio total indicado a continuación está expresado en dólares estadounidenses (USD) e incluye todos los impuestos aplicables. Los equipos se confirmarán en una fecha posterior. Los precios de los boletos están sujetos a cambios. Para más información, consulta los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank">Términos de Venta</a>.`,
+				CAD: `El precio total indicado a continuación está expresado en dólares canadienses (CAD) e incluye todos los impuestos aplicables. Los equipos se confirmarán en una fecha posterior. Los precios de los boletos están sujetos a cambios. Para más información, consulta los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank">Términos de Venta</a>.`,
+				MXN: `El precio total indicado a continuación está expresado en pesos mexicanos (MXN) e incluye todos los impuestos aplicables. Los equipos se confirmarán en una fecha posterior. Los precios de los boletos están sujetos a cambios. Para más información, consulta los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank">Términos de Venta</a>.`
+			},
+			de: {
+				USD: `Der unten angegebene Gesamtpreis ist in US-Dollar (USD) ausgewiesen und enthält alle anwendbaren Steuern. Die teilnehmenden Teams werden zu einem späteren Zeitpunkt bekannt gegeben. Ticketpreise können sich ändern. Weitere Informationen finden Sie in den <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Verkaufsbedingungen (Terms of Sale)</a>.`,
+				CAD: `Der unten angegebene Gesamtpreis ist in kanadischen Dollar (CAD) ausgewiesen und enthält alle anwendbaren Steuern. Die teilnehmenden Teams werden zu einem späteren Zeitpunkt bekannt gegeben. Ticketpreise können sich ändern. Weitere Informationen finden Sie in den <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Verkaufsbedingungen (Terms of Sale)</a>.`,
+				MXN: `Der unten angegebene Gesamtpreis ist in mexikanischen Pesos (MXN) ausgewiesen und enthält alle anwendbaren Steuern. Die teilnehmenden Teams werden zu einem späteren Zeitpunkt bekannt gegeben. Ticketpreise können sich ändern. Weitere Informationen finden Sie in den <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Verkaufsbedingungen (Terms of Sale)</a>.`
+			}
+		};
+
+		const observer = new MutationObserver((mutations, obs) => {
+			const container = document.querySelector("#product_header");
+			if (container && !container.querySelector("#my-placeholder")) {
+				const newDiv = document.createElement("div");
+				newDiv.id = "my-placeholder";
+
+				const lang = document.documentElement.lang || "en";
+				const content = translations[lang]?.[currency] || translations["en"]["USD"];
+
+				newDiv.innerHTML = `<p>${content}</p><br>`;
+				container.prepend(newDiv);
+
+				obs.disconnect();
+			}
+		});
+
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+	// appendDivtoProductPage();
+
+	function appendDivtoProductPagePlayoff() {
+		if (window.location.href.includes('playoff')) {
+			const includePaths = ["/secure/selection/event/date/product"];
+			if (!includePaths.some(path => window.location.pathname.startsWith(path))) return;
+
+			const domain = window.location.hostname;
+			let currency = "USD";
+
+			const translations = {
+				en: {
+					USD: `All kick-off times are local times and subject to change.`,
+				},
+				es: {
+					USD: `Todos los horarios de inicio son horarios locales y están sujetos a cambios.`,
+				}
+			};
+
+			const observer = new MutationObserver((mutations, obs) => {
+				const container = document.querySelector("#performance_chooser .title");
+				if (container && !container.querySelector("#my-placeholder")) {
+					const newDiv = document.createElement("div");
+					newDiv.id = "my-placeholder-playoff-products";
+
+					const lang = document.documentElement.lang || "en";
+					const content = translations[lang]?.[currency] || translations["en"]["USD"];
+
+					newDiv.innerHTML = `<p>${content}</p><br>`;
+					container.append(newDiv);
+
+					obs.disconnect();
+				}
+			});
+
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
+	}
+	appendDivtoProductPagePlayoff();
+
+	function appendDivtoTeamSpecificPage() {
+		const includePaths = ["/secured/selection/package"];
+		if (!includePaths.some(path => window.location.pathname.startsWith(path))) return;
+
+		const domain = window.location.hostname;
+		let currency = "USD";
+
+		if (domain.includes("fwc26-shop-cad")) currency = "CAD";
+		else if (domain.includes("fwc26-shop-mex")) currency = "MXN";
+		else currency = "USD";
+
+		const translations = {
+			en: {
+				USD: `The total price below is stated in US Dollars (USD) and is inclusive of all and any applicable taxes. For more information on the Team-Specific Packages, including what happens if your team is not drawn or does not advance, see the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Terms of Sale</a>.`,
+				CAD: `The total price below is stated in Canadian Dollars (CAD) and is inclusive of all and any applicable taxes. For more information on the Team-Specific Packages, including what happens if your team is not drawn or does not advance, see the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Terms of Sale</a>.`,
+				MXN: `The total price below is stated in Mexican Pesos (MXN) and is inclusive of all and any applicable taxes. For more information on the Team-Specific Packages, including what happens if your team is not drawn or does not advance, see the <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Terms of Sale</a>.`
+			},
+			fr: {
+				USD: `Le prix total indiqué ci-dessous est exprimé en dollars américains (USD) et inclut toutes les taxes applicables. Pour plus d’informations sur les billets pour une partie d’une équipe, y compris ce qui se passe si votre équipe n’est pas tirée au sort ou ne se qualifie pas, veuillez consulter les <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">« Terms of Sale »</a>.`,
+				CAD: `Le prix total indiqué ci-dessous est exprimé en dollars canadiens (CAD) et inclut toutes les taxes applicables. Pour plus d’informations sur les billets pour une partie d’une équipe, y compris ce qui se passe si votre équipe n’est pas tirée au sort ou ne se qualifie pas, veuillez consulter les <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">« Terms of Sale »</a>.`,
+				MXN: `Le prix total indiqué ci-dessous est exprimé en pesos mexicains (MXN) et inclut toutes les taxes applicables. Pour plus d’informations sur les billets pour une partie d’une équipe, y compris ce qui se passe si votre équipe n’est pas tirée au sort ou ne se qualifie pas, veuillez consulter les <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">« Terms of Sale »</a>.`
+			},
+			es: {
+				USD: `El precio total indicado a continuación está expresado en dólares estadounidenses (USD) e incluye todos los impuestos aplicables. Para más información sobre los paquetes relacionados con equipos, incluyendo lo que sucede si tu equipo no es seleccionado o no avanza, consulta los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank">Términos de Venta</a>.`,
+				CAD: `El precio total indicado a continuación está expresado en dólares canadienses (CAD) e incluye todos los impuestos aplicables. Para más información sobre los paquetes relacionados con equipos, incluyendo lo que sucede si tu equipo no es seleccionado o no avanza, consulta los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank">Términos de Venta</a>.`,
+				MXN: `El precio total indicado a continuación está expresado en pesos mexicanos (MXN) e incluye todos los impuestos aplicables. Para más información sobre los paquetes relacionados con equipos, incluyendo lo que sucede si tu equipo no es seleccionado o no avanza, consulta los <a href="https://digitalhub.fifa.com/m/7860efc13c8e4555/original/Terminos-de-Venta.pdf" target="_blank">Términos de Venta</a>.`
+			},
+			de: {
+				USD: `Der unten angegebene Gesamtpreis ist in US-Dollar (USD) ausgewiesen und enthält alle anwendbaren Steuern. Weitere Informationen zu den Teamticket-Paketen, einschließlich der Regelungen, falls Ihr Team nicht ausgelost wird oder nicht weiterkommt, finden Sie in den Verkaufsbedingungen <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Verkaufsbedingungen (Terms of Sale)</a>.`,
+				CAD: `Der unten angegebene Gesamtpreis ist in kanadischen Dollar (CAD) ausgewiesen und enthält alle anwendbaren Steuern. Weitere Informationen zu den Teamticket-Paketen, einschließlich der Regelungen, falls Ihr Team nicht ausgelost wird oder nicht weiterkommt, finden Sie in den Verkaufsbedingungen <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Verkaufsbedingungen (Terms of Sale)</a>.`,
+				MXN: `Der unten angegebene Gesamtpreis ist in mexikanischen Pesos (MXN) ausgewiesen und enthält alle anwendbaren Steuern. Weitere Informationen zu den Teamticket-Paketen, einschließlich der Regelungen, falls Ihr Team nicht ausgelost wird oder nicht weiterkommt, finden Sie in den Verkaufsbedingungen <a href="https://digitalhub.fifa.com/m/ee9d91f85c9f113/original/FIFA-World-Cup-26-Ticket-Terms-Of-Sale.pdf" target="_blank">Verkaufsbedingungen (Terms of Sale)</a>.`
+			}
+		};
+
+		const observer = new MutationObserver((mutations, obs) => {
+			const container = document.querySelector("#product_header");
+			if (container && !container.querySelector("#my-placeholder")) {
+				const newDiv = document.createElement("div");
+				newDiv.id = "my-placeholder";
+
+				const lang = document.documentElement.lang || "en";
+				const content = translations[lang]?.[currency] || translations["en"]["USD"];
+
+				newDiv.innerHTML = `<p>${content}</p><br>`;
+				container.prepend(newDiv);
+
+				obs.disconnect();
+			}
+		});
+
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+	appendDivtoTeamSpecificPage();
+
+	/* FIFASTX-5688 - Button to be re-enabled on the 1st of oct 
+	function updateAccountShopLinks() {
+		if (!window.location.pathname.startsWith("/account")) return;
+
+		const shopUrls = {
+			"pos_26FCFSUS": "https://fwc26-shop-usd.tickets.fifa.com/secured/content",
+			"pos_26FSFSCA": "https://fwc26-shop-cad.tickets.fifa.com/secured/content",
+			"pos_26FCFSCA": "https://fwc26-shop-cad.tickets.fifa.com/secured/content",
+			"pos_26FCFSMX": "https://fwc26-shop-mex.tickets.fifa.com/secured/content"
+		};
+
+		const htmlClass = document.documentElement.className;
+
+		let targetUrl = null;
+		for (const shopClass in shopUrls) {
+			if (htmlClass.includes(shopClass)) {
+				targetUrl = shopUrls[shopClass];
+				break;
+			}
+		}
+		if (!targetUrl) return;
+		const buttons = document.querySelectorAll("span.action_buttons_0 a");
+		buttons.forEach(button => {
+			button.href = targetUrl;
+		});
+	}*/
+
+	/*FIFASTX-5900  - Implement Smaller HOSP Banner on Shop Pages*/
+	function insertHOSP() {
+		const excludedPaths = ["/account/register", "/secured/content", "/content"];
+		if (excludedPaths.includes(window.location.pathname)) return;
+
+		// Check <html> classes
+		const html = document.documentElement;
+		const validShopClasses = ["pos_26SHOPUS", "pos_26SHOPCA", "pos_26SHOPMX", "pos_26FCFSUS", "pos_26FCFSMX", "pos_26FCFSCA", "pos_26FSFSCA", "pos_26PGPM"];
+
+		const hasValidShop = validShopClasses.some(cls => html.classList.contains(cls));
+		if (!html.classList.contains("eda_productionenv") || !hasValidShop) return;
+
+		const visaBanner = document.querySelector(".custom-image-wrapper.secondary_content");
+		if (visaBanner) {
+			const smallWrapper = document.createElement("section");
+			smallWrapper.classList.add("custom-image-wrapper", "secondary_content");
+
+			const smallLink = document.createElement("a");
+			smallLink.href =
+				"https://fifaworldcup26.hospitality.fifa.com?utm_source=FIFA&utm_medium=fifa-banner&utm_campaign=FWC26_Awareness_B2C_lmts_lmtsBanner&xref=FIFA_fifa-banner_B2C";
+			smallLink.target = "_blank";
+			smallLink.rel = "noopener noreferrer";
+
+			const smallLogo = document.createElement("img");
+			if (document.querySelector("html[lang=en]")) {
+				smallLogo.src = "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg";
+				smallLogo.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg");
+			} else if (document.querySelector("html[lang=fr]")) {
+				smallLogo.src = "/custom/images/FWC26_CheckoutBannerAd_FRE.jpg";
+				smallLogo.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_FRE.jpg");
+			} else if (document.querySelector("html[lang=es]")) {
+				smallLogo.src = "/custom/images/FWC26_CheckoutBannerAd_SPA(Spain).jpg";
+				smallLogo.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_SPA(Spain).jpg");
+			} else if (document.querySelector("html[lang=de]")) {
+				smallLogo.src = "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg";
+				smallLogo.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg");
+			}
+			smallLogo.classList.add("small-hospitality-logo");
+
+			smallLink.appendChild(smallLogo);
+			smallWrapper.appendChild(smallLink);
+
+			visaBanner.insertAdjacentElement("afterend", smallWrapper);
+		}
+	}
+
+	/*FIFASTX-5888  - Changing languages in all portals not working on some pages*/
+	function sendParentUrlToIframe() {
+		const iframe = document.getElementById("isolated_header_iframe");
+		if (iframe && iframe.contentWindow) {
+			iframe.contentWindow.postMessage(
+				{ currentUrl: window.location.href },
+				"*"
+			);
+		}
+	}
+
+	function displayVisaPresaleDraw() {
+		try {
+			const path = window.location.pathname;
+
+			const checkoutPaths = ["/checkout/confirmation", "/checkout/payment", "/checkout/summary", "/cart/shoppingCart"];
+			let container = null;
+
+			if (checkoutPaths.includes(path)) {
+				container = document.getElementById("main_content_container");
+			}
+			else if (path.includes("/secure/selection/event/date/product")) {
+				container = document.getElementById("product_header");
+			}
+
+			if (container) {
+				if (!container.querySelector(".stx-SectionHeading.stx-SectionHeading-SING.sc-gpHHfC.deTWVQ.sc-jAaTju.iPsbBl")) {
+					const heading = document.createElement("h2");
+					heading.className = "stx-SectionHeading stx-SectionHeading-SING sc-gpHHfC.deTWVQ.sc-jAaTju.iPsbBl VISA_PRESALE";
+
+					if (document.querySelector("html[lang=en]")) heading.textContent = "Visa Presale Draw";
+					else if (document.querySelector("html[lang=fr]")) heading.textContent = "Tirage au sort pour la phase de prévente Visa";
+					else if (document.querySelector("html[lang=es]")) heading.textContent = "Sorteo preferente de Visa";
+					else if (document.querySelector("html[lang=de]")) heading.textContent = "Visa-Vorverkaufsziehung";
+					else heading.textContent = "Visa Presale Draw";
+
+					container.insertAdjacentElement("afterbegin", heading);
+				}
+			} else {
+				console.error("Target container not found for this page.");
+			}
+		} catch (error) {
+			console.error("An error occurred while updating content:", error);
+		}
+	}
+
+	/*FIFASTX-5961  -  On "My Tickets" Customer should be able to see the tickets details cancel for resale*/
+	function removeAdditionalElements() {
+		const els = document.querySelectorAll(".manage_ticket_actions_button_container");
+		els.forEach(el => {
+			el.style.display = "none";
+			el.classList.remove("hidden");
+		});
+		const els2 = document.querySelectorAll(".resale_info_action_container");
+		els2.forEach(el => {
+			el.style.display = "none";
+			el.classList.remove("hidden");
+		});
+	}
+
+	/*FIFASTX-6133  -  Hyperlink in popup to open in a new tab*/
+	function applyTargetBlankToDialogLinks() {
+		try {
+			if (!location.pathname.startsWith('/secured/content')) return;
+			const dialog = document.querySelector('#stx-lt-subscriptionSummary-panel-dialog');
+			if (!dialog) {
+				console.log("applyTargetBlankToDialogLinks: Dialog not found yet, retrying...");
+				setTimeout(applyTargetBlankToDialogLinks, 500);
+				return;
+			}
+
+			const links = dialog.querySelectorAll('a');
+			if (!links.length) {
+				console.log("applyTargetBlankToDialogLinks: No links found in dialog.");
+				return;
+			}
+
+			links.forEach(link => {
+				if (!link.hasAttribute('target')) {
+					link.setAttribute('target', '_blank');
+					console.log("applyTargetBlankToDialogLinks: Added target=_blank to", link.href);
+				}
+				if (!link.hasAttribute('rel')) {
+					link.setAttribute('rel', 'noopener noreferrer');
+				}
+			});
+			console.log("applyTargetBlankToDialogLinks: All dialog links updated.");
+		} catch (err) {
+			console.error("applyTargetBlankToDialogLinks: Error", err);
+		}
+	}
+
+     // ONLY FOR PROD
+    const idToCountry = {
+        "10229650558900": "fifa_l",
+        "10229526121143": "fifa_l",
+        "10229651558999": "fifa_l",
+        "10229393573692": "fifa_l",
+        "10229650502037": "algeria",
+        "10229652489414": "argentina",
+        "10229652489415": "argentina",
+        "10229652489416": "argentina",
+        "10229652489417": "argentina",
+        "10229652489418": "australia",
+        "10229652489433": "austria",
+        "10229652489421": "belgium",
+        "10229652489422": "belgium",
+        "10229664710518": "belgium",
+        "10229650503451": "brazil",
+        "10229651559002": "canada",
+        "10229652489419": "cabo_verde",
+        "10229652489420": "colombia",
+        "10229654278124": "colombia",
+        "10229654278125": "colombia",
+        "10229654278126": "colombia",
+        "10229533200449": "colombia",
+        "10229650506178": "ivory_coast",
+        "10229652489434": "croatia",
+        "10229653391048": "curaçao",
+        "10229651559003": "ecuador",
+        "10229650506179": "egypt",
+        "10229653391041": "england",
+        "10229653391042": "england",
+        "10229653391043": "england",
+        "10229654278128": "england",
+        "10229651559010": "france",
+        "10229652489426": "germany",
+        "10229652489427": "germany",
+        "10229652489428": "germany",
+        "10229651559004": "ghana",
+        "10229652489435": "haiti",
+        "10229652489432": "iran",
+        "10229650506180": "japan",
+        "10229651559005": "jordan",
+        "10229650506182": "korea",
+        "10229651559006": "mexico",
+        "10229653391044": "morocco",
+        "10229652489429": "netherlands",
+        "10229652489430": "netherlands",
+        "10229651559007": "new_zealand",
+        "10229651559011": "norway",
+        "10229652489431": "panama",
+        "10229650506181": "paraguay",
+        "10229652489425": "portugal",
+        "10229652489436": "qatar",
+        "10229652489437": "saudi_arabia",
+        "10229653391046": "scotland",
+        "10229653391047": "scotland",
+        "10229654278127": "scotland",
+        "10229652489423": "senegal",
+        "10229652489424": "south_africa",
+        "10229652489438": "spain",
+        "10229653391045": "switzerland",
+        "10229664710517": "switzerland",
+        "10229650506183": "tunisia",
+        "10229651559008": "uruguay",
+        "10229664710515": "uruguay",
+        "10229650492745": "united_states",
+        "10229650506184": "uzbekistan"
+    };
+
+
+	// Insert flag for a single container
+    function insertFlagFor(container) {
+        if (!container) return;
+
+        const ballotId = container.id.replace("stx-ballot-selection-details-", "");
+        const slug = idToCountry[ballotId];
+        if (!slug) return;
+
+        container.classList.add(`flag-${slug}`);
+
+        if (container.querySelector(':scope > .stx-ballot-flag')) return;
+
+        const flagWrapper = document.createElement('div');
+        flagWrapper.className = 'stx-ballot-flag tw-flex tw-items-center tw-px-2';
+        flagWrapper.setAttribute('aria-hidden', 'true');
+
+        const img = document.createElement('img');
+        img.alt = `${slug} flag`;
+        img.loading = 'lazy';
+        img.style.width = '28px';
+        img.style.height = 'auto';
+        img.style.objectFit = 'contain';
+
+        const srcBase = `/custom/images/flags/${slug}`;
+        img.src = `${srcBase}.png`;
+        img.onerror = () => {
+            img.onerror = null;
+            img.src = `${srcBase}.svg`;
+        };
+
+        flagWrapper.appendChild(img);
+        container.insertBefore(flagWrapper, container.firstChild);
+    }
+
+    function insertFlagsForAll() {
+        document
+            .querySelectorAll('.stx-ballot-selection-details')
+            .forEach(insertFlagFor);
+    }
+
+	/*FIFASTX-6244  -  Super Ticket Package - Hardcoded labels*/
+	// function addFifaInstructionSection() {
+	// 	const allowedUrls = [
+	// 		"https://fwc26-shop-usd.tickets.fifa.com/",
+	// 		"https://fwc26-shop-cad.tickets.fifa.com/",
+	// 		"https://fwc26-shop-mex.tickets.fifa.com/"
+	// 	];
+	//
+	// 	const currentUrl = window.location.href;
+	// 	if (!allowedUrls.some(url => currentUrl.startsWith(url))) return;
+	//
+	// 	const container = document.querySelector("#collapsiblePanel_main_content_file_details");
+	// 	if (!container) return;
+	//
+	// 	const referenceSection = container.querySelector("section.message.instruction");
+	// 	if (!referenceSection) return;
+	//
+	// 	if (container.querySelector("#fifa-instruction-section")) return;
+	//
+	// 	let lang = "en";
+	// 	if (document.querySelector("html[lang=fr]")) lang = "fr";
+	// 	else if (document.querySelector("html[lang=es]")) lang = "es";
+	// 	else if (document.querySelector("html[lang=de]")) lang = "de";
+	//
+	// 	const messages = {
+	// 		en: `Below is the number of tickets you are eligible to purchase for the FIFA World Cup 26™.
+	// 		If you have purchased multiple Super Ticket Packs and would like to purchase fewer tickets than the number you are eligible to buy,
+	// 		please email fwc2026.ticketing.enquiries@tickets.fifa.org with the desired quantity you wish to purchase.`,
+	//
+	// 		fr: `Voici le nombre de billets que vous êtes autorisé à acheter pour la Coupe du Monde de la FIFA 2026™.
+	// 		Si vous avez acheté plusieurs « Super Ticket Packs » et souhaitez acheter moins de billets que le nombre auquel vous êtes éligible,
+	// 		veuillez envoyer un e-mail à fwc2026.ticketing.enquiries@tickets.fifa.org en précisant la quantité souhaitée.`,
+	//
+	// 		es: `A continuación verás la cantidad de boletos que puedes comprar para la Copa Mundial de la FIFA 26™.
+	// 		Si compraste varios Super Ticket Packs y quieres adquirir menos boletos de las que te corresponden,
+	// 		simplemente envía un correo a fwc2026.ticketing.enquiries@tickets.fifa.org indicando cuántas deseas comprar.`,
+	//
+	// 		de: `Nachfolgend finden Sie die Anzahl der Tickets, die Sie für die FIFA Fussball-Weltmeisterschaft 26™ erwerben dürfen.
+	// 		Wenn Sie mehrere Super-Ticketpakete gekauft haben und weniger Tickets erwerben möchten als Ihnen zustehen,
+	// 		senden Sie bitte eine E-Mail mit der gewünschten Ticketanzahl an fwc2026.ticketing.enquiries@tickets.fifa.org.`
+	// 	};
+	//
+	// 	const message = messages[lang] || messages.en;
+	//
+	// 	const newSection = document.createElement("section");
+	// 	newSection.className = "message instruction";
+	// 	newSection.id = "fifa-instruction-section";
+	// 	newSection.innerHTML = `<p>${message}</p>`;
+	//
+	// 	referenceSection.insertAdjacentElement("afterend", newSection);
+	// }
+
+	/*FIFASTX-6237  -  Punctuation inconsistency*/
+	function cleanEmailComma() {
+		const emailElements = document.querySelectorAll(".email_phone_container .email");
+		if (emailElements.length === 0) return;
+		emailElements.forEach(el => {
+			const originalText = el.textContent.trim();
+			const cleanedText = originalText.replace(/,\s*$/, "");
+			if (originalText !== cleanedText) el.textContent = cleanedText;
+		});
+	}
+
+	function updateFifaDeliveryText() {
+		const deliveryEl = Array.from(document.querySelectorAll(".semantic-no-styling.label_value")).find(el => {
+			const labelText = el.querySelector(".label")?.textContent.trim().toLowerCase();
+			return ["delivery method", "méthode de livraison", "método de entrega", "liefermethode"].includes(labelText);
+		});
+		if (!deliveryEl) return;
+	
+		const valueEl = deliveryEl.querySelector(".value");
+		if (!valueEl) return;
+	
+		let lang = "en";
+		if (document.querySelector("html[lang=fr]")) lang = "fr";
+		else if (document.querySelector("html[lang=es]")) lang = "es";
+		else if (document.querySelector("html[lang=de]")) lang = "de";
+	
+		const isPlayoff = window.location.href.toLowerCase().includes("playoff");
+	
+		const defaultTranslations = {
+			en: "Delivery to FIFA World Cup 26™ App.",
+			fr: "Livraison à travers l’application de la Coupe du Monde de la FIFA 2026™.",
+			es: "Entrega en la aplicación de la Copa Mundial de la FIFA 26™.",
+			de: "Zustellung über die App der FIFA Fussball-Weltmeisterschaft 26™."
+		};
+	
+		const playoffTranslations = {
+			en: "Delivery to the official FIFA mobile tickets app.",
+			es: "Entrega en la aplicación oficial de boletos móviles de la FIFA."
+		};
+	
+		const translations = isPlayoff ? playoffTranslations : defaultTranslations;
+	
+		valueEl.textContent = translations[lang] || translations.en;
+	}
+
+	function appendHospitalityCTA() {
+		let lang = "en";
+		if (document.querySelector("html[lang=fr]")) lang = "fr";
+		else if (document.querySelector("html[lang=es]")) lang = "es";
+		else if (document.querySelector("html[lang=de]")) lang = "de";
+
+		const buttonText = {
+			en: "Explore Ticket-Inclusive Hospitality packages here",
+			de: "Hier Hospitality-Pakete samt Tickets entdecken",
+			fr: "Découvrez ici nos formules hospitalité (billets compris)",
+			es: "Descubre los paquetes de hospitality con entradas"
+		};
+
+		function processContainer(container) {
+			if (container.querySelector(".sold_out_cta")) return;
+
+			const availabilityEl = container.querySelector(
+				".availability_status .text span[aria-hidden='true']"
+			);
+			if (!availabilityEl) return;
+
+			const text = availabilityEl.innerText.trim().toLowerCase();
+			const soldOutTexts = [
+				"not available",
+				"non disponible",
+				"nicht verfügbar",
+				"no disponible"
+			];
+			const isSoldOut = soldOutTexts.includes(text);
+			if (!isSoldOut) return;
+
+			const buttonsArea = container.querySelector(".buttons");
+			if (!buttonsArea) return;
+
+			const btn = document.createElement("a");
+			btn.href =
+				"https://fifaworldcup26.hospitality.fifa.com?utm_source=FIFA&utm_medium=fifa-webresell&utm_campaign=FWC26_Awareness_B2C_alwayson_ResaleHOSButton&xref=FIFA_fifa-webresell_B2C";
+			btn.className = "sold_out_cta";
+			btn.target = "_blank";
+			btn.innerText = buttonText[lang] || buttonText.en;
+
+			btn.style.display = "block";
+			btn.style.marginTop = "10px";
+			btn.style.padding = "6px 10px";
+			btn.style.backgroundColor = "#7B1FA2";
+			btn.style.color = "#FFF";
+			btn.style.textAlign = "center";
+			btn.style.borderRadius = "1000px";
+			btn.style.fontWeight = "600";
+			btn.style.textDecoration = "none";
+
+			buttonsArea.appendChild(btn);
+		}
+
+		document.querySelectorAll(".availability_container").forEach(processContainer);
+
+		const observer = new MutationObserver((mutations) => {
+			mutations.forEach((mutation) => {
+				mutation.addedNodes.forEach((node) => {
+					if (node.nodeType !== 1) return;
+
+					if (node.matches && node.matches(".availability_container")) {
+						processContainer(node);
+					}
+
+					const nestedContainers = node.querySelectorAll?.(".availability_container");
+					if (nestedContainers) nestedContainers.forEach(processContainer);
+				});
+			});
+		});
+
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+
+
+	/*FIFASTX-6256  -  Remove the date - conditional matches*/
+    function addClassIfGRP() {
+        const allGroups = document.querySelectorAll('.stx-lt-performance-group');
+
+        allGroups.forEach(group => {
+            const label = group.textContent.trim();
+            const wrapper = group.closest('.stx-performance-info-wrapper');
+
+            if (!wrapper) return;
+
+            const container = wrapper.querySelector('.stx-lt-performance-info-container.tw-my-5.tw-w-full');
+            const hasSVG = container && container.querySelector('svg');
+            if (label.includes('GRP') || label.includes('M') || hasSVG) {
+                wrapper.classList.add('shows_dates_of_matches');
+            }
+
+            if (!label.includes('M') && !label.includes('GRP') && !hasSVG) {
+                wrapper.classList.add('to_be_determined');
+
+                const container = wrapper.querySelector('.stx-lt-performance-info-container.tw-my-5.tw-w-full');
+
+                if (container) {
+                    if (!container.querySelector('.stx-performance-date-determined')) {
+                        const dateDiv = document.createElement('div');
+                        dateDiv.className = 'stx-performance-date-determined tw-flex tw-flex-col tw-items-center';
+                        const dateP = document.createElement('p');
+
+                        let lang = "en";
+                        if (document.querySelector("html[lang=fr]")) lang = "fr";
+                        else if (document.querySelector("html[lang=es]")) lang = "es";
+                        else if (document.querySelector("html[lang=de]")) lang = "de";
+
+                        const buttonText = {
+                            en: "Date to be determined",
+                            de: "Datum wird noch festgelegt",
+                            fr: "Date à déterminer",
+                            es: "Fecha por determinar"
+                        };
+                        dateP.textContent = 'DATE TO BE DETERMINED';
+                        dateP.textContent = buttonText[lang] || buttonText.en;
+                        dateDiv.appendChild(dateP);
+                        container.appendChild(dateDiv);
+                    }
+                }
+            }
+        });
+    }
+
+    // FIFASTX-6365 - start
+	/*function categorizeSeatBlocks() {
+		const nameElements = document.querySelectorAll('[id^="stx-lt-seatCategory-name"]');
+
+		nameElements.forEach(nameEl => {
+			const text = nameEl.textContent.trim().toLowerCase();
+			let classToAdd = null;
+
+			if (text.includes("wheelchair")) {
+				classToAdd = "category_wheelchair";
+			} else if (text.includes("easy access")) {
+				classToAdd = "category_easy_access";
+			} else {
+				classToAdd = "category_standard";
+			}
+
+			const wrapper = nameEl.closest('.sc-clsFYl.ilVrXU');
+			if (wrapper) wrapper.classList.add(classToAdd);
+		});
+	}
+	function initCategoryLocking() {
+		const buttons = document.querySelectorAll(
+			'.stx-tariff-quantity-increase-button, .stx-tariff-quantity-decrease-button'
+		);
+
+		buttons.forEach(btn => {
+			btn.addEventListener('click', () => {
+				setTimeout(applyCategoryRules, 50);
+			});
+		});
+	}
+	function applyCategoryRules() {
+		const categories = ["category_standard", "category_wheelchair", "category_easy_access"];
+		let activeCategory = null;
+
+		categories.forEach(cat => {
+			const wrappers = document.querySelectorAll(`.${cat}`);
+			let hasQty = false;
+
+			wrappers.forEach(wrapper => {
+				const tariffs = wrapper.nextElementSibling;
+				if (!tariffs) return;
+
+				const qtySpans = tariffs.querySelectorAll(".stx-tariff-quantity-selection-quantity");
+				qtySpans.forEach(q => {
+					const val = parseInt(q.textContent.trim());
+					if (val > 0) hasQty = true;
+				});
+			});
+
+			if (hasQty) activeCategory = cat;
+		});
+
+		if (!activeCategory) {
+			unlockAllCategories();
+			return;
+		}
+
+		categories.forEach(cat => {
+			if (cat === activeCategory) {
+				unlockCategory(cat);
+			} else {
+				lockCategory(cat);
+			}
+		});
+	}
+	function lockCategory(cat) {
+		const wrappers = document.querySelectorAll(`.${cat}`);
+
+		wrappers.forEach(w => {
+			w.setAttribute("aria-disabled", "true");
+			w.classList.add("jNyUoR");
+			w.style.pointerEvents = "none";
+			w.style.opacity = "0.5";
+		});
+	}
+	function unlockCategory(cat) {
+		const wrappers = document.querySelectorAll(`.${cat}`);
+
+		wrappers.forEach(w => {
+			w.removeAttribute("aria-disabled");
+			w.classList.remove("jNyUoR");
+			w.style.pointerEvents = "";
+			w.style.opacity = "";
+		});
+	}
+	function unlockAllCategories() {
+		["category_standard", "category_wheelchair", "category_easy_access"]
+			.forEach(cat => unlockCategory(cat));
+	}
+	function initSeatCategorySystem() {
+		const container = document.querySelector(".stx-lt-ticketSelectionContainer");
+		if (!container) return;
+
+		categorizeSeatBlocks();
+		initCategoryLocking();
+	}*/
+    // FIFASTX-6365 - end
+
+    // function wrapBackButtonInStickyContainer() {
+    //     const backButton = document.querySelector(
+    //         'button[aria-label="Back to previous page"]'
+    //     );
+
+    //     if (!backButton) return;
+
+    //     const existingSticky = backButton.closest(".stx-lt-stickyContainerWrapper");
+    //     if (existingSticky) return;
+
+    //     const originalParent = backButton.parentNode;
+
+    //     const stickyWrapper = document.createElement("div");
+    //     stickyWrapper.className = "stx-lt-stickyContainerWrapper sticky";
+    //     stickyWrapper.style.cssText = 'background-color: var(--contentBgColor);  position: sticky; top: 0px; transition: padding 0.3s;  z-index: 11; padding: 0.75rem;';
+    //     originalParent.insertBefore(stickyWrapper, backButton);
+
+    //     stickyWrapper.appendChild(backButton);
+    // }
+
+    // if (location.hostname === "fifa-fwc26-us.tickets.fifa.com") {
+    //     initSeatCategorySystem();
+    // }
+
+    function removeItemsWithoutFlags() {
+        const list = document.querySelector('.stx-lt-filter-team .stx-multi-select-items');
+        if (!list) return;
+
+        const items = list.querySelectorAll('.stx-multi-select-item');
+
+        items.forEach(item => {
+            const hasFlag = item.querySelector('img');
+
+            if (!hasFlag) {
+              item.classList.add('hidden-by-flag-check');
+            }else{
+							item.classList.remove('hidden-by-flag-check');
+						}
+        });
+    }
+
+	/*FIFASTX-6769  - No match logos showing*/
+	function handleMatchLogos() {
+	  document.querySelectorAll('.match_logo_wrapper').forEach(wrapper => {
+	    const bgImage = wrapper.style.backgroundImage;
+	
+	    if (!bgImage || bgImage === 'none') {
+	      const overlay = wrapper.querySelector('.match_logo_overlay');
+	      if (overlay) {
+	        overlay.classList.add('no-logo');
+	      }
+	    }
+	  });
+	}
+
+	/*FIFASTX-6755  - Hide the TEAMS text on the file summary*/
+	function removeTeamsLabel() {
+	  const page = document.getElementById('page_account_file');
+	  if (!page) return;
+	
+	  const tariffHeaders = page.querySelectorAll('th.tariff');
+	
+	  tariffHeaders.forEach(th => {
+	    if (node.textContent.trim() === "Teams" || node.textContent.trim() === "Équipes" || node.textContent.trim() === "Ticketpreis" || node.textContent.trim() === "Equipos") {
+	      th.textContent = '';
+	    }
+	  });
+	}
+
+	/* FIFASTX-6755 - Hide the TEAMS text on the file summary */
+	function removeTeamsLabelcart() {
+	  const page =
+	    document.getElementById("page_cart_shoppingCart");
+	
+	  if (!page) return;
+	
+	  const tariffHeaders = page.querySelectorAll("th.tariff");
+	
+	  tariffHeaders.forEach((th) => {
+	    const textNodes = Array.from(th.childNodes).filter(
+	      (node) => node.nodeType === Node.TEXT_NODE
+	    );
+	
+	    textNodes.forEach((node) => {
+	      if (node.textContent.trim() === "Teams" || node.textContent.trim() === "Équipes" || node.textContent.trim() === "Ticketpreis" || node.textContent.trim() === "Equipos") {
+	        node.textContent = "";
+	      }
+			else if (node.textContent.trim() === "Ticket Price" || node.textContent.trim() === "Prix du billet" || node.textContent.trim() === "Ticketpreis" || node.textContent.trim() === "Precio del boleto") {
+	        node.textContent = "";
+	      }
+	    });
+	  });
+	}
+
+	/*FIFASTX-5964  -  Back to top button*/
+	function initBackToTop() {
+		if (document.getElementById("backToTopBtn")) return;
+
+		const validPaths = ["/secured/content", "/secure/selection/event/date/product", "/secured/selection"];
+		const currentPath = window.location.pathname;
+
+		const isValidPage = validPaths.some(prefix => currentPath.startsWith(prefix));
+		if (!isValidPage) return;
+
+		const backToTopBtn = document.createElement("button");
+		backToTopBtn.id = "backToTopBtn";
+		backToTopBtn.innerHTML = `
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="remixicon "><path d="M12 4.83582L5.79291 11.0429L7.20712 12.4571L12 7.66424L16.7929 12.4571L18.2071 11.0429L12 4.83582ZM12 10.4857L5.79291 16.6928L7.20712 18.107L12 13.3141L16.7929 18.107L18.2071 16.6928L12 10.4857Z"></path></svg>
+`;
+		document.body.appendChild(backToTopBtn);
+
+		window.addEventListener("scroll", () => {
+			backToTopBtn.classList.toggle("show", window.scrollY > 300);
+		});
+
+		backToTopBtn.addEventListener("click", () => {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
+	}
+
+	/*FIFASTX-6921  -  Add Team filter*/
+	function initTeamDropdownFilter() {
+		try {
+			const select = document.getElementById("team");
+			if (!select) return;
+			const removeKeywords = [
+				"1",
+				"2",
+				"3",
+				"European",
+				"Winner",
+				"Barrage",
+				"Vainqueur",
+				"Europäisches",
+				"Sieger",
+				"Eliminatoria",
+				"Ganador"
+			];
+	
+			const lowerKeywords = removeKeywords.map(k => k.toLowerCase());
+	
+			Array.from(select.options).forEach(option => {
+				if (option.value === "") return;
+				const text = option.textContent.toLowerCase();
+				const shouldRemove = lowerKeywords.some(keyword =>
+					text.includes(keyword)
+				);
+				if (shouldRemove) {
+					option.remove();
+				}
+			});
+		} catch (err) {
+			console.error("initTeamDropdownFilter error:", err);
+		}
+	}
+
+	function moveSeatPriceNextToCategory() {
+		if (window.location.href.includes("playoff")) return;
+		const containers = document.querySelectorAll(".stx-sm-SeatDetails-Details");
+		
+		containers.forEach((container) => {
+			const price = container.querySelector(".stx-sm-SeatDetails-Price-Info-Amount");
+			const label = container.querySelector(".stx-sm-SeatCatWrapper");
+		
+			if (!price || !label) return;
+		
+			if (label.nextElementSibling === price) return;
+		
+			label.insertAdjacentElement("afterend", price);
+		});
+	}
+
+	/*FIFASTX-6926  -  Fan of hidden in the Profile page*/
+	function initFanOfFieldLock() {
+	  const selector =
+	    "#page_account_editPersonalDetails #field_contactCriteria-FanOF26 select";
+	
+	  function handleFanOfField() {
+	    const select = document.querySelector(selector);
+	    if (!select) return;
+	
+	    const value = (select.value || "").toLowerCase().trim();
+	
+	    const isDefault =
+	      value === "" || value === "choose" || value.includes("choose");
+	
+	    select.classList.toggle("locked", !isDefault);
+	  }
+	
+	  handleFanOfField();
+	
+	  document.addEventListener("change", (e) => {
+	    if (e.target.matches(selector)) {
+	      handleFanOfField();
+	    }
+	  });
+	}
+
+	/*FIFASTX-6897  -  Select and Unselect all on the map page*/
+	function initSelectAllSeatCategories() {
+		const sidebar = document.querySelector(".stx-sm-sidebar-scroll-content");
+		if (!sidebar) return;
+	
+		const title = sidebar.querySelector(".stx-sm-seat-info-sub-title");
+		const existingWrap = document.getElementById("seatCategorySelectAllWrap");
+	
+		const getSeatBoxes = () =>
+			Array.from(sidebar.querySelectorAll(".stx-seat-info-price .stx-p-checkbox"));
+	
+		const boxes = getSeatBoxes();
+	
+		if (!title || !boxes.length) {
+			if (existingWrap) existingWrap.remove();
+			return;
+		}
+		if (existingWrap) {
+			const master = document.getElementById("seatCategorySelectAll");
+			if (!master) return;
+	
+			const checkedCount = boxes.filter(box =>
+				box.classList.contains("p-checkbox-checked")
+			).length;
+	
+			master.checked = checkedCount === boxes.length;
+			master.indeterminate = checkedCount > 0 && checkedCount < boxes.length;
+			return;
+		}
+	
+		const wrap = document.createElement("div");
+		wrap.id = "seatCategorySelectAllWrap";
+		wrap.style.margin = "12px 0";
+		wrap.style.display = "flex";
+		wrap.style.alignItems = "center";
+		wrap.style.gap = "8px";
+	
+		const master = document.createElement("input");
+		master.type = "checkbox";
+		master.id = "seatCategorySelectAll";
+	
+		const label = document.createElement("label");
+		label.htmlFor = "seatCategorySelectAll";
+		if (document.querySelector("html[lang=en]")) {
+			label.textContent = "Select / Unselect all";
+		} else if (document.querySelector("html[lang=fr]")) {
+			label.textContent = "Sélectionner / Désélectionner tout";	
+		} else if (document.querySelector("html[lang=es]")) {
+			label.textContent = "Seleccionar / Deseleccionar todo";
+		} else if (document.querySelector("html[lang=de]")) {
+			label.textContent = "Alle auswählen / Auswahl aufheben";
+		}
+		label.style.cursor = "pointer";
+		label.style.fontWeight = "600";
+	
+		wrap.appendChild(master);
+		wrap.appendChild(label);
+		title.insertAdjacentElement("afterend", wrap);
+	
+		function isChecked(box) {
+			return box.classList.contains("p-checkbox-checked");
+		}
+		function syncMaster() {
+			const currentBoxes = getSeatBoxes();
+	
+			if (!currentBoxes.length) {
+				const liveWrap = document.getElementById("seatCategorySelectAllWrap");
+				if (liveWrap) liveWrap.remove();
+				return;
+			}
+	
+			const checkedCount = currentBoxes.filter(isChecked).length;
+			master.checked = checkedCount === currentBoxes.length;
+			master.indeterminate =
+				checkedCount > 0 && checkedCount < currentBoxes.length;
+		}
+		function toggleAll() {
+			const currentBoxes = getSeatBoxes();
+			if (!currentBoxes.length) return;
+	
+			const allChecked = currentBoxes.every(isChecked);
+			const targetChecked = !allChecked;
+	
+			currentBoxes.forEach(box => {
+				if (isChecked(box) !== targetChecked) {
+					box.click();
+				}
+			});
+			setTimeout(syncMaster, 50);
+		}
+		syncMaster();
+		master.addEventListener("click", function () {
+			toggleAll();
+		});
+	
+		if (!sidebar.dataset.selectAllSeatBound) {
+			sidebar.dataset.selectAllSeatBound = "true";
+			sidebar.addEventListener("click", function (e) {
+				if (!e.target.closest(".stx-seat-info-price .stx-p-checkbox")) return;
+				setTimeout(syncMaster, 50);
+			});
+		}
+	}
+	
+	initSelectAllSeatCategories();
+	moveSeatPriceNextToCategory();
+	initFanOfFieldLock();
+	initTeamDropdownFilter();
+	initBackToTop();
+	removeTeamsLabel();
+	removeTeamsLabelcart();
+	handleMatchLogos();
+    removeItemsWithoutFlags();
+    addClassIfGRP();
+	appendHospitalityCTA();
+	updateFifaDeliveryText()
+	cleanEmailComma();
+	// addFifaInstructionSection();
+	insertFlagsForAll();
+	applyTargetBlankToDialogLinks();
+	removeAdditionalElements();
+	buyNowBurgerMenu();
+	hidePreferences();
+	hidePriceIfUnavailable();
+	// replaceWithYesNoButtons();
+	autocompleteOff();
+	insertAirbnbWidget();
+	handleErrorIcon();
+	insertCustomImage();
+	updateLocalityLabels();
+	hideTitle();
+	fixTermsAndConditions();
+	removeTheTimeFromMatches();
+	// updateAccountShopLinks();
+	insertHOSP();
+	sendParentUrlToIframe();
+	// displayVisaPresaleDraw();
+
+	const observer = new MutationObserver(() => {
+        // if (location.hostname === "fifa-fwc26-us.tickets.fifa.com") {
+        //     initSeatCategorySystem();
+        // }
+		initSelectAllSeatCategories();
+		moveSeatPriceNextToCategory();
+        removeItemsWithoutFlags();
+        // wrapBackButtonInStickyContainer();
+        addClassIfGRP();
+		insertFlagsForAll();
+		applyTargetBlankToDialogLinks();
+		hidePreferences();
+		hidePriceIfUnavailable();
+		// replaceWithYesNoButtons();
+		lotteryApplicationCustomClasses();
+		autocompleteOff();
+		insertAirbnbWidget();
+		handleErrorIcon();
+		updateLocalityLabels();
+		hideTitle();
+		fixTermsAndConditions();
+		removeTheTimeFromMatches();
+		// updateAccountShopLinks();
+		sendParentUrlToIframe();
+	});
+
+	observer.observe(document.body, { childList: true, subtree: true });
+});
+
+/*FIFASTX-5820 - Back to match selection*/
+$(function () {
+	const hasPos = $(".pos_26PGPM").length > 0;
+
+	if (hasPos) {
+		// POS-specific behavior
+		$("html[lang='en'].pos_26PGPM.eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+			.append('<a href="/selection/event/date?productId=10229651545872" class="eda_backtomatchlist">Back to match selection</a>');
+		$("html[lang='es'].pos_26PGPM.eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+			.append('<a href="/selection/event/date?productId=10229651545872" class="eda_backtomatchlist">Volver a la selección de partidos</a>');
+		$("html[lang='fr'].pos_26PGPM.eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+			.append('<a href="/selection/event/date?productId=10229651545872" class="eda_backtomatchlist">Retour à la sélection des parties</a>');
+		$("html[lang='de'].pos_26PGPM.eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+			.append('<a href="/selection/event/date?productId=10229651545872" class="eda_backtomatchlist">Zurück zur Spielauswahl</a>');
+	} else {
+		// Non-POS behavior (package page)
+		$("html[lang='en'].eda_productionenv #page_selection_package #main_content_package_selection .table_container")
+			.append('<a href="/secured/content" class="eda_backtomatchlist">Back to match selection</a>');
+		$("html[lang='es'].eda_productionenv #page_selection_package #main_content_package_selection .table_container")
+			.append('<a href="/secured/content" class="eda_backtomatchlist">Volver a la selección de partidos</a>');
+		$("html[lang='fr'].eda_productionenv #page_selection_package #main_content_package_selection .table_container")
+			.append('<a href="/secured/content" class="eda_backtomatchlist">Retour à la selección des parties</a>');
+		$("html[lang='de'].eda_productionenv #page_selection_package #main_content_package_selection .table_container")
+			.append('<a href="/secured/content" class="eda_backtomatchlist">Zurück zur Spielauswahl</a>');
+
+		// Non-POS event date page
+		// $("html[lang='en'].eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+		// 	.append('<a href="/secured/content" class="eda_backtomatchlist">Back to match selection</a>');
+		// $("html[lang='es'].eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+		// 	.append('<a href="/secured/content" class="eda_backtomatchlist">Volver a la selección de partidos</a>');
+		// $("html[lang='fr'].eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+		// 	.append('<a href="/secured/content" class="eda_backtomatchlist">Retour à la sélection des parties</a>');
+		// $("html[lang='de'].eda_productionenv #page_selection_eventDate #main_content_container #performance_container")
+		// 	.append('<a href="/secured/content" class="eda_backtomatchlist">Zurück zur Spielauswahl</a>');
+	}
+});
+
+/*FIFASTX-5829 - Add HOSP to conf page*/
+try {
+	document.addEventListener("DOMContentLoaded", function () {
+		if (!location.pathname.includes("/confirmation")) return;
+
+		if (document.getElementById("hospitality_display")) return;
+
+		const divWrapper = document.createElement("div");
+		divWrapper.id = "hospitality_display";
+
+		const link = document.createElement("a");
+		link.href =
+			"https://fifaworldcup26.hospitality.fifa.com?utm_source=FIFA&utm_medium=fifa-banner&utm_campaign=FWC26_Awareness_B2C_lmts_lmtsBanner&xref=FIFA_fifa-banner_B2C";
+		link.target = "_blank";
+		link.rel = "noopener noreferrer";
+
+		const bigImg = document.createElement("img");
+		if (document.querySelector("html[lang=en]")) {
+			bigImg.src = "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg";
+			bigImg.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg");
+		} else if (document.querySelector("html[lang=fr]")) {
+			bigImg.src = "/custom/images/FWC26_CheckoutBannerAd_FRE.jpg";
+			bigImg.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_FRE.jpg");
+		} else if (document.querySelector("html[lang=es]")) {
+			bigImg.src = "/custom/images/FWC26_CheckoutBannerAd_SPA(Spain).jpg";
+			bigImg.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_SPA(Spain).jpg");
+		} else if (document.querySelector("html[lang=de]")) {
+			bigImg.src = "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg";
+			bigImg.setAttribute("data-original", "/custom/images/FWC26_CheckoutBannerAd_ENG.jpg");
+		}
+
+		link.appendChild(bigImg);
+		divWrapper.appendChild(link);
+
+		const target = document.getElementById("main_content_container");
+		if (target) {
+			target.appendChild(divWrapper);
+		}
+	});
+} catch (e) {
+	console.error("Error inserting hospitality display:", e);
+}
+
+/*FIFASTX-5829 - Add parking comfirmation to confirmation screen*/
+try {
+	document.addEventListener("DOMContentLoaded", function () {
+		const html = document.documentElement;
+		const excludedShopClasses = [
+			"pos_26PGPM"
+		];
+
+		const isExcludedShop = excludedShopClasses.some(cls =>
+			html.classList.contains(cls)
+		);
+
+		if (!html.classList.contains("eda_productionenv") || isExcludedShop) {
+			return;
+		}
+
+		if (location.pathname.includes("/confirmation")) {
+			addParkingWidget(
+				"#main_content_container",
+				"div",
+				"parking_test"
+			);
+		}
+
+		if (
+			location.pathname.includes("/account/file") &&
+			/\bfileId=\d+\b/.test(location.search)
+		) {
+			addParkingWidget(
+				"#main_content_file_details",
+				"section",
+				"parking_file_test",
+				"content_bloc main_content collapsible",
+				{ _ts15_tags_section: "", _ts15_views_acccount_file: "" }
+			);
+		}
+
+		function addParkingWidget(selector, wrapperTag, wrapperId, wrapperClasses, extraAttrs) {
+			const wrapper = document.createElement(wrapperTag);
+			if (wrapperId) wrapper.id = wrapperId;
+			if (wrapperClasses) wrapper.className = wrapperClasses;
+
+			if (extraAttrs && typeof extraAttrs === "object") {
+				for (const [attr, val] of Object.entries(extraAttrs)) {
+					wrapper.setAttribute(attr, val);
+				}
+			}
+
+			const PARKING_URL =
+				"https://www.justpark.com/us/event-parking/fifa-world-cup-2026/";
+
+			const logoLink = document.createElement("a");
+			logoLink.href = PARKING_URL;
+			logoLink.target = "_blank";
+			logoLink.rel = "noopener noreferrer";
+
+			const userLang = document.documentElement.lang?.slice(0, 2).toLowerCase() || "en";
+
+			const imageMap = {
+				en: "parkingimage.png",
+				es: "parkingimage_ES.png",
+				de: "parkingimage_DE.png",
+				fr: "parkingimage_FR.png"
+			};
+			
+			const img = document.createElement("img");
+			img.src = `/custom/images/${imageMap[userLang] || imageMap.en}`;
+			img.alt = "Reserve Parking";
+			img.style.maxWidth = "100%";
+			
+			logoLink.appendChild(img);
+
+			wrapper.appendChild(logoLink);
+
+			const textLink = document.createElement("a");
+			textLink.href = PARKING_URL;
+			const translations = {
+				en: "Reserve Parking Here",
+				de: "Hier Parkplatz Reservieren",
+				es: "Reserva tu estacionamiento aquí",
+				fr: "Réservez votre parking ici"
+			};
+			
+			textLink.textContent = translations[userLang] || translations.en;
+			textLink.target = "_blank";
+			textLink.rel = "noopener noreferrer";
+			textLink.style.display = "block";
+			textLink.style.marginTop = "10px";
+
+			wrapper.appendChild(textLink);
+
+			const target = document.querySelector(selector);
+			if (!target) return;
+
+			if (wrapperTag.toLowerCase() === "section") {
+				target.insertAdjacentElement("afterend", wrapper);
+			} else {
+				target.appendChild(wrapper);
+			}
+		}
+
+	});
+} catch (e) {
+	console.error("Error inserting parking widget:", e);
+}
+
+//00345148 - TESTING Airbnb widget
+try {
+	document.addEventListener("DOMContentLoaded", function () {
+		const html = document.documentElement;
+		const excludedShopClasses = [
+			"pos_26PGPM"
+		];
+
+		const isExcludedShop = excludedShopClasses.some(cls =>
+			html.classList.contains(cls)
+		);
+
+		if (!html.classList.contains("eda_productionenv") || isExcludedShop) {
+			return;
+		}
+
+		if (location.pathname.includes("/confirmation")) {
+			addAirbnbWidget("#main_content_container", "div", "airbnb_test");
+		}
+
+		if (
+			location.pathname.includes("/account/file") &&
+			/\bfileId=\d+\b/.test(location.search)
+		) {
+			addAirbnbWidget(
+				"#parking_file_test",
+				"section",
+				"airbnb_file_test",
+				"content_bloc main_content collapsible",
+				{ _ts15_tags_section: "", _ts15_views_acccount_file: "" }
+			);
+		}
+
+		function addAirbnbWidget(selector, wrapperTag, wrapperId, wrapperClasses, extraAttrs) {
+			const wrapper = document.createElement(wrapperTag);
+			if (wrapperId) wrapper.id = wrapperId;
+			if (wrapperClasses) wrapper.className = wrapperClasses;
+
+			if (extraAttrs && typeof extraAttrs === "object") {
+				for (const [attr, val] of Object.entries(extraAttrs)) {
+					wrapper.setAttribute(attr, val);
+				}
+			}
+
+			const iframe = document.createElement("iframe");
+			iframe.src =
+				"https://www.airbnb.com/widgets/events/fifa_world_cup_2026?locale=en&currency=USD&c=.pi129.pkew_widget_ticket_purchased_fifa";
+			iframe.width = "100%";
+			iframe.height = "1200px";
+			iframe.style.border = "0";
+
+			wrapper.appendChild(iframe);
+
+			const target = document.querySelector(selector);
+			if (!target) return;
+
+			if (wrapperTag.toLowerCase() === "section") {
+				target.insertAdjacentElement("afterend", wrapper);
+			} else {
+				target.appendChild(wrapper);
+			}
+		}
+	});
+} catch (e) {
+	console.error("Error inserting Airbnb iframe:", e);
+}
+
+// 00345290 - Insert RiskIdent snippet
+try{
+	const validURL = ['fifa-fwc26-us.tickets.fifa.com','fifa-fwc26-mex.tickets.fifa.com','fifa-fwc26-cad.tickets.fifa.com'];
+	const SearchURL = window.location.host;
+	if (validURL.includes(SearchURL) && location.href.includes('/account/lotteryApplications')) {
+		setInterval(function(){
+			let hasRI = document.cookie.match(/setToken=([^;]+)/);
+			let hasToken = document.cookie.match(/stx_lottery_signedToken=([^;]+)/);
+			let signedToken = 0;
+			$('link').each(function(){
+				if($(this).attr('href').includes('www.jsctool.com/di.css')){
+					signedToken = 1;
+				}
+			})
+			if (hasToken) {
+				if(!hasRI){
+					if (signedToken == 0) {
+						let parsed = JSON.parse(decodeURIComponent(hasToken[1]));
+						const $riskIdentToken = parsed.appNumber;
+						const $EncryptedToken = parsed.signedToken;
+						const $riskIdentSnippetId = "GBtlvu";
+						const $riskIdentLocation = "ticketing-fifa-com";
+
+						const riskIdentL1 = document.createElement("script");
+						riskIdentL1.innerHTML = "var di={t:'" + $riskIdentToken + "',v:'" + $riskIdentSnippetId + "',l:'" + $riskIdentLocation + "',ts:'"+$EncryptedToken+"'};";
+						document.body.appendChild(riskIdentL1);
+
+						const riskIdentL2 = document.createElement("script");
+						riskIdentL2.type = "text/javascript";
+						riskIdentL2.src = "//jsctool.com/" + $riskIdentSnippetId + "/di.js";
+						document.body.appendChild(riskIdentL2);
+
+						const riskIdentL4 = document.createElement("link");
+						riskIdentL4.rel = "stylesheet";
+						riskIdentL4.type = "text/css";
+						riskIdentL4.media = "sub";
+
+						riskIdentL4.href = "//www.jsctool.com/di.css?t=" + $riskIdentToken + "&sd=1&v=" + $riskIdentSnippetId + "&l=" + $riskIdentLocation+ "&ts=" + $EncryptedToken;
+						document.body.appendChild(riskIdentL4);
+
+						document.cookie = "setToken=true;domain="+SearchURL+";path=/";
+					}
+
+				}
+			}
+		},500)
+		var obserRI = new MutationObserver(() => {
+			if ($('#stx-ballot-selection-container .stx-lt-subscriptionSummary-note-container .stx-lt-subscriptionSummary-note').length>0) {
+				document.cookie = "setToken=true;domain="+SearchURL+";path=/";
+			}
+			$('.stx-confirmation-container #stx-sticky-footer-wrapper button').click(function(){
+				document.cookie = "setToken=true;domain="+SearchURL+";expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/";
+				document.cookie = "stx_lottery_signedToken=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/";
+				$('link').each(function(){
+					if($(this).attr('href').includes('www.jsctool.com/di.css')){
+						$(this).remove();
+					}
+				})
+			})
+		});
+		obserRI.observe(document, { attributes: true, childList: true, subtree: true });
+	}
+}catch (error) {
+	console.log("00345290 DI failed: "+error);
+}
+
+/*Redirect away from the events page*/
+
+// Check if the current URL matches the source URL
+/*if (window.location.href === 'https://fifa-fwc26-us.tickets.fifa.com/account/files') {
+	// Redirect to the target URL
+	window.location.href = 'https://fifa-fwc26-us.tickets.fifa.com/account';
+}
+
+// Check if the current URL matches the source URL
+if (window.location.href === 'https://fifa-fwc26-mex.tickets.fifa.com/account/files') {
+	// Redirect to the target URL
+	window.location.href = 'https://fifa-fwc26-mex.tickets.fifa.com/account';
+}
+
+// Check if the current URL matches the source URL
+if (window.location.href === 'https://fifa-fwc26-cad.tickets.fifa.com/account/files') {
+	// Redirect to the target URL
+	window.location.href = 'https://fifa-fwc26-cad.tickets.fifa.com/account';
+}*/
+
+
+
+// STIX-12359 - TASKFORCE - Enabling DataDome for cached page
+try {
+	document.addEventListener('DOMContentLoaded', function () {
+		const allowedHosts = [
+			"https://fwc26-resale-cad.tickets.fifa.com",
+			"https://fwc26-resale-mxn.tickets.fifa.com",
+			"https://fwc26-resale-usd.tickets.fifa.com",
+			"https://fwc26-gs-usd.tickets.fifa.com",
+			"https://fwc26-gs-cad.tickets.fifa.com",
+			"https://fwc26-gs-mxn.tickets.fifa.com"
+		];
+
+		const scriptUrl = "https://js.datadome.co/tags.js";
+
+		const htmlHasCached = document.documentElement.classList.contains("cached");
+		const hostAllowed = allowedHosts.includes(window.location.origin);
+		const scriptExists = !!document.querySelector(`script[src="${scriptUrl}"]`);
+
+		if (hostAllowed && htmlHasCached && !scriptExists) {
+			!(function (a, b, c, d, e, f) {
+				a.ddjskey = e;
+				a.ddoptions = f || null;
+				var m = b.createElement(c),
+					n = b.getElementsByTagName(c)[0];
+				(m.async = 1), (m.src = d), n.parentNode.insertBefore(m, n);
+			})(window, document, 'script', 'https://js.datadome.co/tags.js', '0C2C1B588E78C2F596AEBB81D61A27', {
+				ajaxListenerPath: true,
+				allowHtmlContentTypeOnCaptcha: true
+			});
+		}
+
+	});
+} catch (err) {
+	console.log("Loading client DataDome script failed");
+	console.log(err);
+}
+// STIX-12359 - END TASKFORCE - Enabling DataDome for cached page
+
+/*FIFASTX-5889 - Resale platform burger menu is non functional */
+try {
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log("testing burger", "DOMContentLoaded fired");
+
+		try {
+			const container = document.getElementById('secondary_content_navigation');
+			console.log("testing burger", container);
+
+			if (!container) {
+				console.log("testing burger", "container not found, stopping");
+				return;
+			}
+
+			const forcePath = '/secure/selection/event/';
+			const playoffHostKeyword = 'fifa-fwc26-playoff';
+			
+			const currentPath = window.location.pathname || '';
+			const currentURL = window.location.href || '';
+			
+			const isPlayoff = currentURL.includes(playoffHostKeyword);
+			
+			// ONLY rebuild on that path IF it's the playoff URL
+			const forceRebuild = isPlayoff && currentPath.startsWith(forcePath);
+			
+			console.log("testing burger", { currentURL, currentPath, isPlayoff, forceRebuild });
+
+			const alreadyHasMenu = container.querySelector('.content_element .content ul[role="menu"], .content_element .content ul');
+			console.log("testing burger", { alreadyHasMenu });
+
+			if (alreadyHasMenu && !forceRebuild) {
+				console.log("testing burger", "menu already exists, stopping");
+				return;
+			}
+
+			console.log("testing burger", "proceeding to build/replace menu");
+
+			let userName = null;
+			let userEmail = null;
+
+			try {
+				const dataLUP = localStorage.getItem('dataLUP');
+				console.log("testing burger", { dataLUP });
+
+				if (dataLUP) {
+					const parsed = JSON.parse(dataLUP);
+					console.log("testing burger", { parsed });
+
+					if (parsed.firstName || parsed.lastName) {
+						userName = `${parsed.firstName || ''} ${parsed.lastName || ''}`.trim();
+					}
+					if (parsed.email) {
+						userEmail = parsed.email;
+					}
+				} else {
+                    userName = ``.trim();
+                }
+			} catch (parseErr) {
+				console.log("testing burger", { parseErr });
+			}
+			if (!userName || !userEmail) {
+				console.log("testing burger", "falling back to DOM lookup");
+
+				function findUserName() {
+					const selectors = [
+						'.account_info .account',
+						'#secutix_static_menu_name',
+						'.show-user-logged a',
+						'a[href^="/account"]'
+					];
+					for (const sel of selectors) {
+						const el = document.querySelector(sel);
+						console.log("testing burger", { checkingSelector: sel, el });
+						if (el && el.textContent && el.textContent.trim()) return el.textContent.trim();
+					}
+					return null;
+				}
+
+				function findUserEmail() {
+					const el = document.querySelector('.account_info .email');
+					console.log("testing burger", { emailElement: el });
+					return el ? el.textContent.trim() : null;
+				}
+
+				userName = userName || findUserName();
+				userEmail = userEmail || findUserEmail();
+			}
+
+			console.log("testing burger", { userName, userEmail });
+
+			const menuHTML = `
+        <div class="content_title">
+          <div class="title">
+            <span class="main_title">
+              <span class="menu_title">MY ACCOUNT</span>
+              <span class="menu_close_button hide" title="Close"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="content_element">
+          <div class="content">
+            <div class="account_info" _ts15_tags_account_menuboxlinks="">
+              ${userName ? `<div><a href="/account" class="account">${userName}</a></div>` : `<div><a href="/account">Log in | Sign up</a></div>`}
+              ${userEmail ? `<div class="email">${userEmail}</div>` : ''}
+            </div>
+
+            <ul role="menu" _ts15_tags_account_menuboxlinks="">
+              <li class="menu_client_account" role="presentation">
+                <a href="/account" class="open nav_title selected" role="menuitem">MY ACCOUNT</a>
+              </li>
+              <li class="selected tickets_menu_account"><a href="/account">Homepage</a></li>
+              <li class="menu_experience_vouchers"><a href="/account/experienceVouchers">Experience vouchers</a></li>
+
+              <li id="menu_first_level_tickets">
+                <span class="openable open">TICKETS</span>
+                <ul>
+                  <li><a href="/account/tickets">My tickets</a></li>
+                  <li><a href="/account/files">Ticket purchase summary</a></li>
+                </ul>
+              </li>
+
+              <li id="menu_first_level_profile">
+                <span class="openable open">Account settings</span>
+                <ul>
+                  <li><a href="/account/editPersonalDetails">Profile</a></li>
+                </ul>
+              </li>
+
+              <li class="tickets_menu_add_products"><a href="/selection/event/date?productId=10229651545872">Buy tickets</a></li>
+			  <li class="tickets_menu_add_products"><a href="https://fwc26pot-resale.tickets.fifa.com/">Exchange tickets</a></li>
+              <li class="menu_product_category offers"><a href="/list/offers">Offers</a></li>
+              <li class="menu_product_category events"><a href="/list/events">&nbsp;</a></li>
+            </ul>
+
+            <span class="button tickets_menu_logout"><a href="/account/logout"><span class="text">Log out</span></a></span>
+          </div>
+        </div>
+      `;
+
+			console.log("testing burger", "menuHTML built");
+
+			const existingContent = container.querySelector('.content_element');
+			console.log("testing burger", { existingContent });
+
+			if (existingContent) {
+				existingContent.outerHTML = menuHTML;
+				console.log("testing burger", "replaced existing content");
+			} else {
+				container.insertAdjacentHTML('beforeend', menuHTML);
+				console.log("testing burger", "inserted menu content");
+			}
+
+			(function wireCloseButton() {
+				const closeButton = container.querySelector('#close-dialog-button');
+				console.log("testing burger", { closeButton });
+				const menuClose = container.querySelector('.menu_close_button');
+				console.log("testing burger", { menuClose });
+
+				if (closeButton) {
+					closeButton.addEventListener('click', function () {
+						container.classList.toggle('hidden');
+						console.log("testing burger", "toggled hidden via close button");
+					});
+				}
+				if (menuClose) {
+					menuClose.classList.remove('hide');
+					menuClose.addEventListener('click', function () {
+						container.classList.add('hidden');
+						console.log("testing burger", "menu closed via menuClose");
+					});
+				}
+			})();
+
+			(function wireOpenables() {
+				const openables = container.querySelectorAll('.openable');
+				console.log("testing burger", { openablesCount: openables.length });
+				openables.forEach((el) => {
+					el.addEventListener('click', function () {
+						el.parentElement.classList.toggle('open');
+						console.log("testing burger", { toggled: el, parent: el.parentElement });
+					});
+				});
+			})();
+
+			console.log("testing burger", "attempting account.menu.init if available");
+
+			try {
+				if (window.account && window.account.menu && typeof window.account.menu.init === 'function') {
+					window.account.menu.init(true);
+					console.log("testing burger", "called account.menu.init(true)");
+				} else {
+					console.log("testing burger", "account.menu.init not available");
+				}
+			} catch (e) {
+				console.log("testing burger", { accountInitError: e });
+			}
+
+			container.setAttribute('role', 'dialog');
+			container.setAttribute('aria-hidden', container.classList.contains('hidden') ? 'true' : 'false');
+
+			console.log("testing burger", "END SUCCESS");
+
+		} catch (innerErr) {
+			console.log("testing burger", { innerErr });
+		}
+	});
+} catch (err) {
+	console.log("testing burger", { err });
+}
+
+/*FIFASTX-5889 - SHOP platform burger menu is non functional */
+try {
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log("testing burger", "DOMContentLoaded fired");
+
+		try {
+			const container = document.getElementById('secondary_content_navigation');
+			console.log("testing burger", container);
+
+			if (!container) {
+				console.log("testing burger", "container not found, stopping");
+				return;
+			}
+
+			const forcePath = '/secure/selection/event/';
+			const playoffHostKeyword = 'fwc26-shop';
+			
+			const currentPath = window.location.pathname || '';
+			const currentURL = window.location.href || '';
+			
+			const isPlayoff = currentURL.includes(playoffHostKeyword);
+			
+			// ONLY rebuild on that path IF it's the playoff URL
+			const forceRebuild = isPlayoff && currentPath.startsWith(forcePath);
+			
+			console.log("testing burger", { currentURL, currentPath, isPlayoff, forceRebuild });
+
+			const alreadyHasMenu = container.querySelector('.content_element .content ul[role="menu"], .content_element .content ul');
+			console.log("testing burger", { alreadyHasMenu });
+
+			if (alreadyHasMenu && !forceRebuild) {
+				console.log("testing burger", "menu already exists, stopping");
+				return;
+			}
+
+			console.log("testing burger", "proceeding to build/replace menu");
+
+			let userName = null;
+			let userEmail = null;
+
+			try {
+				const dataLUP = localStorage.getItem('dataLUP');
+				console.log("testing burger", { dataLUP });
+
+				if (dataLUP) {
+					const parsed = JSON.parse(dataLUP);
+					console.log("testing burger", { parsed });
+
+					if (parsed.firstName || parsed.lastName) {
+						userName = `${parsed.firstName || ''} ${parsed.lastName || ''}`.trim();
+					}
+					if (parsed.email) {
+						userEmail = parsed.email;
+					}
+				} else {
+                    userName = ``.trim();
+                }
+			} catch (parseErr) {
+				console.log("testing burger", { parseErr });
+			}
+			if (!userName || !userEmail) {
+				console.log("testing burger", "falling back to DOM lookup");
+
+				function findUserName() {
+					const selectors = [
+						'.account_info .account',
+						'#secutix_static_menu_name',
+						'.show-user-logged a',
+						'a[href^="/account"]'
+					];
+					for (const sel of selectors) {
+						const el = document.querySelector(sel);
+						console.log("testing burger", { checkingSelector: sel, el });
+						if (el && el.textContent && el.textContent.trim()) return el.textContent.trim();
+					}
+					return null;
+				}
+
+				function findUserEmail() {
+					const el = document.querySelector('.account_info .email');
+					console.log("testing burger", { emailElement: el });
+					return el ? el.textContent.trim() : null;
+				}
+
+				userName = userName || findUserName();
+				userEmail = userEmail || findUserEmail();
+			}
+
+			console.log("testing burger", { userName, userEmail });
+
+			const menuHTML = `
+        <div class="content_title">
+          <div class="title">
+            <span class="main_title">
+              <span class="menu_title">MY ACCOUNT</span>
+              <span class="menu_close_button hide" title="Close"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="content_element">
+          <div class="content">
+            <div class="account_info" _ts15_tags_account_menuboxlinks="">
+              ${userName ? `<div><a href="/account" class="account">${userName}</a></div>` : `<div><a href="/account">Log in | Sign up</a></div>`}
+              ${userEmail ? `<div class="email">${userEmail}</div>` : ''}
+            </div>
+
+            <ul role="menu" _ts15_tags_account_menuboxlinks="">
+              <li class="menu_client_account" role="presentation">
+                <a href="/account" class="open nav_title selected" role="menuitem">MY ACCOUNT</a>
+              </li>
+              <li class="selected tickets_menu_account"><a href="/account">Homepage</a></li>
+              <li class="menu_experience_vouchers"><a href="/account/experienceVouchers">Experience vouchers</a></li>
+
+              <li id="menu_first_level_tickets">
+                <span class="openable open">TICKETS</span>
+                <ul>
+                  <li><a href="/account/tickets">My tickets</a></li>
+                  <li><a href="/account/files">Ticket purchase summary</a></li>
+                </ul>
+              </li>
+
+              <li id="menu_first_level_profile">
+                <span class="openable open">Account settings</span>
+                <ul>
+                  <li><a href="/account/editPersonalDetails">Profile</a></li>
+                </ul>
+              </li>
+
+              <li class="tickets_menu_add_products"><a href="/selection/event/date?productId=10229651545872">Buy tickets</a></li>
+              <li class="menu_product_category offers"><a href="/list/offers">Offers</a></li>
+              <li class="menu_product_category events"><a href="/list/events">&nbsp;</a></li>
+            </ul>
+
+            <span class="button tickets_menu_logout" _ts15_tags_button _ts15_tags_account_menuboxlinks><a href="/account/logout"><span class="text">Log out</span></a></span>
+          </div>
+        </div>
+      `;
+
+			console.log("testing burger", "menuHTML built");
+
+			const existingContent = container.querySelector('.content_element');
+			console.log("testing burger", { existingContent });
+
+			if (existingContent) {
+				existingContent.outerHTML = menuHTML;
+				console.log("testing burger", "replaced existing content");
+			} else {
+				container.insertAdjacentHTML('beforeend', menuHTML);
+				console.log("testing burger", "inserted menu content");
+			}
+
+			(function wireCloseButton() {
+				const closeButton = container.querySelector('#close-dialog-button');
+				console.log("testing burger", { closeButton });
+				const menuClose = container.querySelector('.menu_close_button');
+				console.log("testing burger", { menuClose });
+
+				if (closeButton) {
+					closeButton.addEventListener('click', function () {
+						container.classList.toggle('hidden');
+						console.log("testing burger", "toggled hidden via close button");
+					});
+				}
+				if (menuClose) {
+					menuClose.classList.remove('hide');
+					menuClose.addEventListener('click', function () {
+						container.classList.add('hidden');
+						console.log("testing burger", "menu closed via menuClose");
+					});
+				}
+			})();
+
+			(function wireOpenables() {
+				const openables = container.querySelectorAll('.openable');
+				console.log("testing burger", { openablesCount: openables.length });
+				openables.forEach((el) => {
+					el.addEventListener('click', function () {
+						el.parentElement.classList.toggle('open');
+						console.log("testing burger", { toggled: el, parent: el.parentElement });
+					});
+				});
+			})();
+
+			console.log("testing burger", "attempting account.menu.init if available");
+
+			try {
+				if (window.account && window.account.menu && typeof window.account.menu.init === 'function') {
+					window.account.menu.init(true);
+					console.log("testing burger", "called account.menu.init(true)");
+				} else {
+					console.log("testing burger", "account.menu.init not available");
+				}
+			} catch (e) {
+				console.log("testing burger", { accountInitError: e });
+			}
+
+			container.setAttribute('role', 'dialog');
+			container.setAttribute('aria-hidden', container.classList.contains('hidden') ? 'true' : 'false');
+
+			console.log("testing burger", "END SUCCESS");
+
+		} catch (innerErr) {
+			console.log("testing burger", { innerErr });
+		}
+	});
+} catch (err) {
+	console.log("testing burger", { err });
+}
+
+function removeCanceledTickets() {
+	try {
+		const pageWrapper = document.getElementById('page_account_tickets');
+		if (!pageWrapper) return;
+
+		const productContainers = pageWrapper.querySelectorAll('.product_container');
+
+		productContainers.forEach(product => {
+			const ticketContainers = product.querySelectorAll('.ticket_container');
+
+			ticketContainers.forEach(container => {
+				const listItems = container.querySelectorAll('li');
+
+				listItems.forEach(li => {
+					const isCanceled = li.querySelector('.content.canceled');
+					const hasPrintOptions = li.querySelector('.print_options');
+					const isResale = li.querySelector('.resale_info');
+
+					if (isCanceled && hasPrintOptions && !isResale) {
+						li.remove();
+						
+						const seatCategory = container.closest('.seat_category_container');
+						if (seatCategory) {
+							const summary = seatCategory.querySelector('.tickets_summary');
+							if (summary) {
+								summary.style.display = 'none';
+							}
+						}
+					}
+				});
+			});
+
+			const remainingTickets = product.querySelectorAll('.ticket_container li');
+			if (remainingTickets.length === 0) {
+				product.remove();
+			}
+		});
+	} catch (err) {
+		console.error('removeCanceledTickets error:', err);
+	}
+}
+
+document.addEventListener('DOMContentLoaded', removeCanceledTickets);
+
+// FIFASTX-6429 - Currency format for Lottery
+try{
+	function applyDynamicCurrencyReplacements() {
+    const selectors = [
+        '.stx-seatCategory-priceRange',
+        '#stx-sticky-footer-wrapper div>p.tw-whitespace-nowrap',
+        '.stx-ticket-selection-summary-list .stx-performance-selected-tickets span'
+    ];
+
+    selectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(function (element) {
+            let text = element.textContent.trim();
+
+            if (text.includes('$MX')) {
+                text = text.replace(/ - /g, ' - $').replace(/\$MX/g, '');
+                element.textContent = text;
+                element.classList.add('updatedCurrency');
+            }
+
+            if (text.includes('$CA')) {
+                text = text.replace(/\$CA/g, '');
+                element.textContent = text;
+                element.classList.add('updatedCurrency');
+            }
+
+            if (text.startsWith('$') && !text.includes('MXN') && !text.includes('CAD')) {
+                text = text.replace(/\$/g, '');
+                element.textContent = text;
+                element.classList.add('updatedCurrency');
+            }
+        });
+    });
+}
+
+var observer = new MutationObserver(function (mutations) {
+    mutations.forEach((m) => {
+        applyDynamicCurrencyReplacements();
+    })
+});
+observer.observe(document.querySelector('#rootLotteryApplications'), {
+    characterData: true, attributes: false, childList: true, subtree: true
+});
+}catch (error) {
+	console.log('Fail update Currency format for Lottery',error)
+}
+//END - FIFASTX-6429
+
+// update cents for USD/CAD
+try {
+	if (document.querySelector('#page_selection_seatMap') && document.documentElement.lang =='en') {
+		function ensureDecimals($el) {
+			if (!$el || !$el.length) return;
+
+			$el.contents().each(function () {
+				if (this.nodeType === Node.TEXT_NODE) {
+					let text = this.nodeValue;
+
+					const newText = text.replace(/(\d[\d,]*)(\.\d{2})?/g, (m, num, dec) =>
+						dec ? m : num + ".00"
+					);
+
+					if (newText !== text) {
+						this.nodeValue = newText;
+					}
+				}
+			});
+		}
+		const obsmCat = new MutationObserver(() => {
+			ensureDecimals($("#info-panel .cat.stx-text-body2"));
+			if ($('.stx-sm-SeatCatName .stx-text-caption1').length>0) {
+				$('.stx-sm-SeatCatName .stx-text-caption1').each(function(){
+					ensureDecimals($(this))    
+				})
+			}
+		});
+		obsmCat.observe(document.body, {
+			childList: true,
+			subtree: true,
+			attributes: true
+		});
+	}
+} catch (error) {
+	console.log('Fail update cents for USD/CAD',error)
+}
+
+// STIX-23563
+try {
+	function appendProductIdToSeatLinks() {
+		try {
+			// only run on target page
+			if (!window.location.pathname.includes('secure/selection/event/seat/performance')) {
+				return;
+			}
+
+			const productEl = document.querySelector('.product_description_header');
+			const productId = productEl?.className.match(/product_(\d+)/)?.[1];
+
+			if (!productId) return;
+
+			const section = document.querySelector('section.seat_selection');
+			const links = section?.querySelectorAll('li.seat_auto a, li.seat_map a');
+
+			if (!links || links.length === 0) return;
+
+			links.forEach(linkEl => {
+				try {
+					const url = new URL(linkEl.href);
+
+					// only append if not already present
+					if (!url.searchParams.has('productId')) {
+						url.searchParams.append('productId', productId);
+						linkEl.href = url.toString();
+					}
+				} catch (innerErr) {
+					console.error('Error processing link:', linkEl, innerErr);
+				}
+			});
+
+		} catch (err) {
+			console.error('appendProductIdToSeatLinks error:', err);
+		}
+	}
+	appendProductIdToSeatLinks();
+} catch (error) {
+	console.error('STIX-23563', error);
+}
+
+
+el header del anterior resultado:
+
+Request URL
+https://fwc26-shop-usd.tickets.fifa.com/custom/js/FCFS26.js
+Request Method
+GET
+Status Code
+200 OK
+Remote Address
+184.31.2.75:443
+Referrer Policy
+strict-origin-when-cross-origin

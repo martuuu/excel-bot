@@ -1,0 +1,336 @@
+{
+    "pageId": "7KGG8nZnxTeKCdiTtEjRMV",
+    "internalTitle": "Page > Home Page",
+    "templateInternalTitle": "Home Page (Local-EN) 2.0",
+    "template": "fifaPlusLandingTemplate",
+    "layout": 1,
+    "createdDate": "2025-03-05T17:41:35.684Z",
+    "updatedDate": "2025-11-20T16:44:50.103Z",
+    "relativeUrl": "/en/home",
+    "relativeUrlsSEO": {
+        "ar": "/ar/home",
+        "de": "/de/home",
+        "en": "/en/home",
+        "es": "/es/home",
+        "fr": "/fr/home",
+        "id": "/id/home",
+        "it": "/it/home",
+        "ja": "/ja/home",
+        "ko": "/ko/home",
+        "pt": "/pt/home"
+    },
+    "language": "en",
+    "meta": {
+        "title": "FIFA | The Home of Football",
+        "description": "The home of football across the globe, FIFA bring you the very latest tournament news, player exclusives and live match content all in one place.",
+        "image": "https://digitalhub.fifa.com/transform/59bfc153-30cc-4197-aca7-40325d0ce933/FIFA-platform-preview-image"
+    },
+    "sections": [
+        {
+            "entryId": "2TXIs9fcguruhUwogE06XC",
+            "entryType": "heroSection",
+            "properties": {},
+            "entryEndpoint": "/sections/hero/2TXIs9fcguruhUwogE06XC?locale=en",
+            "heroSection": {
+                "entryId": "2TXIs9fcguruhUwogE06XC",
+                "rooflineType": "PrimaryAndSecondary",
+                "heroItems": [
+                    {
+                        "entryId": "1r7LpT5GKmRSQwRP5jv5hO",
+                        "title": "Bosnian Diamond ready to shine on biggest stage once again",
+                        "heroImage": {
+                            "entryId": "4KzyE3yqn1B706c7Y6qpPg",
+                            "title": "Edin Dzeko celebrating after the victory against Italy",
+                            "src": "https://digitalhub.fifa.com/transform/5d137a92-9c1f-45a9-b983-9d3946dcbe1c/Edin-Dzeko-celebrating-after-the-victory-against-Italy",
+                            "alt": "ZENICA, BOSNIA AND HERZEGOVINA - MARCH 31: Edin Dzeko of Bosnia Herzegovina celebrates during the FIFA World Cup 2026 European Qualifiers KO play-offs  match between Bosnia & Herzegovina and Italy at Stadion Bilino Polje on March 31, 2026 in Zenica, Bosnia and Herzegovina. (Photo by Image Photo Agency/Getty Images)",
+                            "caption": "ZENICA, BOSNIA AND HERZEGOVINA - MARCH 31: Edin Dzeko of Bosnia Herzegovina celebrates during the FIFA World Cup 2026 European Qualifiers KO play-offs  match between Bosnia & Herzegovina and Italy at Stadion Bilino Polje on March 31, 2026 in Zenica, Bosnia and Herzegovina. (Photo by Image Photo Agency/Getty Images)",
+                            "width": 7503,
+                            "height": 5002
+                        },
+                        "heroImageMobile": {
+                            "entryId": "4KzyE3yqn1B706c7Y6qpPg",
+                            "title": "Edin Dzeko celebrating after the victory against Italy",
+                            "src": "https://digitalhub.fifa.com/transform/5d137a92-9c1f-45a9-b983-9d3946dcbe1c/Edin-Dzeko-celebrating-after-the-victory-against-Italy",
+                            "alt": "ZENICA, BOSNIA AND HERZEGOVINA - MARCH 31: Edin Dzeko of Bosnia Herzegovina celebrates during the FIFA World Cup 2026 European Qualifiers KO play-offs  match between Bosnia & Herzegovina and Italy at Stadion Bilino Polje on March 31, 2026 in Zenica, Bosnia and Herzegovina. (Photo by Image Photo Agency/Getty Images)",
+                            "caption": "ZENICA, BOSNIA AND HERZEGOVINA - MARCH 31: Edin Dzeko of Bosnia Herzegovina celebrates during the FIFA World Cup 2026 European Qualifiers KO play-offs  match between Bosnia & Herzegovina and Italy at Stadion Bilino Polje on March 31, 2026 in Zenica, Bosnia and Herzegovina. (Photo by Image Photo Agency/Getty Images)",
+                            "width": 7503,
+                            "height": 5002
+                        },
+                        "roofline": "FIFA World Cup 2026™",
+                        "rooflineSecondary": "Bosnia-Herzegovina",
+                        "readMorePageUrl": "/en/articles/dzeko-bosnia-herzegovina-last-dance",
+                        "description": "With some outstanding performances from 40-year-old talisman Edin Dzeko, Bosnia and Herzegovina have secured a spot at the FIFA World Cup. ",
+                        "ctaButtonText": "Read more",
+                        "cardCategory": 0,
+                        "programmeType": 5
+                    },
+                    {
+                        "entryId": "44Ge7JJq3cqjseaAUHLMaq",
+                        "title": "Qualified teams for the FIFA World Cup 2026",
+                        "heroImage": {
+                            "entryId": "6uH6RpVmOwmvruywzh9Svy",
+                            "title": "FIFA World Cup 2026 qualified teams wallchart graphic",
+                            "src": "https://digitalhub.fifa.com/transform/f731e3c8-806d-44fd-84ce-b2e2a1d3c645/All-FWC-2026-qualified-teams-4x3?focuspoint=0.5,0.52",
+                            "alt": "FIFA World Cup 2026 qualified teams wallchart graphic 4x3.",
+                            "caption": "FIFA World Cup 2026 qualified teams wallchart graphic 4x3.",
+                            "width": 3333,
+                            "height": 2500
+                        },
+                        "heroImageMobile": {
+                            "entryId": "6uH6RpVmOwmvruywzh9Svy",
+                            "title": "FIFA World Cup 2026 qualified teams wallchart graphic",
+                            "src": "https://digitalhub.fifa.com/transform/f731e3c8-806d-44fd-84ce-b2e2a1d3c645/All-FWC-2026-qualified-teams-4x3?focuspoint=0.5,0.52",
+                            "alt": "FIFA World Cup 2026 qualified teams wallchart graphic 4x3.",
+                            "caption": "FIFA World Cup 2026 qualified teams wallchart graphic 4x3.",
+                            "width": 3333,
+                            "height": 2500
+                        },
+                        "roofline": "FIFA World Cup 2026™",
+                        "rooflineSecondary": "FIFA World Cup™ Qualifiers",
+                        "readMorePageUrl": "/en/articles/world-cup-2026-who-has-qualified",
+                        "description": "Look ahead to the global showpiece in Canada, Mexico and the United States with details on the teams who have booked their ticket to the tournament.",
+                        "ctaButtonText": "Read more",
+                        "cardCategory": 0,
+                        "programmeType": 5
+                    },
+                    {
+                        "entryId": "1QHxzuipRhoQgFMfCz8Olh",
+                        "title": "Potter looks to follow in Raynor's legendary footsteps",
+                        "heroImage": {
+                            "entryId": "3b0DalB7KuRhqlDdoadVsU",
+                            "title": "Sweden's English coach Graham Potter",
+                            "src": "https://digitalhub.fifa.com/transform/eedd8c79-bcf6-4d3d-8d70-836ba712287b/Graham-Potter-Sweden",
+                            "alt": "FIFA",
+                            "caption": "FIFA",
+                            "width": 6000,
+                            "height": 4000
+                        },
+                        "heroImageMobile": {
+                            "entryId": "3b0DalB7KuRhqlDdoadVsU",
+                            "title": "Sweden's English coach Graham Potter",
+                            "src": "https://digitalhub.fifa.com/transform/eedd8c79-bcf6-4d3d-8d70-836ba712287b/Graham-Potter-Sweden",
+                            "alt": "FIFA",
+                            "caption": "FIFA",
+                            "width": 6000,
+                            "height": 4000
+                        },
+                        "roofline": "FIFA World Cup 2026™",
+                        "rooflineSecondary": "Sweden",
+                        "readMorePageUrl": "/en/articles/graham-potter-george-raynor-sweden",
+                        "description": "Graham Potter is the second Englishman to have guided Sweden to the FIFA World Cup behind George Raynor, who reached the 1958 final.",
+                        "ctaButtonText": "Read more",
+                        "cardCategory": 0,
+                        "programmeType": 5
+                    },
+                    {
+                        "entryId": "6turjzSFFalGTfcXhVBLNd",
+                        "title": "Last-Minute Sales Phase begins for FIFA World Cup 2026 tickets",
+                        "heroImage": {
+                            "entryId": "GauOf5P8hGeFVJ2dxIzT2",
+                            "title": "Fans cheer at a stadium.",
+                            "src": "https://digitalhub.fifa.com/transform/e429e022-683a-4a2e-b3b1-56a2397d3504/Fans-cheer-at-a-stadium?focuspoint=0.5,0.62",
+                            "alt": "",
+                            "caption": "",
+                            "width": 3840,
+                            "height": 2160
+                        },
+                        "heroImageMobile": {
+                            "entryId": "GauOf5P8hGeFVJ2dxIzT2",
+                            "title": "Fans cheer at a stadium.",
+                            "src": "https://digitalhub.fifa.com/transform/e429e022-683a-4a2e-b3b1-56a2397d3504/Fans-cheer-at-a-stadium?focuspoint=0.5,0.62",
+                            "alt": "",
+                            "caption": "",
+                            "width": 3840,
+                            "height": 2160
+                        },
+                        "roofline": "FIFA World Cup 2026™",
+                        "rooflineSecondary": "Ticketing Information",
+                        "readMorePageUrl": "/en/articles/last-minute-tickets-sales-phase-to-start-on-1-april",
+                        "description": "Additional tickets for the FIFA World Cup 2026™ went on sale to the general public at 11:00\u00A0ET/17:00\u00A0CET on Wednesday, 1\u00A0April.",
+                        "ctaButtonText": "Read more",
+                        "cardCategory": 0,
+                        "programmeType": 5
+                    },
+                    {
+                        "entryId": "87l57l15xjbo_6z7X8RYP5TXmbmXjViWGBc",
+                        "title": "Magic March including home FIFA Series triumph highlights Puerto Rico’s productive partnership with FIFA",
+                        "heroImage": {
+                            "entryId": "87l57l15xjbo_gbIZoTpyNuukdSnW7Zmg3",
+                            "title": "Players of Puerto Rico celebrate winning the FIFA Series 2026 ",
+                            "src": "https://digitalhub.fifa.com/transform/00cda217-4fbb-4ed7-92e8-14d1262eba9e/US-Virgin-Islands-v-Puerto-Rico-FIFA-Series-2026",
+                            "alt": "BAYAMON, PUERTO RICO - MARCH 28: Players of Puerto Rico celebrate with the first place trophy after winning the FIFA Series 2026 final match between US Virgin Islands and Puerto Rico at Estadio Juan Ramón Loubriel on March 28, 2026 in Bayamon, Puerto Rico. (Photo by Raul Sifuentes - FIFA/FIFA via Getty Images)",
+                            "width": 5364,
+                            "height": 5364
+                        },
+                        "heroImageMobile": {
+                            "entryId": "87l57l15xjbo_gbIZoTpyNuukdSnW7Zmg3",
+                            "title": "Players of Puerto Rico celebrate winning the FIFA Series 2026 ",
+                            "src": "https://digitalhub.fifa.com/transform/00cda217-4fbb-4ed7-92e8-14d1262eba9e/US-Virgin-Islands-v-Puerto-Rico-FIFA-Series-2026",
+                            "alt": "BAYAMON, PUERTO RICO - MARCH 28: Players of Puerto Rico celebrate with the first place trophy after winning the FIFA Series 2026 final match between US Virgin Islands and Puerto Rico at Estadio Juan Ramón Loubriel on March 28, 2026 in Bayamon, Puerto Rico. (Photo by Raul Sifuentes - FIFA/FIFA via Getty Images)",
+                            "width": 5364,
+                            "height": 5364
+                        },
+                        "roofline": "Inside FIFA",
+                        "rooflineSecondary": "Inside FIFA",
+                        "readMorePageUrl": "https://www.inside.fifa.com/news/puerto-rico-fifa-series-u17-womens-world-cup-ivan-rivera",
+                        "description": " ",
+                        "ctaButtonText": "See more",
+                        "programmeType": 6
+                    },
+                    {
+                        "entryId": "S9YG2JmeGYaMUCBbm0CcD",
+                        "title": "View the FIFA World Cup 2026 match schedule",
+                        "heroImage": {
+                            "entryId": "2o0PcCXBzEBC3ZNIzdcc55",
+                            "title": "All FWC 2026 matches 4x3",
+                            "src": "https://digitalhub.fifa.com/transform/e355df74-0a03-43c6-8430-68b2453728fb/All-FWC-2026-matches-4x3",
+                            "alt": "FIFA",
+                            "caption": "FIFA",
+                            "width": 1440,
+                            "height": 1080
+                        },
+                        "heroImageMobile": {
+                            "entryId": "2o0PcCXBzEBC3ZNIzdcc55",
+                            "title": "All FWC 2026 matches 4x3",
+                            "src": "https://digitalhub.fifa.com/transform/e355df74-0a03-43c6-8430-68b2453728fb/All-FWC-2026-matches-4x3",
+                            "alt": "FIFA",
+                            "caption": "FIFA",
+                            "width": 1440,
+                            "height": 1080
+                        },
+                        "roofline": "FIFA World Cup 2026™",
+                        "rooflineSecondary": "Need to know",
+                        "readMorePageUrl": "/en/articles/match-schedule-fixtures-results-teams-stadiums",
+                        "description": "World Cup 2026\u00A0will be the biggest and most exciting edition of the tournament to date as\u00A048 teams from around the globe compete in 104 fixtures.",
+                        "ctaButtonText": "Read more",
+                        "cardCategory": 0,
+                        "programmeType": 5
+                    }
+                ],
+                "automatedSection": false
+            }
+        },
+        {
+            "entryId": "5TSUVautxNVjLKkYs8bCON",
+            "entryType": "news",
+            "properties": {},
+            "entryEndpoint": "/sections/news/5TSUVautxNVjLKkYs8bCON?locale=en&limit=20",
+            "news": {
+                "layout": 3
+            }
+        },
+        {
+            "entryId": "7kfn4uGREWR3UT4ZxJV5wX",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/7kfn4uGREWR3UT4ZxJV5wX?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 2
+            }
+        },
+        {
+            "entryId": "3zQg9uO5Y91RRaS0nZSIY0",
+            "entryType": "worldRanking",
+            "properties": {},
+            "entryEndpoint": "/sections/worldRanking/3zQg9uO5Y91RRaS0nZSIY0?locale=en"
+        },
+        {
+            "entryId": "2afzuqESTl2Q38r85PkCKw",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/2afzuqESTl2Q38r85PkCKw?locale=en"
+        },
+        {
+            "entryId": "1ieWwpV6XXrpmck97gAf9D",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/1ieWwpV6XXrpmck97gAf9D?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "KJc7bOAIO97wUXkb1RdG4",
+            "entryType": "heroBanner",
+            "properties": {},
+            "entryEndpoint": "/sections/heroBanner/KJc7bOAIO97wUXkb1RdG4?locale=en"
+        },
+        {
+            "entryId": "5kHazlK8eyOBCu92bIsOm9",
+            "entryType": "sectionCarouselExternalIntegration",
+            "properties": {},
+            "entryEndpoint": "/sections/sectionCarouselExternalIntegration/5kHazlK8eyOBCu92bIsOm9?locale=en"
+        },
+        {
+            "entryId": "1FwnYYorkUFGoinRVa9Gjp",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/1FwnYYorkUFGoinRVa9Gjp?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "7brZbcctRX2QZAN6ySYxJV",
+            "entryType": "heroBanner",
+            "properties": {},
+            "entryEndpoint": "/sections/heroBanner/7brZbcctRX2QZAN6ySYxJV?locale=en"
+        },
+        {
+            "entryId": "K4YdSPllYH4jc9tKGRXs4",
+            "entryType": "verticalVideoCarousel",
+            "properties": {},
+            "entryEndpoint": "/sections/verticalVideoCarousel/K4YdSPllYH4jc9tKGRXs4?locale=en&limit=20"
+        },
+        {
+            "entryId": "O0QBzzrtOXUslEueZ4OFa",
+            "entryType": "heroBanner",
+            "properties": {},
+            "entryEndpoint": "/sections/heroBanner/O0QBzzrtOXUslEueZ4OFa?locale=en"
+        },
+        {
+            "entryId": "44NRPe0pt1oXTfFAafHyjO",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/44NRPe0pt1oXTfFAafHyjO?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "7FHg93ll3HPZKFFdR32q8y",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/7FHg93ll3HPZKFFdR32q8y?locale=en",
+            "sectionPromoCarousel": {
+                "size": 3,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "3JWX4vAdTRBNqUDckk4uuu",
+            "entryType": "externalIntegrationEmbed",
+            "properties": {},
+            "entryEndpoint": "/sections/externalIntegrationEmbed/3JWX4vAdTRBNqUDckk4uuu?locale=en"
+        },
+        {
+            "entryId": "1C7uxCCgdgLvIlWmPCAF6P",
+            "entryType": "heroBanner",
+            "properties": {},
+            "entryEndpoint": "/sections/heroBanner/1C7uxCCgdgLvIlWmPCAF6P?locale=en"
+        }
+    ],
+    "backgroundCSS": "#E4E8F0",
+    "headerBehavior": "Solid",
+    "popUp": {
+        "entryType": "popUp",
+        "entryId": "7rUseGOyaXtBxOqVeKBuxz",
+        "updatedAt": "2026-04-01 14:56:05",
+        "entryEndpoint": "/popup/7rUseGOyaXtBxOqVeKBuxz"
+    },
+    "tournamentState": "Upcoming"
+}

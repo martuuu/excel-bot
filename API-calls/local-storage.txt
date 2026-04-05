@@ -1,0 +1,11 @@
+ingresando aca: https://fwc26-shop-usd.tickets.fifa.com/
+
+ak_a	C39CB76C42E8795E5CCF2D1DB9EA572B
+ak_ax	-1
+dataLUP	{ "userId": "10230008047154", "ssoId": "c95ac6ae-6b30-47dc-9450-89a0215e80a5", "email": "m.navarro89@hotmail.com", "firstName": "Martin", "lastName": "Navarro", "dateOfBirth": "19 March 1989", "nationalityCountryCode": "", "idNumber": "", "language": "es", "addressLine1": "Estomba 836", "addressLine2": "", "addressLine3": "", "zipCode": "8000", "city": "Bahia Blanca", "residenceCountryCode": "AR", "phoneNumber": "", "fanOf": "", "loginStatus": "Login succeeded", "contactNumber": "28405950" }
+dataLayerUserIdentity	{"email":"c7946a3534c1e9dceaba794aea0b35f18a6a02e8fdaaad841e48cfe0fb56f550","city":"Bahia Blanca","country":"Argentina","region":"","user_id":"28405950","first_name":"39d3a2e969b3dec11478d65ecb96ee6066ebd98920c816df9de7d131d9c67d0c","last_name":"cc753d5a2ce57800fee61485e6baa390f74c598a58df5ae11d6c138924d6a897","street_address":"Estomba 836","postcode":"ad5f9478d603fe97eae2bbff07f76fe7f18610343b5f3bc8e00945ee51b30d2c","phone_number":"","ip_address":"6a083bc0ab8f32867fad9b4c12db85ebc31de80946c8b9eca959ad8642d8761b"}
+
+SecuTix|isolated_saved_height_footer	1296
+SecuTix|isolated_saved_height_header	70
+phantom.contentScript.providerInjectionOptions.v3	{"hideProvidersArray":false,"dontOverrideWindowEthereum":false}
+storageCheck

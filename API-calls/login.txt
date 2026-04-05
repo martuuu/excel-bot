@@ -1,0 +1,726 @@
+primer payload al login:
+
+{id: "pom3e24cnx",…}
+eventName
+: 
+"continue"
+id
+: 
+"pom3e24cnx"
+interactionId
+: 
+"0fc3179d-2e49-4a1f-809a-020a0ef3c72d"
+nextEvent
+: 
+{constructType: "skEvent", eventName: "continue", params: [], eventType: "post", postProcess: {}}
+constructType
+: 
+"skEvent"
+eventName
+: 
+"continue"
+eventType
+: 
+"post"
+params
+: 
+[]
+postProcess
+: 
+{}
+parameters
+: 
+{buttonType: "form-submit", buttonValue: "frmAutoSubmit"}
+buttonType
+: 
+"form-submit"
+buttonValue
+: 
+"frmAutoSubmit"
+
+Despues creo que esto es una cookie nomas: 
+{CookieSPAEnabled: true, CookieSameSiteNoneEnabled: true, CookieV2CSPEnabled: false,…}
+AuthenticatedConsent
+: 
+false
+AuthenticatedLoggedOutConsent
+: 
+false
+BannerRefreshAfterCallToActionEnabled
+: 
+false
+BulkDomainCheckUrl
+: 
+"https://cookies-data.onetrust.io/bannersdk/v1/domaingroupcheck"
+CDNLocation
+: 
+"https://cdn.cookielaw.org"
+CookieSPAEnabled
+: 
+true
+CookieSameSiteNoneEnabled
+: 
+true
+CookieV2CSPEnabled
+: 
+false
+DataLanguage
+: 
+""
+DisclosureCDNUrl
+: 
+"https://cdn.cookielaw.org/vendorlist/DeviceStorageDisclosureData"
+Domain
+: 
+"fifa.com"
+DomainHashValue
+: 
+""
+EnvId
+: 
+"app-eu-prod"
+GATrackAssignedCategory
+: 
+"4"
+GATrackToggle
+: 
+true
+GeoRuleGroupName
+: 
+"FIFA Master TCF 2.2"
+GeolocationUrl
+: 
+"https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location"
+GoogleData
+: 
+{vendorListVersion: 137, googleVendorListUrl: "https://cdn.cookielaw.org/vendorlist/googleData.json"}
+GppData
+: 
+{cmpId: "28"}
+Iab2V2Data
+: 
+{cookieVersion: "1", createdTime: "2026-04-01T19:07:55.348473267",…}
+IabData
+: 
+{cookieVersion: "1", createdTime: "2026-04-01T19:07:55.293841021",…}
+IabV2Data
+: 
+{cookieVersion: "1", createdTime: "2026-04-01T19:07:55.321225334",…}
+IsSuppressBanner
+: 
+false
+IsSuppressPC
+: 
+false
+LanguageDetectionByHtml
+: 
+false
+LanguageDetectionEnabled
+: 
+true
+MobileSDK
+: 
+false
+MultiVariantTestingEnabled
+: 
+false
+OptanonDataJSON
+: 
+"996debe1-708b-4ebc-95c8-5b7ee0d77d76"
+PartitionedCookieEnabled
+: 
+false
+PublisherCC
+: 
+"UK"
+RemoteActionsEnabled
+: 
+false
+RootDomainConsentEnabled
+: 
+false
+RootDomainUrl
+: 
+""
+RuleSet
+: 
+[{Id: "0196ee40-8fb9-7916-8ebc-875e65310e0f", Name: "EU/EEA",…},…]
+SEOOptimization
+: 
+false
+ScriptDynamicLoadEnabled
+: 
+false
+ScriptType
+: 
+"PRODUCTION"
+SessionTrackingUrl
+: 
+""
+SkipGeolocation
+: 
+false
+SubDomainEnabled
+: 
+false
+TenantFeatures
+: 
+{CookieV2BannerFocus: true, CookieV2RejectAll: true, CookieV2TargetedTemplates: true,…}
+TenantGuid
+: 
+"a22264f8-9d14-4ab8-ab4b-a61925d0e901"
+UseV2
+: 
+true
+Version
+: 
+"202603.1.0"
+WebFormIntegrationEnabled
+: 
+false
+WebFormSrcUrl
+: 
+""
+WebFormWorkerUrl
+: 
+""
+
+Y el response de lo que creo que es una cookie.
+
+{
+    "CookieSPAEnabled": true,
+    "CookieSameSiteNoneEnabled": true,
+    "CookieV2CSPEnabled": false,
+    "MultiVariantTestingEnabled": false,
+    "UseV2": true,
+    "MobileSDK": false,
+    "SkipGeolocation": false,
+    "ScriptType": "PRODUCTION",
+    "Version": "202603.1.0",
+    "OptanonDataJSON": "996debe1-708b-4ebc-95c8-5b7ee0d77d76",
+    "GeolocationUrl": "https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location",
+    "BulkDomainCheckUrl": "https://cookies-data.onetrust.io/bannersdk/v1/domaingroupcheck",
+    "RuleSet": [
+        {
+            "Id": "0196ee40-8fb9-7916-8ebc-875e65310e0f",
+            "Name": "EU/EEA",
+            "Countries": [
+                "no",
+                "de",
+                "be",
+                "fi",
+                "pt",
+                "bg",
+                "dk",
+                "lt",
+                "lu",
+                "lv",
+                "hr",
+                "fr",
+                "hu",
+                "se",
+                "mc",
+                "si",
+                "sk",
+                "mf",
+                "sm",
+                "yt",
+                "ie",
+                "gf",
+                "ee",
+                "mq",
+                "mt",
+                "gp",
+                "is",
+                "va",
+                "it",
+                "gr",
+                "es",
+                "re",
+                "at",
+                "cy",
+                "ax",
+                "cz",
+                "pl",
+                "ro",
+                "nl"
+            ],
+            "States": {},
+            "LanguageSwitcherPlaceholder": {
+                "de": "de",
+                "ar": "ar",
+                "default": "en",
+                "ru": "ru",
+                "pt": "pt",
+                "ko": "ko",
+                "ja": "ja",
+                "it": "it",
+                "id": "id",
+                "fr": "fr",
+                "es": "es",
+                "zh": "zh"
+            },
+            "BannerPushesDown": false,
+            "Default": false,
+            "Global": false,
+            "Type": "IAB2V2",
+            "UseGoogleVendors": false,
+            "VariantEnabled": false,
+            "TestEndTime": null,
+            "Variants": [],
+            "TemplateName": "FIFA Master TCF 2.2",
+            "Conditions": [],
+            "GCEnable": false,
+            "IsGPPEnabled": false,
+            "EnableJWTAuthForKnownUsers": false
+        },
+        {
+            "Id": "0196ee40-8cf7-7a45-b648-dc768dfafefb",
+            "Name": "United Kingdom",
+            "Countries": [
+                "gb"
+            ],
+            "States": {},
+            "LanguageSwitcherPlaceholder": {
+                "de": "de",
+                "ar": "ar",
+                "default": "en",
+                "ru": "ru",
+                "pt": "pt",
+                "ko": "ko",
+                "ja": "ja",
+                "it": "it",
+                "id": "id",
+                "fr": "fr",
+                "es": "es",
+                "zh": "zh"
+            },
+            "BannerPushesDown": false,
+            "Default": false,
+            "Global": false,
+            "Type": "IAB2V2",
+            "UseGoogleVendors": false,
+            "VariantEnabled": false,
+            "TestEndTime": null,
+            "Variants": [],
+            "TemplateName": "FIFA Master TCF 2.2",
+            "Conditions": [],
+            "GCEnable": false,
+            "IsGPPEnabled": false,
+            "EnableJWTAuthForKnownUsers": false
+        },
+        {
+            "Id": "0196ee40-8cf7-739f-b12b-559673c06f85",
+            "Name": "Global",
+            "Countries": [
+                "ps",
+                "pw",
+                "py",
+                "qa",
+                "ad",
+                "ae",
+                "af",
+                "ag",
+                "ai",
+                "al",
+                "am",
+                "ao",
+                "aq",
+                "ar",
+                "as",
+                "au",
+                "aw",
+                "az",
+                "ba",
+                "bb",
+                "rs",
+                "bd",
+                "ru",
+                "bf",
+                "rw",
+                "bh",
+                "bi",
+                "bj",
+                "bl",
+                "bm",
+                "bn",
+                "bo",
+                "sa",
+                "sb",
+                "bq",
+                "sc",
+                "br",
+                "bs",
+                "sd",
+                "bt",
+                "bv",
+                "sg",
+                "sh",
+                "bw",
+                "sj",
+                "by",
+                "bz",
+                "sl",
+                "sn",
+                "so",
+                "ca",
+                "sr",
+                "cc",
+                "ss",
+                "st",
+                "cd",
+                "sv",
+                "cf",
+                "cg",
+                "sx",
+                "ci",
+                "sy",
+                "sz",
+                "ck",
+                "cl",
+                "cm",
+                "cn",
+                "co",
+                "cr",
+                "tc",
+                "td",
+                "tf",
+                "cu",
+                "cv",
+                "tg",
+                "cw",
+                "th",
+                "cx",
+                "tj",
+                "tk",
+                "tl",
+                "tm",
+                "tn",
+                "to",
+                "tr",
+                "tt",
+                "tv",
+                "tw",
+                "tz",
+                "dj",
+                "dm",
+                "do",
+                "ua",
+                "ug",
+                "dz",
+                "um",
+                "ec",
+                "eg",
+                "eh",
+                "uy",
+                "uz",
+                "vc",
+                "er",
+                "et",
+                "ve",
+                "vg",
+                "vi",
+                "vn",
+                "vu",
+                "fj",
+                "fk",
+                "fm",
+                "fo",
+                "wf",
+                "ga",
+                "ws",
+                "gd",
+                "ge",
+                "gg",
+                "gh",
+                "gi",
+                "gl",
+                "gm",
+                "gn",
+                "gq",
+                "gs",
+                "gt",
+                "gu",
+                "gw",
+                "gy",
+                "xk",
+                "hk",
+                "hm",
+                "hn",
+                "ht",
+                "ye",
+                "id",
+                "il",
+                "im",
+                "in",
+                "io",
+                "za",
+                "iq",
+                "ir",
+                "zm",
+                "je",
+                "zw",
+                "jm",
+                "jo",
+                "jp",
+                "ke",
+                "kg",
+                "kh",
+                "ki",
+                "km",
+                "kn",
+                "kp",
+                "kr",
+                "kw",
+                "ky",
+                "kz",
+                "la",
+                "lb",
+                "lc",
+                "lk",
+                "lr",
+                "ls",
+                "ly",
+                "ma",
+                "md",
+                "me",
+                "mg",
+                "mh",
+                "mk",
+                "ml",
+                "mm",
+                "mn",
+                "mo",
+                "mp",
+                "mr",
+                "ms",
+                "mu",
+                "mv",
+                "mw",
+                "mx",
+                "my",
+                "mz",
+                "na",
+                "nc",
+                "ne",
+                "nf",
+                "ng",
+                "ni",
+                "np",
+                "nr",
+                "nu",
+                "nz",
+                "om",
+                "pa",
+                "pe",
+                "pf",
+                "pg",
+                "ph",
+                "pk",
+                "pm",
+                "pn"
+            ],
+            "States": {},
+            "LanguageSwitcherPlaceholder": {
+                "de": "de",
+                "ar": "ar",
+                "default": "en",
+                "ru": "ru",
+                "pt": "pt",
+                "ko": "ko",
+                "ja": "ja",
+                "it": "it",
+                "id": "id",
+                "fr": "fr",
+                "es": "es",
+                "zh": "zh"
+            },
+            "BannerPushesDown": false,
+            "Default": true,
+            "Global": true,
+            "Type": "GDPR",
+            "UseGoogleVendors": false,
+            "VariantEnabled": false,
+            "TestEndTime": null,
+            "Variants": [],
+            "TemplateName": "FIFA Master Template",
+            "Conditions": [],
+            "GCEnable": false,
+            "IsGPPEnabled": false,
+            "EnableJWTAuthForKnownUsers": false
+        },
+        {
+            "Id": "0196ee40-8cf7-768b-a3d7-df540e713516",
+            "Name": "Switzerland",
+            "Countries": [
+                "ch",
+                "li"
+            ],
+            "States": {},
+            "LanguageSwitcherPlaceholder": {
+                "de": "de",
+                "ar": "ar",
+                "default": "en",
+                "ru": "ru",
+                "pt": "pt",
+                "ko": "ko",
+                "ja": "ja",
+                "it": "it",
+                "id": "id",
+                "fr": "fr",
+                "es": "es",
+                "zh": "zh"
+            },
+            "BannerPushesDown": false,
+            "Default": false,
+            "Global": false,
+            "Type": "IAB2V2",
+            "UseGoogleVendors": false,
+            "VariantEnabled": false,
+            "TestEndTime": null,
+            "Variants": [],
+            "TemplateName": "FIFA Master TCF 2.2",
+            "Conditions": [],
+            "GCEnable": false,
+            "IsGPPEnabled": false,
+            "EnableJWTAuthForKnownUsers": false
+        },
+        {
+            "Id": "0196ee40-8cf7-7552-ae8a-ccec3d4d90c8",
+            "Name": "US",
+            "Countries": [
+                "pr",
+                "us"
+            ],
+            "States": {
+                "us": [
+                    "pr"
+                ]
+            },
+            "LanguageSwitcherPlaceholder": {
+                "de": "de",
+                "ar": "ar",
+                "default": "en",
+                "ru": "ru",
+                "pt": "pt",
+                "ko": "ko",
+                "ja": "ja",
+                "it": "it",
+                "id": "id",
+                "fr": "fr",
+                "es": "es",
+                "zh": "zh"
+            },
+            "BannerPushesDown": false,
+            "Default": false,
+            "Global": false,
+            "Type": "GDPR",
+            "UseGoogleVendors": false,
+            "VariantEnabled": false,
+            "TestEndTime": null,
+            "Variants": [],
+            "TemplateName": "FIFA US Template",
+            "Conditions": [],
+            "GCEnable": false,
+            "IsGPPEnabled": false,
+            "EnableJWTAuthForKnownUsers": false
+        }
+    ],
+    "IabData": {
+        "cookieVersion": "1",
+        "createdTime": "2026-04-01T19:07:55.293841021",
+        "updatedTime": "2026-04-01T19:07:55.293849326",
+        "cmpId": "28",
+        "cmpVersion": "1",
+        "consentScreen": "1",
+        "consentLanguage": null,
+        "vendorListVersion": 0,
+        "maxVendorId": 0,
+        "encodingType": "0",
+        "globalVendorListUrl": "https://cdn.cookielaw.org/vendorlist/iabData.json"
+    },
+    "IabV2Data": {
+        "cookieVersion": "1",
+        "createdTime": "2026-04-01T19:07:55.321225334",
+        "updatedTime": "2026-04-01T19:07:55.321232583",
+        "cmpId": "28",
+        "cmpVersion": "1",
+        "consentScreen": "1",
+        "consentLanguage": null,
+        "vendorListVersion": 0,
+        "maxVendorId": 0,
+        "encodingType": "0",
+        "globalVendorListUrl": "https://cdn.cookielaw.org/vendorlist/iab2Data.json"
+    },
+    "Iab2V2Data": {
+        "cookieVersion": "1",
+        "createdTime": "2026-04-01T19:07:55.348473267",
+        "updatedTime": "2026-04-01T19:07:55.348480355",
+        "cmpId": "28",
+        "cmpVersion": "1",
+        "consentScreen": "1",
+        "consentLanguage": null,
+        "vendorListVersion": 152,
+        "maxVendorId": 0,
+        "encodingType": "0",
+        "globalVendorListUrl": "https://cdn.cookielaw.org/vendorlist/iab2V2Data.json"
+    },
+    "GoogleData": {
+        "vendorListVersion": 137,
+        "googleVendorListUrl": "https://cdn.cookielaw.org/vendorlist/googleData.json"
+    },
+    "ScriptDynamicLoadEnabled": false,
+    "TenantFeatures": {
+        "CookieV2BannerFocus": true,
+        "CookieV2RejectAll": true,
+        "CookieV2TargetedTemplates": true,
+        "CookieV2GPC": true,
+        "CookieV2GeolocationJsonApi": true,
+        "CookieV2TCF21": true,
+        "CookieV2SkipCategory": true,
+        "CookieV2BannerLogo": true,
+        "ConsentStoreConsentStrings": true,
+        "features.cmp-amazon-consent-Signal": true,
+        "CookiesV2TCF2.3Adoption": true,
+        "CookieV2AssignTemplateRule": true,
+        "MobileAuthenticatedConsents": true,
+        "CookieV2MicrosoftUET": true,
+        "CookieV2GCMDMA": true,
+        "CookiesSameSiteNone": true,
+        "CookieV2RemoveSettingsIcon": true,
+        "CookieV2NewConsentReceiptAPI": true,
+        "CookieV2GeneralVendors": true,
+        "CookieV2GPP": true
+    },
+    "IsSuppressBanner": false,
+    "IsSuppressPC": false,
+    "PublisherCC": "UK",
+    "Domain": "fifa.com",
+    "TenantGuid": "a22264f8-9d14-4ab8-ab4b-a61925d0e901",
+    "EnvId": "app-eu-prod",
+    "RemoteActionsEnabled": false,
+    "GeoRuleGroupName": "FIFA Master TCF 2.2",
+    "GATrackToggle": true,
+    "GATrackAssignedCategory": "4",
+    "WebFormIntegrationEnabled": false,
+    "WebFormSrcUrl": "",
+    "WebFormWorkerUrl": "",
+    "GppData": {
+        "cmpId": "28"
+    },
+    "AuthenticatedConsent": false,
+    "AuthenticatedLoggedOutConsent": false,
+    "CDNLocation": "https://cdn.cookielaw.org",
+    "RootDomainConsentEnabled": false,
+    "RootDomainUrl": "",
+    "LanguageDetectionEnabled": true,
+    "LanguageDetectionByHtml": false,
+    "DataLanguage": "",
+    "DisclosureCDNUrl": "https://cdn.cookielaw.org/vendorlist/DeviceStorageDisclosureData",
+    "SEOOptimization": false,
+    "PartitionedCookieEnabled": false,
+    "BannerRefreshAfterCallToActionEnabled": false,
+    "SubDomainEnabled": false,
+    "DomainHashValue": "",
+    "SessionTrackingUrl": ""
+}

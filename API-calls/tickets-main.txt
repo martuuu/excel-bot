@@ -1,0 +1,562 @@
+accediendo a https://www.fifa.com/en/tickets tenemos estos distintos responses:
+
+{
+    "entryId": "2afzuqESTl2Q38r85PkCKw",
+    "entryType": "sectionPromoCarousel",
+    "internalTitle": "Home Page > Inside FIFA News (Across-EN-AR-FR-DE-ES)",
+    "rooflineType": "NoRoofline",
+    "size": 1,
+    "carouselType": 1,
+    "title": "Inside FIFA",
+    "seeAllLabel": "See all",
+    "seeAllLink": "https://inside.fifa.com/all-stories",
+    "items": [
+        {
+            "entryId": "87l57l15xjbo_1Nw1m4Nb9KFLoMxLQYPshO",
+            "title": "Elite European referees gather for final seminar ahead of FIFA World Cup 2026™",
+            "internalTitle": "Article > Elite European referees gather for final seminar ahead of FIFA World Cup 2026™ > 020426 EN",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/uefa-referees-seminar-italy-pierluigi-collina-massimo-busacca",
+            "image": {
+                "entryId": "87l57l15xjbo_6Yc3uA5VeIcA9dDQQseUpj",
+                "title": "Referees and FIFA staff pose for a group picture after a training session at the Stadio dei Pini",
+                "src": "https://digitalhub.fifa.com/transform/d4debcc9-b374-42b5-85fd-9edbf99c9bb6/FWC26-Referee-Seminar-Italy",
+                "alt": "VIAREGGIO, ITALY - MARCH 31: Referees and FIFA staff pose for a group picture after a training session part of the FWC26 Referee Seminar - Italy at Stadio dei Pini on March 31, 2026 in Viareggio, Italy. (Photo by Simone Arveda - FIFA/FIFA via Getty Images)",
+                "width": 3543,
+                "height": 3543
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_4geRsy8VmwIwwZ7Uv46by3",
+            "title": "First FIFA Arena in the United States inaugurated in Birmingham, Alabama",
+            "internalTitle": "Article > First FIFA Arena in the United States inaugurated in Birmingham, Alabama - 020426",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/arena-birmingham-alabama-oakland-california-usa-chris-richards",
+            "image": {
+                "entryId": "87l57l15xjbo_4zNGhYhj85aJmJUVwVQgt3",
+                "title": "First FIFA Arena in the United States inaugurated in Birmingham, Alabama",
+                "src": "https://digitalhub.fifa.com/transform/db11f6e7-b606-49f2-8f0d-8e59b62a3803/First-FIFA-Arena-in-the-United-States-inaugurated-in-Birmingham-Alabama",
+                "alt": "First FIFA Arena in the United States inaugurated in Birmingham, Alabama",
+                "width": 4354,
+                "height": 4354
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_6AKD5A1shII75if3pdA6eK",
+            "title": "ADI Predictstreet named official prediction market partner of the FIFA World Cup 2026™",
+            "internalTitle": "Article > Predictstreet named official prediction market partner of the FIFA World Cup 2026™ > 310326 EN",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/adi-predictstreet-official-prediction-market-partner-fifa-world-cup-2026",
+            "image": {
+                "entryId": "87l57l15xjbo_6kcdQbfrraAIP5iVHt5CrW",
+                "title": "ADI Predictstreet named official prediction market partner of the FIFA World Cup 2026™",
+                "src": "https://digitalhub.fifa.com/transform/7e2d1417-2e11-4248-a1f1-54495b0a7d26/FIFA-x-ADI-Partnership-Signing-Ceremony",
+                "alt": "ZURICH, SWITZERLAND - MARCH 19: Partnership Signing Ceremony between FIFA and ADI at House of FIFA on March 19, 2026 in Zurich, Switzerland. (Photo by Marcio Machado/FIFA)",
+                "width": 7699,
+                "height": 7699
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_3T8E2wWDt2CUhWjtqi7kLP",
+            "title": "FIFA Series™ provides vital new experience for American Samoa",
+            "internalTitle": "Article > FIFA Series™ provides vital new experience for American Samoa > 020426",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/american-samoa-diego-gomez-ali-i-mitchell-fifa-series",
+            "image": {
+                "entryId": "87l57l15xjbo_2NTJSxay2vL2HT93tEBX5F",
+                "title": "Players of American Samoa huddle",
+                "src": "https://digitalhub.fifa.com/transform/77ed9b9e-3c3c-4242-b19f-65df56e37f68/American-Samoa-v-Guam-FIFA-Series-2026",
+                "alt": "BAYAMON, PUERTO RICO - MARCH 28: Players of American Samoa huddle prior to the FIFA Series 2026 third place match between American Samoa and Guam at Estadio Juan Ramón Loubriel on March 28, 2026 in Bayamon, Puerto Rico.  (Photo by Raul Sifuentes - FIFA/FIFA via Getty Images)",
+                "width": 6000,
+                "height": 6000
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_6G89HPC9jbeQVa1gDRjtUD",
+            "title": "France reclaim top spot in the FIFA/Coca-Cola Men’s World Ranking",
+            "internalTitle": "Article > FIFA/Coca-Cola Men's World Ranking March 2026 > 010426",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/france-1st-fifa-coca-cola-world-ranking-april-2026",
+            "image": {
+                "entryId": "87l57l15xjbo_5SHYIST8FKK93VdM30yYRG",
+                "title": "Désiré Doué of France celebrates scoring ",
+                "src": "https://digitalhub.fifa.com/transform/e704c491-f1f9-406e-b090-7282703cce69/Colombia-v-France-International-Friendly",
+                "alt": "LANDOVER, MARYLAND - MARCH 29: Desire Doue of France celebrates scoring his team's third goal during the international friendly match between Colombia and France at Northwest Stadium on March 29, 2026 in Landover, Maryland. (Photo by Hannah Foslien/Getty Images)",
+                "width": 4422,
+                "height": 4422
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_2ojHswQYkpgEI8WrliUowk",
+            "title": "Mattias Grafström returns to Sweden on historic day for Swedish football",
+            "internalTitle": "Article > Secretary General > Mattias Grafström returns to Sweden on historic day for Swedish football > 310326",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/mattias-grafstroem-sweden-historic-day-swedish-football",
+            "image": {
+                "entryId": "87l57l15xjbo_55EPUTWYmazm2JgSuCWBnR",
+                "title": "FIFA Secretary General Mattias Grafström with Swedish Football Association (SvFF) President Simon Åström and General Secretary Niclas Carlnen",
+                "src": "https://digitalhub.fifa.com/transform/ea4f2a15-3fed-4f04-8a07-a12767ffcdef/FIFA-Secretary-General-Mattias-Grafstrom-with-Swedish-Football-Association-SvFF-President-Simon-Astrom-and-General-Secretary-Niclas-Carlnen",
+                "alt": "FIFA Secretary General Mattias Grafström with Swedish Football Association (SvFF) President Simon Åström and General Secretary Niclas Carlnen",
+                "width": 1197,
+                "height": 1197
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_3K5RTvF5ECtzrobOKjUM2v",
+            "title": "Azerbaijan build on FIFA Series™ success and set sights on 2027",
+            "internalTitle": "Article >  Azerbaijan build on FIFA Series™ success and set sights on 2027 - 020426",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/azerbaijan-fifa-series-success-world-ranking-climb-cafarguliyev",
+            "image": {
+                "entryId": "87l57l15xjbo_3tTjP3FcfOh4vNDcztULnR",
+                "title": "Azerbaijan v Sierra Leone - FIFA Series 2026",
+                "src": "https://digitalhub.fifa.com/transform/3f4c3e57-46b9-47cc-89f5-6996490bd272/Azerbaijan-v-Sierra-Leone-FIFA-Series-2026",
+                "alt": "BAKU, AZERBAIJAN - MARCH 30: Players of Azerbaijan celebrate after the FIFA Series 2026 match between Azerbaijan and Sierra Leone on March 30, 2026 in Baku, Azerbaijan. (Photo by Aziz Karimov - FIFA/FIFA via Getty Images)",
+                "width": 3534,
+                "height": 3534
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_44Un1FdqLQ1JLYt4ZBWF41",
+            "title": "FIFA Arena and FIFA Boots for All launched in Rwanda",
+            "internalTitle": "Article > Rwanda: FIFA Boots for All and FIFA Arena - 300326",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/arena-boots-for-all-rwanda-grafstrom-agence-francaise-developpement",
+            "image": {
+                "entryId": "87l57l15xjbo_5KmqkeoMI4XWBtu2whxZOR",
+                "title": "FIFA Secretary General Mattias Grafström during the FIFA Boots for All launch in Rwanda",
+                "src": "https://digitalhub.fifa.com/transform/cb63a8e7-ea2e-450d-b976-ea45c293bfeb/FIFA-Arena-inauguration-and-FIFA-Boots-4-All-launch",
+                "alt": "KIGALI, RWANDA - MARCH 03: FIFA Arena inauguration and FIFA Boots 4 All launch attended by Hon. Minister Nelly Mukazayire, FIFA Secretary General Mattias Grafström, FERWAFA President Fabrice Shema & Stéphane Le Brech, Chargé d’Affaires at the French Embassy at Kagarama Secondary School on March 03, 2026 in Kigali, Rwanda.",
+                "width": 2560,
+                "height": 2560
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_1Z4exHacAutrjFZcV7u2dK",
+            "title": "FIFA World Cup 2026™ line-up complete as Iraq claim final spot",
+            "internalTitle": "Article > FWC 2026 > FIFA World Cup 2026™ line-up complete as Iraq claim final spot > 010426",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/world-cup-2026-line-up-complete-iraq-bolivia-play-off-fixtures",
+            "image": {
+                "entryId": "87l57l15xjbo_BL0SCKS5v7UaKzF4AexaB",
+                "title": "FIFA World Cup 2026™ line-up complete ",
+                "src": "https://digitalhub.fifa.com/transform/6124c42a-1ee3-4cb3-8614-8b1962c99ede/FIFA-World-Cup-2026-line-up-complete",
+                "alt": "FIFA World Cup 2026™ line-up complete",
+                "width": 2400,
+                "height": 2400
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_3ISoC9CCXlBetxlZVGwARO",
+            "title": "Canadian Premier League to conduct “daylight offside” trial in cooperation with FIFA",
+            "internalTitle": "Article > Canadian Premier League to conduct “daylight offside” trial in cooperation with FIFA > 280326 EN",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/canadian-premier-league-daylight-offside-trial-cooperation-fifa",
+            "image": {
+                "entryId": "87l57l15xjbo_BRnf9CYzz4gOSeEtjwdyV",
+                "title": "Offside / trial daylight rule",
+                "src": "https://digitalhub.fifa.com/transform/39e66144-ef1f-431b-b690-d70f9a5cb7c7/South-Africa-v-Italy-Group-G-FIFA-Women-s-World-Cup-Australia-New-Zealand-2023",
+                "alt": "WELLINGTON, NEW ZEALAND - AUGUST 2:   during the FIFA Women's World Cup Australia & New Zealand 2023 Group G match between South Africa and Italy at Wellington Regional Stadium on August 2, 2023 in Wellington / Te Whanganui-a-Tara, New Zealand. (Photo by Hagen Hopkins - FIFA/FIFA via Getty Images)",
+                "width": 6000,
+                "height": 6000
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_xVY0Q9Y2F6Find43miDZh",
+            "title": "FIFA Women’s World Cup 2027™ referee training and selection process continues with Rio de Janeiro seminar",
+            "internalTitle": "Article > FIFA Women’s World Cup 2027™ referee training and selection process begins with Rio de Janeiro seminar > 280326 EN",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/womens-world-cup-brazil-2027-referee-seminar-steinhaus-webb",
+            "image": {
+                "entryId": "87l57l15xjbo_5g0u8sFfLUsmfDpWCcouX7",
+                "title": "Referees pose for group photo",
+                "src": "https://digitalhub.fifa.com/transform/0e1c5e07-4cba-4730-bf28-94c5935cad49/FIFA-Referee-s-Seminar-Rio-de-Janeiro",
+                "alt": "RIO DE JANEIRO, BRAZIL - MARCH 23: Referees pose for group photo prior to the FIFA Referee's Seminar on March 23, 2026 in Rio de Janeiro, Brazil. (Photo by Buda Mendes - FIFA/FIFA via Getty Images)",
+                "width": 5716,
+                "height": 5716
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_ad902213-fcdc-4d5d-a715-a7f2e4c74012",
+            "title": "FIFA Series 2026™ proves Uzbekistan has what it takes to host tournaments ",
+            "internalTitle": "Article > FIFA Series 2026™ proves Uzbekistan has what it takes to host tournaments - 300326 - EN",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/uzbekistan-fifa-series-2026-hosts-mukhammad-sodik-sadik-akhunov",
+            "image": {
+                "entryId": "87l57l15xjbo_7rLxzzoyvaQS2UOAyPsPo0",
+                "title": "Players of Uzbekistan acknowledge the fans at the end of the FIFA Series 2026 match between Uzbekistan and Gabon on March 27, 2026 in Tashkent, Uzbekistan",
+                "src": "https://digitalhub.fifa.com/transform/f340fc5c-5555-4f7f-914c-be00cc54416c/Uzbekistan-v-Gabon-FIFA-Series-2026",
+                "alt": "TASHKENT, UZBEKISTAN - MARCH 27: Players of Uzbekistan acknowledge the fans at the end of the FIFA Series 2026 match between Uzbekistan and Gabon on March 27, 2026 in Tashkent, Uzbekistan. (Photo by Anvar Ilyasov/Getty Images)",
+                "width": 5644,
+                "height": 5644
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_Z4CdAC3w3uJ3bnuRLCJm7",
+            "title": "FIFA President attends re-opening of Mexico City Stadium",
+            "internalTitle": "Article > President > Mexico City visit: Stadium re-inauguration - 290326",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/mexico-city-stadium-azteca-pele-diego-maradona-world-cup-2026",
+            "image": {
+                "entryId": "87l57l15xjbo_Ku7MneL2nJLgVyAPMAVwn",
+                "title": "FIFA President Gianni Infantino waves to supporters during a friendly match between Mexico and Portugal",
+                "src": "https://digitalhub.fifa.com/transform/e2b92c89-bee3-4734-a316-fc1a8afbc7dc/FIFA-President-Gianni-Infantino-waves-to-supporters-during-a-friendly-match-between-Mexico-and-Portugal",
+                "alt": "FIFA President Gianni Infantino waves to supporters during a friendly football match between Mexico and Portugal at the Banorte (formerly known as Azteca) Stadium in Mexico City on March 28, 2026. (Photo by Alfredo ESTRELLA / AFP via Getty Images)",
+                "width": 2754,
+                "height": 2754
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_2TtRkwQOwHmj3Uhm2bqcdf",
+            "title": "Gianni Infantino launches FIFA Boots for All in Mexico, meets pioneering women footballers",
+            "internalTitle": "Article > President > Mexico City visit: Museum, FMF and Boots for All - 290326",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/boots-for-all-mexico-gianni-infantino-building-pioneras-de-71",
+            "image": {
+                "entryId": "87l57l15xjbo_Vt1Kw8pBUsKTZsowWcRlx",
+                "title": "FIFA President Gianni Infantino visiting the Mexican Football Federation’s (FMF) newly renovated High Performance Centre (CAR) ",
+                "src": "https://digitalhub.fifa.com/transform/39a51158-ce74-4869-93ba-e04be15ed7c1/FIFA-President-Gianni-Infantino-visiting-the-Mexican-Football-Federation-s-FMF-newly-renovated-High-Performance-Centre-CAR",
+                "alt": "FIFA President Gianni Infantino visiting the Mexican Football Federation’s (FMF) newly renovated High Performance Centre (CAR)",
+                "width": 4032,
+                "height": 4032
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_3SSi1luWnqeovq7xmqKImM",
+            "title": "Mendes and the Blue Sharks jump into the deep end",
+            "internalTitle": "Article > FIFA Series 2026 > Cape Verde > Mendes and the Blue Sharks jump into the deep end - 290326 - EN",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/cabo-verde-fifa-series-ryan-mendes",
+            "image": {
+                "entryId": "87l57l15xjbo_4ZaZh6MO0CoPsV1j5FQwGB",
+                "title": "Chile v Cape Verde - FIFA Series 2026",
+                "src": "https://digitalhub.fifa.com/transform/0482dcb4-37f1-4a6a-a1cc-0e93986d2817/Chile-v-Cape-Verde-FIFA-Series-2026",
+                "alt": "AUCKLAND, NEW ZEALAND - MARCH 27: Ryan Mendes of Cape Verde competed for the ball during the FIFA Series match between Chile and Cape Verde at Eden Park on March 27, 2026 in Auckland, New Zealand. (Photo by Joe Allison - FIFA/FIFA via Getty Images)",
+                "width": 4963,
+                "height": 4963
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_5GBQ01MUWvDiHYG4Jfisl8",
+            "title": "‘The world will stand still’ for FIFA World Cup 2026™ says FIFA President",
+            "internalTitle": "Article > ‘The world will stand still’ for FIFA World Cup 2026™ says FIFA President - 270326",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/world-cup-2026-infantino-fiipriority-investment-summit-ronaldo",
+            "image": {
+                "entryId": "87l57l15xjbo_bAWvAvGZMPEQiljGeo8OU",
+                "title": "FIFA President Gianni Infantino speaks during FII Priority 2026",
+                "src": "https://digitalhub.fifa.com/transform/fca398d8-21dc-40cb-98e7-7525c7a49218/FIFA-President-at-FII-Priority-2026",
+                "alt": "MIAMI, FLORIDA - MARCH 27: FIFA President Gianni Infantino gives his speech during FII Priority 2026 on March 2026,  in Miami, Florida. (Photo courtesy: FII Institute)",
+                "width": 4032,
+                "height": 4032
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_p21nIJlmmHP2uU55MdTN3",
+            "title": "Growing the women’s game (March 2026)",
+            "internalTitle": "Article > Women's Football > WF development review Mar 2026 > 270326",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/womens-football-development-activities-march-2026",
+            "image": {
+                "entryId": "87l57l15xjbo_7jvRtujuChYpRG3eVnaWeX",
+                "title": "Women’s Football Campaign, Bitola, North Macedonia",
+                "src": "https://digitalhub.fifa.com/transform/83764180-f48f-4192-9f23-dc9320e73d18/Women-s-Football-Campaign-Bitola-North-Macedonia",
+                "alt": "Women’s Football Campaign, Bitola, North Macedonia",
+                "width": 1536,
+                "height": 1536
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_4OTsMf6THeFSO2lp4jHqPe",
+            "title": "Final FIFA World Cup 2026™ places to be decided in Mexico on 31 March",
+            "internalTitle": "Article > Final FIFA World Cup 2026™ places to be decided in Mexico on 31 March > 270326 EN",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/fifa-world-cup-2026-places-to-be-decided-mexico-31-march",
+            "image": {
+                "entryId": "87l57l15xjbo_TnsirB7v9lyAwCxTog4YB",
+                "title": "Official match ball at the FIFA World Cup 2026 Play-Off Tournament",
+                "src": "https://digitalhub.fifa.com/transform/ff3c95c9-4740-48ee-9f6f-904459e2ef7f/Bolivia-v-Suriname-FIFA-World-Cup-2026-Play-Off-Tournament",
+                "alt": "GUADALUPE, MEXICO - MARCH 26: Detail of the match ball prior to the FIFA World Cup 2026 Qualifying Playoff tournament match between Bolivia and Suriname at Estadio Monterrey on March 26, 2026 in Guadalupe, Mexico. (Photo by Hector Vivas - FIFA/FIFA via Getty Images)",
+                "width": 5040,
+                "height": 5040
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_940f7d01-de7c-4935-a79d-f309a3cc728f",
+            "title": "Chile participate in FIFA Series 2026™ with long-term goal in mind",
+            "internalTitle": "Article > FIFA Series 2026 > Chile is taking part in the FIFA Series 2026 with its long-term goal in mind - 260326 - [EN]",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/news/nicolas-cordova-interview-chile-world-cup-fifa-series-alexis",
+            "image": {
+                "entryId": "87l57l15xjbo_52WAhr1WuoeDUAPnC9uVxP",
+                "title": "Cavo Verde Head Coach Pedro Leitão Brito, Chile Head Coach Nicolás Córdova, Finland Head Coach Jacob Friis and New Zealand Head Coach Darren Bazeley",
+                "src": "https://digitalhub.fifa.com/transform/659b0da2-82e0-46ff-97a2-6732f77f8718/Cavo-Verde-Head-Coach-Pedro-Leitao-Brito-Chile-Head-Coach-Nicolas-Cordova-Finland-Head-Coach-Jacob-Friis-and-New-Zealand-Head-Coach-Darren-Bazeley",
+                "alt": "AUCKLAND, NEW ZEALAND - MARCH 26: (L-R) Cape Verde Head Coach Pedro Leitão Brito, Chile Head Coach Nicolás Córdova, New Zealand All White Head Coach Darren Bazeley and Finland Head Coach Jacob Friis pose following the FIFA Series Press Conference at Eden Park on March 26, 2026 in Auckland, New Zealand. (Photo by Phil Walter/Getty Images)",
+                "width": 5778,
+                "height": 5778
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        },
+        {
+            "entryId": "87l57l15xjbo_6WSSNaOxJ7TIZHKRJW4gMo",
+            "title": "Global sponsorship packages for FIFA World Cup 2026™ sold out",
+            "internalTitle": "Media Release > Global sponsorship packages for FIFA World Cup 2026™ sold out > 260326",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://www.inside.fifa.com/media-releases/global-sponsorship-packages-for-fifa-world-cup-2026-tm-sold-out",
+            "image": {
+                "entryId": "87l57l15xjbo_4hjleBQbs39thQeaVcJ8wD",
+                "title": "Global sponsorship packages for FIFA World Cup 2026™ sold out | Photo: Courtesy of Sports Business Journal",
+                "src": "https://digitalhub.fifa.com/transform/cb01f90b-5d6c-42f1-8295-b2430183f1d9/Global-sponsorship-packages-for-FIFA-World-Cup-2026-sold-out",
+                "alt": "Global sponsorship packages for FIFA World Cup 2026™ sold out",
+                "width": 3008,
+                "height": 3008
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0
+        }
+    ]
+}
+
+{
+    "entryId": "1ieWwpV6XXrpmck97gAf9D",
+    "entryType": "sectionPromoCarousel",
+    "internalTitle": "Upcoming Tournaments & Events (Global-Tournaments)",
+    "rooflineType": "NoRoofline",
+    "size": 1,
+    "carouselType": 1,
+    "title": "Upcoming tournaments & events",
+    "seeAllLabel": "See all",
+    "pageReference": {
+        "templateType": "fifaPlusLandingTemplate",
+        "templateId": "1OJ6semmAPPtSlUdjiKf9u",
+        "pageUrl": "https://www.fifa.com/en/tournaments?context=app"
+    },
+    "seeAllLink": "/en/tournaments",
+    "items": [
+        {
+            "entryId": "2AZPFuYFfQULIXVwHzjHwy",
+            "title": "FIFA World Cup 2026™",
+            "description": " The FIFA World Cup 2026™ will be the 23rd edition of the tournament but the first to feature 48 teams and three host countries: Canada, Mexico and the United States. ",
+            "internalTitle": "Page > Tournaments  > Men's > FIFA World Cup > FIFA World Cup 2026 (Global-Tournaments) ",
+            "readMorePageUrl": "/en/tournaments/mens/worldcup/canadamexicousa2026",
+            "image": {
+                "entryId": "34MGiRd2CLKWJeITqX1cvp",
+                "title": "FIFA World Cup 26™",
+                "src": "https://digitalhub.fifa.com/transform/598a1d22-62b6-486b-849c-e8bf55894179/FIFA_FWC26_Tournament-Thumbnail-4-3",
+                "alt": "FIFA",
+                "caption": "FIFA",
+                "width": 1024,
+                "height": 768
+            },
+            "programmeType": 7,
+            "pageReferenceDto": {
+                "templateType": "fifaPlusLandingTemplate",
+                "templateId": "74h5ZnXRcf3xleY9Ym3cgi",
+                "pageUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026?context=app"
+            },
+            "cardCategory": 0
+        },
+        {
+            "entryId": "2tMWgeJLIALZLLYfMxWM9C",
+            "title": "FIFA Women’s World Cup Brazil 2027™ ",
+            "description": "Get ready for FIFA Women’s World Cup 2027™, where Brazil will host the 10th edition of the tournament.",
+            "internalTitle": "Page > Tournaments > Women's > FIFA Women's World Cup > FIFA Women's World Cup 2027 (Global-Tournaments)",
+            "readMorePageUrl": "/en/tournaments/womens/womensworldcup/brazil-2027",
+            "image": {
+                "entryId": "5U4F0lWjUJml6QTiGX6Exa",
+                "title": "FIFA Women's World Cup 2027™",
+                "src": "https://digitalhub.fifa.com/transform/c0288b07-db6c-4081-9fc1-9667bb20bb35/Tournament-thumbnail-4_3-1570px_1178px",
+                "alt": "",
+                "caption": "",
+                "width": 1570,
+                "height": 1178
+            },
+            "programmeType": 7,
+            "pageReferenceDto": {
+                "templateType": "fifaPlusLandingTemplate",
+                "templateId": "2fhvy26uPmrSkk52GuB3tm",
+                "pageUrl": "https://www.fifa.com/en/tournaments/womens/womensworldcup/brazil-2027?context=app"
+            },
+            "cardCategory": 0
+        },
+        {
+            "entryId": "2RtnXr84OG4vQlvtTAOKAE",
+            "title": "FIFA U-20 Women's World Cup Poland 2026™",
+            "description": "Visit FIFA.com for all the news, updates and information you need as Poland hosts the FIFA U-20 Women's World Cup™ for the first time.",
+            "internalTitle": "Page > Tournaments  > Women's > FIFA U-20 Women's World Cup > FIFA U-20 Women's World Cup 2026 (Global-Tournaments)",
+            "readMorePageUrl": "/en/tournaments/womens/u20womensworldcup/poland-2026",
+            "image": {
+                "entryId": "1DZnyZMdX57P20y2YtROm7",
+                "title": "FIFA U-20 Women's World Cup Poland 2026™",
+                "src": "https://digitalhub.fifa.com/transform/48d0303f-1c32-4e7b-90aa-12fc8b10f667/FU20WWC-2026-Tournament-Thumbnail",
+                "alt": "BOGOTA, COLOMBIA - SEPTEMBER 21: Detail of the Winner's Trophy ahead of the FIFA U-20 Women's World Cup Colombia 2024 Final between Korea DPR and Japan at Estadio El Campin on September 21, 2024 in Bogota, Colombia. (Photo by Buda Mendes - FIFA/FIFA via Getty Images)",
+                "caption": "BOGOTA, COLOMBIA - SEPTEMBER 21: Detail of the Winner's Trophy ahead of the FIFA U-20 Women's World Cup Colombia 2024 Final between Korea DPR and Japan at Estadio El Campin on September 21, 2024 in Bogota, Colombia. (Photo by Buda Mendes - FIFA/FIFA via Getty Images)",
+                "width": 1024,
+                "height": 768
+            },
+            "programmeType": 7,
+            "pageReferenceDto": {
+                "templateType": "fifaPlusLandingTemplate",
+                "templateId": "2DfjsN4V2Xh7EaQ8lMaQTm",
+                "pageUrl": "https://www.fifa.com/en/tournaments/womens/u20womensworldcup/poland-2026?context=app"
+            },
+            "cardCategory": 0
+        },
+        {
+            "entryId": "6H1SWlN2PouaQtcgqcT9eZ",
+            "title": "FIFA U-17 World Cup Qatar 2026™",
+            "description": "All the latest news, features and interviews as Qatar hosts the FIFA U-17 World Cup™.",
+            "internalTitle": "Page > Tournaments > Men's > FIFA U-17 World Cup > FIFA U-17 World Cup 2026 (Global-Tournaments)",
+            "readMorePageUrl": "/en/tournaments/mens/u17worldcup/qatar-2026",
+            "image": {
+                "entryId": "4x3gyiTsKb6qbFlafsz0t1",
+                "title": "The FIFA U-17 World Cup Trophy",
+                "src": "https://digitalhub.fifa.com/transform/dc08b327-2c69-422b-9efd-d961e3af0bae/Mexico-v-Brazil-Final-FIFA-U-17-World-Cup-Brazil-2019-17-Nov-2019",
+                "alt": "BRASILIA, BRAZIL - NOVEMBER 17: Detailed view of the World Cup Trophy during the Final of the FIFA U-17 World Cup Brazil 2019 between Mexico and Brazil at the Estadio Bezerrão on November 17, 2019 in Brasilia, Brazil. (Photo by Buda Mendes - FIFA/FIFA via Getty Images)",
+                "caption": "BRASILIA, BRAZIL - NOVEMBER 17: Detailed view of the World Cup Trophy during the Final of the FIFA U-17 World Cup Brazil 2019 between Mexico and Brazil at the Estadio Bezerrão on November 17, 2019 in Brasilia, Brazil. (Photo by Buda Mendes - FIFA/FIFA via Getty Images)",
+                "width": 4000,
+                "height": 2667
+            },
+            "programmeType": 7,
+            "pageReferenceDto": {
+                "templateType": "fifaPlusLandingTemplate",
+                "templateId": "5trtdikUDV4ilYkrAPXo5f",
+                "pageUrl": "https://www.fifa.com/en/tournaments/mens/u17worldcup/qatar-2026?context=app"
+            },
+            "cardCategory": 0
+        }
+    ]
+}
+
+{
+    "pageId": "M8FxQzMBCCTapZ90dJBz8",
+    "internalTitle": "Page > Tournaments > Tickets (Global-Tournaments)",
+    "templateInternalTitle": "Template > Ticketing and Hospitality 2.0",
+    "template": "fifaPlusLandingTemplate",
+    "layout": 1,
+    "createdDate": "2025-02-05T16:31:48.188Z",
+    "updatedDate": "2025-03-05T17:30:13.398Z",
+    "relativeUrl": "/en/tickets",
+    "relativeUrlsSEO": {
+        "ar": "/ar/tickets",
+        "de": "/de/tickets",
+        "en": "/en/tickets",
+        "es": "/es/tickets",
+        "fr": "/fr/tickets",
+        "id": "/id/tickets",
+        "it": "/it/tickets",
+        "ja": "/ja/tickets",
+        "ko": "/ko/tickets",
+        "pt": "/pt/tickets"
+    },
+    "language": "en",
+    "meta": {
+        "title": "TICKETS & HOSPITALITY",
+        "description": "All the information you need about tickets and hospitality at FIFA's upcoming tournaments.",
+        "image": "https://digitalhub.fifa.com/transform/59bfc153-30cc-4197-aca7-40325d0ce933/FIFA-platform-preview-image"
+    },
+    "sections": [
+        {
+            "entryId": "4eRffaYFz29ndXG3ZrUetX",
+            "entryType": "anchorMenu",
+            "properties": {},
+            "entryEndpoint": "/sections/anchorMenu/4eRffaYFz29ndXG3ZrUetX?locale=en"
+        },
+        {
+            "entryId": "YPGyRZqiCJQqAtXpmFQbj",
+            "entryType": "itemCardCollection",
+            "properties": {},
+            "entryEndpoint": "/sections/itemCardCollection/YPGyRZqiCJQqAtXpmFQbj?locale=en"
+        },
+        {
+            "entryId": "6S0xu8xpoL31EiyfEYkbyE",
+            "entryType": "itemCardCollection",
+            "properties": {},
+            "entryEndpoint": "/sections/itemCardCollection/6S0xu8xpoL31EiyfEYkbyE?locale=en"
+        },
+        {
+            "entryId": "2H7f9EyRDuaLEyXwGojo0b",
+            "entryType": "itemCardCollection",
+            "properties": {},
+            "entryEndpoint": "/sections/itemCardCollection/2H7f9EyRDuaLEyXwGojo0b?locale=en"
+        },
+        {
+            "entryId": "01Mu3owVry8hs0rFLAn4Yv",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/01Mu3owVry8hs0rFLAn4Yv?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "4EQTObLSVrxBL8CDx0Sh5K",
+            "entryType": "news",
+            "properties": {},
+            "entryEndpoint": "/sections/news/4EQTObLSVrxBL8CDx0Sh5K?locale=en&limit=20",
+            "news": {
+                "layout": 3
+            }
+        }
+    ],
+    "headerBehavior": "Solid",
+    "tournamentState": "Upcoming"
+}

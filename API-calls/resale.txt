@@ -1,0 +1,22 @@
+Request URL
+https://fwc26-shop-usd.tickets.fifa.com/tnwr/v1/secure/catalog/resale-configuration
+Request Method
+GET
+Status Code
+200 OK
+Remote Address
+184.31.2.75:443
+Referrer Policy
+strict-origin-when-cross-origin
+
+{
+    "displayResaleLink": false,
+    "supportedProductTypes": [
+        "EVENT",
+        "SPORTING_EVENT"
+    ],
+    "supportedProductFamilySubTypes": [
+        "OPEN_PASS"
+    ]
+}
+

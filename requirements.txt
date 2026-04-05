@@ -1,0 +1,8 @@
+aiogram>=3.14.0
+pydantic>=2.4.1,<2.10
+python-dotenv>=1.0.0
+SQLAlchemy>=2.0.0
+aiosqlite>=0.20.0
+curl-cffi>=0.7.2
+greenlet>=3.1.1
+playwright>=1.40.0

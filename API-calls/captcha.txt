@@ -1,0 +1,100 @@
+https://access.tickets.fifa.com/pkpcontroller/wp/FWC26SHOP/index_en.html?queue=11-FWC26-Shop
+
+<p style="text-align:center">&nbsp;</p>
+
+<p style="text-align:center"><a href="https://fifaworldcup26.hospitality.fifa.com/?utm_source=FIFA&amp;utm_medium=fifa-banner&amp;utm_campaign=FWC26_Awareness_B2C_rsd_RSDHosBanner&amp;xref=FIFA_fifa-banner_B2C" target="_blank">CLICK HERE TO EXPLORE TICKET-INCLUSIVE HOSPITALITY PACKAGES</a></p>
+
+Cuando presione para enviar el captcham apercion una conexion a serverlet.do?CAPTCHA=32783
+
+Este es un header que se envio cuando complete el captcha:
+
+Request URL
+https://access.tickets.fifa.com/pkpcontroller/servlet.do?CAPTCHA=32783
+Request Method
+GET
+Status Code
+200 OK
+Remote Address
+184.31.2.78:443
+Referrer Policy
+strict-origin-when-cross-origin
+akamai-grn
+0.50ea1cb8.1775251351.adad2435
+apigw-requestid
+bQxfwgSaoAMEbBA=
+cache-control
+max-age=0, no-cache, no-store
+connection
+keep-alive
+content-encoding
+gzip
+content-length
+604
+content-security-policy
+script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.secutix.com https://www.google.com https://www.gstatic.com https://*.datadome.co https://datadome.co https://js.datadome.co https://*.twitter.com https://www.googletagmanager.com https://*.edge.sdk.awswaf.com blob:;worker-src 'self' https://secutix.com https://*.secutix.com https://*.datadome.co https://js.datadome.co https://datadome.co https://www.googletagmanager.com https://*.edge.sdk.awswaf.com blob:;
+content-type
+application/json
+date
+Fri, 03 Apr 2026 21:22:31 GMT
+expires
+Fri, 03 Apr 2026 21:22:31 GMT
+pragma
+no-cache
+set-cookie
+WR-CT=/; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/
+set-cookie
+AcpAT-v3-11-FWC26-Shop=p53pkpcontroller1-9j4e0h3i-9a5ffc3a72d4be18681f3323a722c4805b023d6e15707d89f7b7700a40b09af107aebecd93e1b60658d82af5be54e2b74ef5c8c9b3aa5131a93cef5f5181605d; Domain=fifa.com; Path=/; HttpOnly
+set-cookie
+_abck=C39CB76C42E8795E5CCF2D1DB9EA572B~0~YAAQUOocuHM1DA6dAQAAyug5VQ9+nZ7ymzN8C1GrdR9UBXjupPkaK2X+aH0IoBFL0mxrOQPUlCNYBseA2Rzs8lJ6ae1Ffw7lgCe7lPfwfR44rfXjY9yPdUPEjPRePTtNT3peOwWr7kB14TGfItnK33HCeont5e/n88YJaxyMKJIcgTqvVfQmqVVAVZsJ0u6YJ6pb+erC9ZLN0tKazSVs6BjJ1v/wVj4T2IfxyzuceGBxClqxYgo0SH/uahjtxQqLtCqC3Ms/RJYIQv3Knj9qL2frjRh3eivbmJIFrm0HB+zgqH8YEvd+vEhpSZa9uQvNVQk/onzQ//+T1t0ubhKDQRVleRIlzeOVmk7Gkw7tljtf0XOdNJv6eK3MJV5SwwhwXfvGyQuuo9kkv2tKEI4l9ZLoPHCVftpBe6jEcN8kKJ/238iiwOCZ6zVai0pcfd2Xn4YBrW7j3YPLqaDUOvQK8ftgENLvIF8VeG/2AJbyQb9LbNRCliZZOuGfDM/RLU1naezWq+AGCzsH3g6IPsp8upE6GZQP17YTR4VExPlUzGJK8rJi1eW57W+G0p4J/Km6aH51bPBxRatA5DguHLpvXeTRPO8f/WovCWPrbJjr5TBzucR/YSB1I017d7ng52Az/r8bGlpGLj+TczDEHKQGBRTZq2i+xTDKDTnIsD/nYtHUJ/t/sjBTE6xIL3jzR9vOJFbaAW36aEIYBFXYZTNMo9MCJuhFVThONjIcNxDJA9ufLx1nYb0Mi0Gu1F8ncPNRt7YZHw1KPSQRpJkAEBXFlmfiIP9KaiSSBNv/z+VMYzC/vtYLrtwrv8JgBbbTLAfbPzd0aXvQ5TeWHrp3uT3QmGCXlCZIeWd38UtZBhaHaCkHnf22pCBafNljSCI=~-1~-1~-1~AAQAAAAF%2f%2f%2f%2f%2f1jn+aHLJlH73r2ww%2f8y4U7CW44VJCQtLijKTp+39L2H9jRmjIMkCtI8hpZ+Ougkt4wSXwzk23XzRmXth7gW0AaMXHRCv%2fY%2fW5j4L3n7+daIEb0EwG+3ESw8h2falOMxZCoqH2o%3d~-1; Domain=.fifa.com; Path=/; Expires=Sat, 03 Apr 2027 21:22:31 GMT; Max-Age=31536000; Secure
+set-cookie
+bm_sz=A787632C38E90A69C03E8D9CD82D35BA~YAAQUOocuHQ1DA6dAQAAyug5VR+RP367t2Wdo6zUq+Sxufn0ea1A6NVea60qhLRcl7aP0CEmMqeu4LqgbX01lNHFkqzZTi+OtXJbk6MqdJwRfDfZxIo7DCj0VH8wPteNJ6IyPgpipLLVDl/NAJzk4XCaAipLuHbUTr251UdWkIhzzaj7vWnM4o0N/aVU1/OPoo/W0pwh2J+MqYOnY4DZbdw0wz0pFxYZVHkfTo9SmX6fsA5HvcppiJ+69UtGBFUxZaqRWNuOrYGuOYBNFhcRWa0rIMXXRKV3tCaUZFXAJc7ic3k5FZFnkM1MjYY+RQgVZrbXLyQMMY5UXc5hx2yvlNBLMrThxO8JCIiAmX3Ku89PzsVh5HaMNOMoOY669tTSdNZbS6kxrC6Ptfmsy3tKcnZ3tB/59/Ixj7IagEhKcZUI6O15u/awR599TrnNZiRqYtrnG3XfUz6pUiObWMe6RJEO/ll1eFtxh5JGDXNtWR9V5dUfpU11RY4s++v4dIXdDk7yJTHfCqaC5iz+eM6idyQv3YWdKCTzSwbVltJHMsbR49/3cm6jhgXyfeLy3zuGFaH3HdCsI+w=~3420470~3425080; Domain=.fifa.com; Path=/; Expires=Sat, 04 Apr 2026 01:08:15 GMT; Max-Age=13544
+vary
+Accept-Encoding
+x-amz-cf-id
+8NQaa9ReNWmwnBEUVrrrGeaDa8DkJJWVsjuv3_c8svjDSRBcdp2D-w==
+x-amz-cf-pop
+EZE50-P7
+accept
+*/*
+accept-encoding
+gzip, deflate, br, zstd
+accept-language
+en-US,en;q=0.6
+connection
+keep-alive
+cookie
+SERVERID-BE-PKPCONTROLLER-1-OCI=71bc70cfb9be9feab4af937eed3b3035e20bea72; WR_source-11-FWC26-Shop=https%3A%2F%2Ffwc26-shop-usd.tickets.fifa.com%2Fsecured%2Fcontent; stx_WR_FIFA_FWC26SUS=2026-04-01T23%3A50%3A59.726Z%7Ctrue%7Ctrue; stx_contact_FIFA_FWC26SUS_v1=%7B%22individualTitle%22%3A%22MR%22%2C%22individualFirstName%22%3A%22Martin%22%2C%22individualLastname%22%3A%22Navarro%22%2C%22nickname%22%3A%22%22%2C%22structureOfficialName%22%3A%22%22%2C%22lang%22%3A%22es%22%2C%22currentLang%22%3A%22en%22%2C%22timestamp%22%3A%221775086296%22%2C%22expires%22%3A%222026-04-02T00%3A03%3A32.211Z%22%2C%22additionalData%22%3Anull%2C%22pointOfSalesCode%22%3A%2226SHOPUS%22%2C%22guestSession%22%3Afalse%7D; ak_bmsc=8C3CBCD7F82BCC543DEBB310DC74A0A9~000000000000000000000000000000~YAAQSuocuPpG2hWdAQAA7P4sVR9f2e37GlkGjzlnT8MzfrBB632AB3hcH36JsyGUQrrQGU5deJVh8/qPRhrOBgxDH9E35cDgEve+t9HRiSEdJnrHnlOlWTMPaRCl125xwklMaubSDnQSUHD/+UVkslU5bg34y4yMBgWs5kqZDQFCzHwrW1AYOoCJIaCD8i1VZ43saeBC8hdh9+IKWceZVDZa587WPo7cWWd+4TqFrBU+f+VljcjYs6tWT5/klFC/s4i7xq9jFwkoi9/4mCRGyu51xZPbqbQoJaW0wXtMzq9sX19bNBVjkHN5m2IrwVM5lavYKRzF/0FAQbuS2sXUzO7pSFve2q7Y62onHyBzCjwhltPS2JWK4EAOqxt+8p+TNNouEl5T6Hc/eYb1smZud9UwcrxA7GZXQA==; fp.user=%7B%22ssoId%22%3A%22c95ac6ae-6b30-47dc-9450-89a0215e80a5%22%2C%22envId%22%3A%223f85e2e1-0232-4f84-9da8-bba9279f1a23%22%2C%22firstName%22%3A%22Martin%22%2C%22surname%22%3A%22Navarro%22%2C%22userName%22%3A%22m.navarro89%40hotmail.com%22%2C%22email%22%3A%22m.navarro89%40hotmail.com%22%2C%22dateOfBirth%22%3A%221989-03-19%22%2C%22countryOfResidence%22%3A%22ARG%22%2C%22accessToken%22%3A%22eyJhbGciOiJSUzI1NiIsImtpZCI6ImRlZmF1bHQifQ.eyJjbGllbnRfaWQiOiIzNTA3MjU5OC1mYzIwLTQxNDItYTQ2OS0xYjk0MGRiNDdlNmYiLCJpc3MiOiJodHRwczovL2F1dGgucGluZ29uZS5ldS8zZjg1ZTJlMS0wMjMyLTRmODQtOWRhOC1iYmE5Mjc5ZjFhMjMvYXMiLCJqdGkiOiI0NDYwNTJkMC1kODdhLTQ4MzktYTZiMS1jZDY0ODk5ZmJmZTkiLCJpYXQiOjE3NzUyNTA1NzIsImV4cCI6MTc3NTI1NDE3MiwiYXVkIjpbImh0dHBzOi8vYXBpLnBpbmdvbmUuZXUiXSwic2NvcGUiOiJhZGRyZXNzIHBob25lIG9wZW5pZCBwcm9maWxlIHAxOnVwZGF0ZTp1c2VyOnNhZmUtb25seSBlbWFpbCIsInN1YiI6ImM5NWFjNmFlLTZiMzAtNDdkYy05NDUwLTg5YTAyMTVlODBhNSIsInNpZCI6IjU3ODFlZGMzLWM1YmQtNDgzZC1iMTgyLWZiNjZlMGEzMjgyYyIsImF1dGhfdGltZSI6MTc3NTI1MDU2OSwiYWNyIjoiNzQ2NWEwMzgzNWE4ODllM2M4ZWVlYzMwMzFlNTVjZDciLCJlbnYiOiIzZjg1ZTJlMS0wMjMyLTRmODQtOWRhOC1iYmE5Mjc5ZjFhMjMiLCJvcmciOiI1Nzk1ODFhYy1jZWZjLTQzMjUtYmU1Zi1iYzA4NWY0MDAwMGUiLCJwMS5yaWQiOiI1ZDAzMmFiYS0zYmFmLTQ2ZmItODg0My01YjViY2E4ODRjNjAifQ.BuQ1Xxz-7PAD7RcPfcw3SZOGqhZRSzBbgaB4DMyBwhC43PNi_iOEUR67JtU4zZerKWdvyyYK_-jhK9OsrzFJOu1JuqaAM62Eeqd_IU1hbF-RnCzBxs3tJBy5ikZmi-5afTchjdX_IyCcpYHxkJki-xMDcB5ir84mstUQx1sYbAJhLWjcltdOE3VetJBGrh5cBhgqH5f-gQ85eO4WczFZwdwdW3MhBNnxvx06A3H7KjM1O9xcR_F3tZJgVj3NDfEx_jjjWeC37Hjr-zlkl4iA9Wr5UDnf6uqsnd1D5w3rNMJtK9KjT3nxzuGwiCOKGStbKLWi_-jSfzwPhYM3TZH1pQ%22%2C%22refreshToken%22%3A%22eyJhbGciOiJSUzI1NiIsImtpZCI6ImRlZmF1bHQifQ.eyJzdWIiOiJjOTVhYzZhZS02YjMwLTQ3ZGMtOTQ1MC04OWEwMjE1ZTgwYTUiLCJqdGkiOiJlNDdiODhmZS04MDUwLTRjMjUtYjRkNS0wMGQ4MmRiOTY4MjgiLCJleHAiOjE3Nzc4NDI1NzIsInNpZCI6IjU3ODFlZGMzLWM1YmQtNDgzZC1iMTgyLWZiNjZlMGEzMjgyYyIsInNjb3BlIjoiYWRkcmVzcyBwaG9uZSBvcGVuaWQgcHJvZmlsZSBwMTp1cGRhdGU6dXNlcjpzYWZlLW9ubHkgZW1haWwiLCJhdXRoX3RpbWUiOjE3NzUyNTA1NjksImFjciI6Ijc0NjVhMDM4MzVhODg5ZTNjOGVlZWMzMDMxZTU1Y2Q3IiwiYW1yIjpbInB3ZCJdLCJpc3MiOiJodHRwczovL2F1dGgucGluZ29uZS5ldS8zZjg1ZTJlMS0wMjMyLTRmODQtOWRhOC1iYmE5Mjc5ZjFhMjMvYXMiLCJkYXZpbmNpX2lkX3Rva2VuX2F0dHJpYnV0ZXMiOiJ7XCJzdWJcIjpcImM5NWFjNmFlLTZiMzAtNDdkYy05NDUwLTg5YTAyMTVlODBhNVwifSJ9.gXeNc4Ej7PFMUVME_DGBFg_oG7vh6ncKkcNIIE8HhbziF_qjQKBbaGnfCFJQYr4qHrT2E1pDRmy6kxVtJYRVAEdmr1AmL17SO8Nr1pT0hH5XVbRrDQEKW6V8Q17buziLnxj472LCDm_FSBptT_oqaRRZr1CDQSAk6KhxubeQ0X7SbiQ6YLjVOf0UEtvy0O7S9_TI8EMaat3HdVXMPEJPSGHFt-VCOUQXiLsll6zDKWy7wad9WTMj42seKY3FT6_D5kQmmukmruKEX0rWnN97vHYD4-1S9ojZBVvaCPhg0NSFQzyVZhyXoLk9p56oiwiGxp_xCHW2B1jgv1vWdtUvzA%22%2C%22expires%22%3A%222026-04-03T22%3A09%3A32.000Z%22%2C%22expIn%22%3A3600%2C%22expSeconds%22%3A1775254172%2C%22partnerOptIn%22%3Atrue%2C%22fifaOptIn%22%3Afalse%2C%22preferredCommunicationLanguage%22%3A%22es-ES%22%2C%22rewardsOptIn%22%3Afalse%7D; bm_sv=3E7637E72EDED63F34B99BAA1A10DF35~YAAQSuocuN692hWdAQAAbBIuVR80hKUx+P1353I/X4gauCktHrv0mBR5iXGTBnLS9bVnsnaPm7CUvGHpPegHQTr5s103/2h8wp8zymRpa/PMa2iU12cwyqw2dURprBVP8ux6AvaM5ASHTpO2YspFwF7EeCPUaAvqH7Fgh6t+OurWDKk3oyeR4uRho5FTMZf6SOsPe29s8YzVfgA9L3v2l3cGzDQGeVlhRVxsV/UPkHq2UhWo4Nm1ZhjujqOJdyo=~1; ak_bmsc=8C3CBCD7F82BCC543DEBB310DC74A0A9~000000000000000000000000000000~YAAQS+ocuG34PkidAQAAS8A4VR/OrmxZGGjGvVzcYHTZLM+sXUxoDogyV9ob7ixUFr0oESY0PFHjH5KvTrpTe2KfxCaO6tFZjs53TtWsqmcDSIryvq6K2qtaILEVyItWAccakeSffiVsxUyCzNydCnG6hZONiT7lLgefTuFm/Ejcv+oyNeqSbfsCXZAJNtROGnJ941+bMGm/ZXvEPc2XIxEESCqJzdTjSyBM9jHm08fbja60MF2JmCCjeiHreaRS6cob56W0V8h+jlsQTnNt+zHwUN1rnD+4agmxesKiWGXkjtBfoWFVhW8C3bJUHhHVNbWzKqzNYIAib1+nirUiW8jE2mntP0pF8NO+jiyrkOJ52eMXgbFjgymKC7yZ9t6pfCvJTHXbDhAisvNhcBhKSqCppoH/d/tkgx404xnW8RLB; bm_sv=3E7637E72EDED63F34B99BAA1A10DF35~YAAQS+ocuG74PkidAQAAS8A4VR/hWypknittPeh77VzDbdpJKAfn1OjsKF31co0wgs6WGjLJfB6/tPnODVSPF/YNtHfJ8/seMx359bmHWFHCIb/asIqbEreTWjyjpgtiGV/TjOnQhYXf3DiQVY1CYwet7fj68cgps27FxTlu9pSn5Whw2b+mQNdqyFM+dcSGaaik8yJt/EXdRktmFNxzfps6WTfdUOj50T55tvugiA0RWhejlHgngjHzPIIzFtImIQeYEv3dzw==~1; _abck=C39CB76C42E8795E5CCF2D1DB9EA572B~0~YAAQTuocuCB/7k6dAQAA7sU4VQ8SwEhlciUdcLdLIyxh3XgG5g5V4zTL7tUxfhAvSsR8rLc2rgxfBRHndXWiedHdpoFft6oFwCYf92Mg2qx0QYeSEvBeLreuriROfNVDvNhEzLzN47PQeQqeo6mwdMTwmRheZVlY8mZhcc2GsT4EPQTRmnrYwuXUt43jK9he8nNRkcsq6utKiWrwTY+W79nWzmk8yaQFvPirgjQnK6/QskbKXbQbi2JiV4zgvRSX1dE+1wKTLmbHvgr0Zexd4WwE2XiZxAFpeALxwAJl7OdtNybaJUoIs0czL9ENbf8gr+sn7oor+cqEAYRNz7dkCjQSy0Ra78vDgV/hsdASZgy8Zleq5jwlYMTyIIllJYG86gwg7hZd6x0qwfiHJFNpLDYPGRqQwhE8jGpizc01tGSU8LaGdxpo9cYjwLDR3Zn9Rk6aS/kdTZIkIv224qfVmr+xm7tGjjbW/z8a493EoFDMnhvXryI6xH5+oBSj1MpxvHHKGYzOMb0vH/3a2lH+o4GTGhkk8fn0MBrmVckEuyaeQ4U2BVyZRg1QkcdvoR+MLYNrSkT6KM4kaVwi7rMZRxAcM6fUy4le/iTJ64fTfY243zG0Ea97N8+yhrzfzNhaMbnjqnHxX2DoNNRkT5aN/AJkD4I5ekh+DCDFr4Ooe2jcoPgr2kMqPbdPzpAqZJLUypoKsbiHO7ZxPZQv1E6fzKXx530bQjhAeDPcmzMHrDPo64aZ2aJ89B3b4Lusz3BJsMi0zwZ+9Bw9+AUcDHz1YGtiST/3HEqk217slPxjY2OJorOtBUd30LDN0XQoAqbSEgKnTR/3/pg=~-1~-1~1775254148~AAQAAAAF%2f%2f%2f%2f%2f1jn+aHLJlH73r2ww%2f8y4U7CW44VJCQtLijKTp+39L2H9jRmjIMkCtI8hpZ+Ougkt4wSXwzk23XzRmXth7gW0AaMXHRCv%2fY%2fW5j4L3n7+daIEb0EwG+3ESw8h2falOMxZCoqH2o%3d~-1; datadome=fJFXSyZgCQIwqJJrh2X3My6kodcdCQS9hHBlfpTDYe84hD8Qzfg0_nbhbahiFKib_MncsYSGqJDfaqApM8GkJSs_ELF0msMpbFmySJMzhyJ5MHpqozuCRORjOnA3yxYN; bm_sz=A787632C38E90A69C03E8D9CD82D35BA~YAAQTuocuB6G7k6dAQAAN7c5VR879kjbXJnC6cq1RXKOeep9ipDLDKSaFLCSK34ylCZlHTBjuGxdSuCyi/5zVvuzfjAGUdckJ7YDlTOXGSpe7yuVPQ1XBjNXKC49vyk0LzR/G/u5xk/Wx9A+irNWEDPBQCbhJevtznSkuYrx29k5hpJ72/XBrbnPYdC2FlUtTOAJeNaqv2DxQYMStTvj1dRikLzRLsC6Wh20NOtaQDUhKwQebAFbdJZj4hmYB1j13fA6qiF/582jYz4/gCpJpH2kz0gmCTqxINerYmQ/9otffqYdOfsSruHq19ECJiNfDpnrnqhvdolgI25cZ0gN5MkTiLCEKMP72JkGErcJVv3o0D6Hfjf45aqvFE+fzk2gWh/6+M70YZDBOlIaQwS6yDj+PsNVrW6YBTaUu2oWB/pWAwv1NzWf6Lc4Jz893Ya19o6AeqRdMXUEq5zp1p2C+4KcQzzTQJPtCQ2uY212rihToDGlFBv8tlm+apwkStoCIUfwi8lbaGK27xCNRlDatw2erBQzG65C8icAXsx04uudOb0E4aT7uxi0cxpZv54bcmc=~3420470~3425080; WR-CT=11-FWC26-Shop-1775251340251-1387838366
+host
+access.tickets.fifa.com
+referer
+https://access.tickets.fifa.com/pkpcontroller/wp/FWC26SHOP/index_en.html?queue=11-FWC26-Shop
+sec-ch-ua
+"Chromium";v="146", "Not-A.Brand";v="24", "Brave";v="146"
+sec-ch-ua-arch
+"arm"
+sec-ch-ua-full-version-list
+"Chromium";v="146.0.0.0", "Not-A.Brand";v="24.0.0.0", "Brave";v="146.0.0.0"
+sec-ch-ua-mobile
+?0
+sec-ch-ua-model
+""
+sec-ch-ua-platform
+"macOS"
+sec-fetch-dest
+empty
+sec-fetch-mode
+cors
+sec-fetch-site
+same-origin
+sec-gpc
+1
+user-agent
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+MCP server
+CrUX data in performance trace summaries, a new --slim mode, specialized skills and experimental screen recording support.
+
+Preserve Console history edits
+Modify a previous command, browse for another one, and return to your draft without losing your work.
+
+Improved support for adopted stylesheets
+Adopted Style Sheets are now grouped under a dedicated #adopted-style-sheets node within the DOM tree in the Elements panel.

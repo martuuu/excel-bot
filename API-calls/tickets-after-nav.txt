@@ -1,0 +1,377 @@
+Mas responses que vi significativas marcarte. Estas creo que son las responses de intentar entrar a la pagina de tickets de distintos tipos, por ejemplo las comunes o las hospitality.
+Nosotros solo necesitamos las de Last Minute, las de Marketplace y las de Hospitality. No se ofrecen servicios PMA. Recorda que el user puede crear alertas si hay stock de la canitdad de tickets que quiera (siempre solicitando de a 1, de ultima si puede en el carrito agregar mas, mejor, pero agregamos de a 1 nada mas)
+{
+    "pageId": "PK8ndb1kIuey3wwuxmKjT",
+    "internalTitle": "Page > Tournaments  > Men's > FIFA World Cup > FIFA World Cup 2026 > Tickets (Global-Tournaments)",
+    "templateInternalTitle": "Tickets > FIFA World Cup > FIFA World Cup 2026 > Tickets (Global-Tournaments)",
+    "template": "fifaPlusLandingTemplate",
+    "layout": 1,
+    "createdDate": "2025-07-15T14:54:44.2Z",
+    "updatedDate": "2025-09-10T14:54:18.932Z",
+    "relativeUrl": "/en/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+    "relativeUrlsSEO": {
+        "ar": "/ar/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "de": "/de/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "en": "/en/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "es": "/es/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "fr": "/fr/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "id": "/id/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "it": "/it/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "ja": "/ja/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "ko": "/ko/tournaments/mens/worldcup/canadamexicousa2026/tickets",
+        "pt": "/pt/tournaments/mens/worldcup/canadamexicousa2026/tickets"
+    },
+    "language": "en",
+    "meta": {
+        "title": "Tickets - FIFA World Cup 2026™",
+        "description": "Find ticket and hospitality information on FIFA.com and prepare to be part of the FIFA World Cup 2026™ action.",
+        "image": "https://digitalhub.fifa.com/transform/7e47ea3b-bf2d-42ed-9bc7-837c2e4f11b7/FIFA-com_FWC26_Ticketing-Thumbnail_3840x2160?focuspoint=0.5,0.45"
+    },
+    "sections": [
+        {
+            "entryId": "6DPygCUgpXVXJw0H0gpHMM",
+            "entryType": "itemCardCollection",
+            "properties": {},
+            "entryEndpoint": "/sections/itemCardCollection/6DPygCUgpXVXJw0H0gpHMM?locale=en"
+        },
+        {
+            "entryId": "7GSazWwL1ihs8tI7mbWPJD",
+            "entryType": "itemCardCollection",
+            "properties": {},
+            "entryEndpoint": "/sections/itemCardCollection/7GSazWwL1ihs8tI7mbWPJD?locale=en"
+        },
+        {
+            "entryId": "4wtEWlSsnV1EDCdyrEK9KC",
+            "entryType": "externalIntegrationEmbed",
+            "properties": {},
+            "entryEndpoint": "/sections/externalIntegrationEmbed/4wtEWlSsnV1EDCdyrEK9KC?locale=en"
+        },
+        {
+            "entryId": "7i9gF2J4xtAOK2OxAK7KQ7",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/7i9gF2J4xtAOK2OxAK7KQ7?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "4FyShFdceHyS9aCC0qjEbC",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/4FyShFdceHyS9aCC0qjEbC?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "53q4YdSQnvud5kckbxne3n",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/53q4YdSQnvud5kckbxne3n?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "1NaVIDUqkF5iyQ7c3WKsYb",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/1NaVIDUqkF5iyQ7c3WKsYb?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "1PGg0kcCgZaLguxV6ZDkXt",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/1PGg0kcCgZaLguxV6ZDkXt?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        },
+        {
+            "entryId": "3LYOO9PkLw0oWbVqs3qEL6",
+            "entryType": "externalIntegrationEmbed",
+            "properties": {},
+            "entryEndpoint": "/sections/externalIntegrationEmbed/3LYOO9PkLw0oWbVqs3qEL6?locale=en"
+        },
+        {
+            "entryId": "5oHwVHpvVSP2bonKsn6iX4",
+            "entryType": "heroBanner",
+            "properties": {},
+            "entryEndpoint": "/sections/heroBanner/5oHwVHpvVSP2bonKsn6iX4?locale=en"
+        },
+        {
+            "entryId": "6tszLAr1wFK3EQa6MwFdvN",
+            "entryType": "sectionPromoCarousel",
+            "properties": {},
+            "entryEndpoint": "sections/promoCarousel/6tszLAr1wFK3EQa6MwFdvN?locale=en",
+            "sectionPromoCarousel": {
+                "size": 1,
+                "carouselType": 1
+            }
+        }
+    ],
+    "headerBehavior": "Solid",
+    "tournamentState": "Upcoming"
+}
+
+{
+    "entryType": "itemCardCollection",
+    "entryId": "7GSazWwL1ihs8tI7mbWPJD",
+    "items": [
+        {
+            "entryId": "7xfvHIw1n05s3DGrJ4PE1b",
+            "title": "Marketplace ",
+            "titleIcon": {
+                "entryId": "71xDMTnNelfZOMRRzryEG",
+                "title": "tickets",
+                "src": "https://digitalhub.fifa.com/transform/165fa7a2-f2fb-479f-a85d-d71fa6f235cd/tickets",
+                "alt": "FIFA",
+                "caption": "FIFA",
+                "width": 208,
+                "height": 208
+            },
+            "content": "Residents of most countries may resell tickets; Mexican residents can exchange.",
+            "buttonTextOverride": "Resell/Exchange Now",
+            "promotionalLink": {
+                "entryId": "6Un1MFnQ7c4tHsFdouaTQv",
+                "type": "promotionalExternalLink",
+                "linkUrl": "https://fwc26-resale-usd.tickets.fifa.com/",
+                "appShareButton": false,
+                "appPullToRefresh": false,
+                "openInApp": true
+            }
+        },
+        {
+            "entryId": "6iGC8LIIAJiq8J9bCQIMbk",
+            "title": "Hospitality",
+            "titleIcon": {
+                "entryId": "6LVX4NEQ2kiRLKBcqUDiqo",
+                "title": "hospitality",
+                "src": "https://digitalhub.fifa.com/transform/2db091a6-f96c-4080-be5f-138056a2bf58/hospitality",
+                "alt": "FIFA",
+                "caption": "FIFA",
+                "width": 208,
+                "height": 208
+            },
+            "content": "Lock in seats and level up matchday with a ticket-inclusive hospitality package.",
+            "buttonTextOverride": "Buy Packages Now",
+            "promotionalLink": {
+                "entryId": "5viiMZ7vKYCkirl2AMwkVI",
+                "type": "promotionalExternalLink",
+                "linkUrl": "https://fifaworldcup26.hospitality.fifa.com/us/en?utm_source=FIFA&utm_medium=fifa-web&utm_campaign=FWC26_Awareness_B2C_fulllaunch_BrowseAndBuy&xref=FIFA_fifa-web_B2C",
+                "appShareButton": false,
+                "appPullToRefresh": false,
+                "openInApp": true
+            }
+        }
+    ],
+    "backgroundImage": {
+        "entryId": "ZDWzFpBRFhowNnguTL2Fd",
+        "title": "FIFA World Cup 26 Background",
+        "src": "https://digitalhub.fifa.com/transform/bf6dcbac-2eb7-4f47-9ab3-332d325c92df/26-1x",
+        "alt": "FIFA",
+        "caption": "FIFA",
+        "width": 1440,
+        "height": 842
+    },
+    "themePalette": {
+        "light": {
+            "actionDefault": "#304FFE",
+            "actionPressed": "#000000",
+            "actionDisabled": "#E4E8F0",
+            "actionText": "#FFFFFF",
+            "actionTextDisabled": "#A5ACBB",
+            "actionSecDefault": "#FFFFFF",
+            "actionSecPressed": "#E4E8F0",
+            "actionSecDisabled": "#E4E8F0",
+            "actionSecText": "#000000",
+            "actionSecTextDisabled": "#A5ACBB",
+            "actionTerText": "#000000",
+            "actionTerTextDisabled": "#A5ACBB",
+            "actionTerPressed": "#E4E8F0",
+            "bgPrimary": "#FFFFFF",
+            "bgPrimaryAlt": "#FFFFFF",
+            "bgSecondary": "#000000",
+            "bgSecondaryAlt": "#FF3D00",
+            "bgTertiary": "#304FFE",
+            "bgTertiaryAlt": "#00C852",
+            "bgQuaternary": "#FFFFFF",
+            "bgQuaternaryAlt": "#AFEA00",
+            "successPrimary": "#00C852",
+            "successSecondary": "#004D3F",
+            "errorPrimary": "#FF3D00",
+            "errorSecondary": "#751312",
+            "warningPrimary": "#FF9F0A",
+            "warningSecondary": "#8C5706",
+            "borderLow": "#E4E8F0",
+            "borderMid": "#A5ACBB",
+            "borderHigh": "#505B73",
+            "borderTransparent": "#666666",
+            "iconBackground": "#404040",
+            "iconBackgroundPressed": "#808080",
+            "iconBackgroundAlt": "#E4E8F0",
+            "iconBackgroundAltPressed": "#E4E8F0",
+            "iconLight": "#000000",
+            "iconDisabled": "#A5ACBB",
+            "iconDarker": "#000000",
+            "iconAlternative": "#FFFFFF",
+            "textDefault": "#000000",
+            "textAlternative": "#FFFFFF",
+            "textLow": "#FFFFFF",
+            "textMedium": "#A5ACBB",
+            "textHigh": "#000000",
+            "textPrimary": "#000000",
+            "textSecondary": "#000000",
+            "textTertiary": "#F43056"
+        },
+        "dark": {
+            "actionDefault": "#304FFE",
+            "actionPressed": "#000000",
+            "actionDisabled": "#E4E8F0",
+            "actionText": "#FFFFFF",
+            "actionTextDisabled": "#A5ACBB",
+            "actionSecDefault": "#FFFFFF",
+            "actionSecPressed": "#E4E8F0",
+            "actionSecDisabled": "#E4E8F0",
+            "actionSecText": "#000000",
+            "actionSecTextDisabled": "#A5ACBB",
+            "actionTerText": "#000000",
+            "actionTerTextDisabled": "#A5ACBB",
+            "actionTerPressed": "#E4E8F0",
+            "bgPrimary": "#FFFFFF",
+            "bgPrimaryAlt": "#FFFFFF",
+            "bgSecondary": "#000000",
+            "bgSecondaryAlt": "#FF3D00",
+            "bgTertiary": "#304FFE",
+            "bgTertiaryAlt": "#00C852",
+            "bgQuaternary": "#FFFFFF",
+            "bgQuaternaryAlt": "#AFEA00",
+            "successPrimary": "#00C852",
+            "successSecondary": "#004D3F",
+            "errorPrimary": "#FF3D00",
+            "errorSecondary": "#751312",
+            "warningPrimary": "#FF9F0A",
+            "warningSecondary": "#8C5706",
+            "borderLow": "#E4E8F0",
+            "borderMid": "#A5ACBB",
+            "borderHigh": "#505B73",
+            "borderTransparent": "#666666",
+            "iconBackground": "#404040",
+            "iconBackgroundPressed": "#808080",
+            "iconBackgroundAlt": "#E4E8F0",
+            "iconBackgroundAltPressed": "#E4E8F0",
+            "iconLight": "#000000",
+            "iconDisabled": "#A5ACBB",
+            "iconDarker": "#000000",
+            "iconAlternative": "#FFFFFF",
+            "textDefault": "#000000",
+            "textAlternative": "#FFFFFF",
+            "textLow": "#FFFFFF",
+            "textMedium": "#A5ACBB",
+            "textHigh": "#000000",
+            "textPrimary": "#000000",
+            "textSecondary": "#000000",
+            "textTertiary": "#F43056"
+        },
+        "internalTitle": "Theme Palette > FWC26 > Ticketing Override ",
+        "entryId": "6Cl5Sh1bNQ1797GFKdQjZi",
+        "level": 3
+    }
+}
+
+{
+    "entryId": "7i9gF2J4xtAOK2OxAK7KQ7",
+    "entryType": "sectionPromoCarousel",
+    "internalTitle": "Promo Carousel > FWC 2026 > Tickets 1 ",
+    "rooflineType": "NoRoofline",
+    "size": 1,
+    "carouselType": 1,
+    "title": " ",
+    "seeAllLabel": "See all",
+    "items": [
+        {
+            "entryId": "5hG8jms99o9uQBTK5NR3ip",
+            "title": "GENERAL PUBLIC FREQUENTLY ASKED QUESTIONS",
+            "description": "Review our FIFA World Cup 2026™ FAQs to learn more about key ticketing topics.",
+            "internalTitle": "Article > FWC 2026 > Ticketing > General Public FAQs",
+            "readMorePageUrl": "/en/articles/general-public-frequently-asked-questions",
+            "image": {
+                "entryId": "5PUkXpUl55Ap8BqyTt36WN",
+                "title": "GENERAL PUBLIC FAQS",
+                "src": "https://digitalhub.fifa.com/transform/52f0e2fc-21ac-4139-8915-a57581438dfd/FWC-26-GENERAL-PUBLIC-FAQS?focuspoint=0.5,0.5",
+                "alt": "FIFA",
+                "caption": "FIFA",
+                "width": 3840,
+                "height": 2160
+            },
+            "programmeType": 5,
+            "cardCategory": 0
+        },
+        {
+            "entryId": "5csxYVk2XbIWon1mBSr82L",
+            "title": "REGISTER FOR UPDATES",
+            "internalTitle": "Promotional External Link > FWC 2026 > Ticketing > ROI",
+            "externalLinkType": "FifaLink",
+            "readMorePageUrl": "https://auth.fifa.com/as/authorize?response_type=code&response_mode=form_post&client_id=51dcafd9-c39a-43d9-8e91-fafac25c436f&scope=openid&lang=en&redirect_uri=https%3A%2F%2Fwww.fifa.com&campaign=Fifacom-Web-ROIFWC2026ROI",
+            "image": {
+                "entryId": "qfRc06WrvNb9z03B26E2Y",
+                "title": "Register for Updates",
+                "src": "https://digitalhub.fifa.com/transform/2637a23e-bc62-4175-a288-d3c33e747ec7/Artboard-2",
+                "alt": "",
+                "caption": "",
+                "width": 3840,
+                "height": 2160
+            },
+            "programmeType": 6,
+            "readMoreTarget": "_blank",
+            "cardCategory": 0,
+            "appShareButton": false,
+            "appPullToRefresh": false,
+            "openInApp": true
+        },
+        {
+            "entryId": "7qrpk9M9BxCagGybf2hNtU",
+            "title": "LEGAL DOCUMENTS",
+            "description": "Learn more about the FIFA World Cup 2026™ legal documents.",
+            "internalTitle": "Article > FWC 2026 > Ticketing > Legal Documents (051124)",
+            "readMorePageUrl": "/en/articles/legal-documents",
+            "image": {
+                "entryId": "50rnX6L8I6LH12ojLP0rYG",
+                "title": "LEGAL DOCUMENTS",
+                "src": "https://digitalhub.fifa.com/transform/94de741b-57e5-4ff0-bf2e-11fb51bcde79/FWC-26-LEGAL-DOCUMENTS?focuspoint=0.5,0.5",
+                "alt": "",
+                "caption": "",
+                "width": 3840,
+                "height": 2160
+            },
+            "programmeType": 5,
+            "cardCategory": 0
+        }
+    ]
+}
+
+{
+    "internalTitle": "Tickets > FIFA World Cup > FIFA World Cup 2026 > FIFA Pass (Global-Tournaments)",
+    "entryType": "externalIntegrationEmbed",
+    "entryId": "4wtEWlSsnV1EDCdyrEK9KC",
+    "embedContent": "<style>\n   [class*=\"external-integration-embed-section\"] {\n         padding-inline: 0 !important;\n   }\n\n    /* Nuevo banner azul */\n    .custom-blue-banner-container {\n        border-radius: 8px;\n        background: #304FFE;\n        padding: 24px;\n        color: #fff;\n    }\n\n    .custom-blue-banner-title {\n        font-size: 16px;\n        line-height: 1.5;\n        margin-bottom: 10px;\n    }\n\n    .custom-blue-banner-text {\n        font-size: 14px;\n        line-height: 1.6;\n        margin-bottom: 0;\n    }\n\n    .custom-blue-cta {\n        font-size: 14px;\n        color: #fff;\n        border-radius: 48px;\n        background: #1E40FF; /* Más oscuro que #304FFE */\n        display: inline-flex;\n        align-items: center;\n        padding: 10px 24px;\n        gap: 8px;\n        margin-top: 24px;\n        border: 2px solid #fff;\n        transition: background .25s ease;\n    }\n\n    .custom-blue-cta svg path {\n        fill: #fff;\n    }\n\n    .custom-blue-cta:hover {\n        background: #152ECC; /* hover más oscuro */\n        color: #fff;\n    }\n\n    @media (min-width: 1024px) {\n        .custom-blue-banner-container {\n            display: flex;\n            flex-direction: row;\n            justify-content: space-between;\n            align-items: center;\n        }\n\n        .custom-blue-banner-description {\n            width: 65%;\n        }\n\n        .custom-blue-cta {\n            font-size: 16px;\n            margin-top: 0;\n        }\n\n        .custom-blue-banner-title {\n            font-size: 24px;\n        }\n\n        .custom-blue-banner-text {\n            font-size: 16px;\n        }\n    }\n\n    @media (min-width: 1440px) {\n        .custom-blue-banner-description {\n            width: 50%;\n        }\n    }\n</style>\n\n<div class=\"custom-blue-banner-container\">\n    <div class=\"custom-blue-banner-description\">\n        <h2 class=\"custom-blue-banner-title\">FIFA PASS to the United States</h2>\n        <p class=\"custom-blue-banner-text\">\n          FIFA World Cup 2026™ ticket purchasers and their ticketed guests traveling to the United States can benefit from FIFA PASS (FIFA Priority Appointment Scheduling System) in the visa application process.\n        </p>\n    </div>\n\n    <a href=\"https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/travel-visas-fifa-pass\" class=\"custom-blue-cta\">\n        More information\n        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n            <path d=\"M18.5972 10.5931L19.9972 11.9932L19.9901 12.0003L19.9971 12.0072L18.597 13.4072L18.5901 13.4003L13.6902 18.3002C13.3036 18.6869 12.6767 18.6869 12.2901 18.3002C11.9035 17.9136 11.9035 17.2868 12.2901 16.9002L16.1903 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.1898 11L12.2899 7.1C11.9032 6.7134 11.9032 6.08659 12.2899 5.69999C12.6765 5.31338 13.3033 5.31338 13.6899 5.69999L18.5901 10.6002L18.5972 10.5931Z\"/>\n        </svg>\n    </a>\n</div>",
+    "customTheme": {
+        "identifier": "Standard Default Theme",
+        "backgroundColor": "#020f2a",
+        "textColor": "#ffffff",
+        "primaryColor": "#00b8ff",
+        "secondaryColor": "#ffffff",
+        "tertiaryColor": "#ffffff",
+        "quaternaryColor": "#ffffff",
+        "quinaryColor": "#ffffff"
+    }
+}

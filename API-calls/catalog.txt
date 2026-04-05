@@ -1,0 +1,856 @@
+Request URL
+https://fwc26-shop-usd.tickets.fifa.com/tnwr/v1/secure/catalog?maxPerformances=50&maxTimeslots=50&maxPerformanceDays=3&maxTimeslotDays=3&includeMetadata=true
+Request Method
+GET
+Status Code
+200 OK
+Remote Address
+184.31.2.75:443
+Referrer Policy
+strict-origin-when-cross-origin
+
+{
+    "sections": [
+        {
+            "code": "SING",
+            "name": {
+                "de": "Einzelticket",
+                "en": "Single Matches",
+                "fr": "Billets de partie individuelle",
+                "es": "Boletos para un partido individual"
+            },
+            "layout": "DEFAULT",
+            "columns": 2,
+            "randomOrder": false,
+            "clusters": [
+                {
+                    "name": {
+                        "de": "Einzelticket",
+                        "en": "Single Matches",
+                        "fr": "Billets de partie individuelle",
+                        "es": "Boletos para un partido individual"
+                    },
+                    "items": [
+                        {
+                            "product": {
+                                "id": 10229225515651,
+                                "code": "FWC26",
+                                "name": {
+                                    "de": "FIFA Fussball-Weltmeisterschaft 2026™",
+                                    "pt": "Copa do Mundo FIFA 2026™",
+                                    "en": "FIFA World Cup 2026™",
+                                    "fr": "Coupe du Monde de la FIFA 2026™",
+                                    "es": "Copa Mundial de la FIFA 2026™"
+                                },
+                                "description": {},
+                                "productType": "SPORTING_EVENT",
+                                "productFamily": "EVENT",
+                                "productFamilyName": {
+                                    "de": "Competición",
+                                    "en": "Competition",
+                                    "fr": "Compétition",
+                                    "es": "Wettbewerb"
+                                },
+                                "productFamilySubType": "SPORTING_EVENT",
+                                "image": {
+                                    "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/product/small/c5b8c78f-c341-4d34-a8a9-4dc388833281.jpg",
+                                    "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/product/med/c5b8c78f-c341-4d34-a8a9-4dc388833281.jpg",
+                                    "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/product/large/c5b8c78f-c341-4d34-a8a9-4dc388833281.jpg",
+                                    "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/product/xlarge/c5b8c78f-c341-4d34-a8a9-4dc388833281.jpg"
+                                },
+                                "promoterId": "",
+                                "action": {
+                                    "buy": "https://fwc26-shop-usd.tickets.fifa.com/secured/selection/event/date?productId=10229225515651"
+                                },
+                                "productDateRange": [
+                                    "2026-06-11T13:00:00.000Z",
+                                    "2026-07-19T15:00:00.000Z"
+                                ],
+                                "advantages": [
+                                    {
+                                        "type": "PUBLIC",
+                                        "id": 10229997072863,
+                                        "name": {
+                                            "en": "Last Minute Sales"
+                                        },
+                                        "description": {},
+                                        "availability": "LIMITED",
+                                        "isLimited": false,
+                                        "isUsed": false
+                                    },
+                                    {
+                                        "type": "PUBLIC",
+                                        "id": 10230003371090,
+                                        "name": {
+                                            "en": "LMS - Front Row Seat"
+                                        },
+                                        "description": {},
+                                        "availability": "NONE",
+                                        "isLimited": false,
+                                        "isUsed": false
+                                    }
+                                ],
+                                "performances": [
+                                    {
+                                        "performanceId": 10229225516056,
+                                        "code": "m001",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-11T13:00:00.000Z",
+                                        "end": "2026-06-11T18:00:00.000Z",
+                                        "venue": {
+                                            "de": "Mexiko Stadt Stadion",
+                                            "en": "Mexico City Stadium",
+                                            "fr": "Stade de Mexico",
+                                            "es": "Estadio Ciudad de Mexico"
+                                        },
+                                        "action": {},
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/bde96fec-03fc-493d-ae3f-be7aa2122931.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/bde96fec-03fc-493d-ae3f-be7aa2122931.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/bde96fec-03fc-493d-ae3f-be7aa2122931.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/bde96fec-03fc-493d-ae3f-be7aa2122931.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 1",
+                                        "roundCode": "M1",
+                                        "roundRank": 1,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "Mexiko",
+                                                "en": "Mexico",
+                                                "fr": "Mexique",
+                                                "es": "México"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/c7dfb518-d0ea-497b-bdca-74a9d143859f.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/c7dfb518-d0ea-497b-bdca-74a9d143859f.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/c7dfb518-d0ea-497b-bdca-74a9d143859f.png"
+                                            },
+                                            "code": "MEX"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Südafrika",
+                                                "ar": "جنوب أفريقيا",
+                                                "en": "South Africa",
+                                                "fr": "Afrique du Sud",
+                                                "es": "Sudáfrica"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/8b295a70-21d7-4d57-bb7b-67a59b7f359a.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/8b295a70-21d7-4d57-bb7b-67a59b7f359a.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/8b295a70-21d7-4d57-bb7b-67a59b7f359a.png"
+                                            },
+                                            "code": "RSA"
+                                        },
+                                        "logicalConfigurationId": 10229393204032,
+                                        "saleConfigurationId": 10229226828260,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "NONE",
+                                        "numbered": true
+                                    },
+                                    {
+                                        "performanceId": 10229226700886,
+                                        "code": "m002",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-11T20:00:00.000Z",
+                                        "end": "2026-06-12T01:00:00.000Z",
+                                        "venue": {
+                                            "de": "Guadalajara Stadion",
+                                            "en": "Guadalajara Stadium",
+                                            "fr": "Stade de Guadalajara",
+                                            "es": "Estadio Guadalajara"
+                                        },
+                                        "action": {},
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/93c50e20-19e6-4f81-97bc-704c6db67c80.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/93c50e20-19e6-4f81-97bc-704c6db67c80.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/93c50e20-19e6-4f81-97bc-704c6db67c80.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/93c50e20-19e6-4f81-97bc-704c6db67c80.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 2",
+                                        "roundCode": "M2",
+                                        "roundRank": 2,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "Korea Republik",
+                                                "ar": "كوريا الجنوبية",
+                                                "en": "Korea Republic",
+                                                "fr": "République de Corée",
+                                                "es": "República de Corea"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/9fe7057d-4e74-458e-89c4-1ec20aec4a4d.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/9fe7057d-4e74-458e-89c4-1ec20aec4a4d.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/9fe7057d-4e74-458e-89c4-1ec20aec4a4d.png"
+                                            },
+                                            "code": "KOR"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Tschechische Republik",
+                                                "ar": "جمهورية التشيك",
+                                                "en": "Czechia",
+                                                "fr": "République tchèque",
+                                                "es": "República Checa"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/aa0b689c-262a-4768-92d3-3a50ce55d6fb.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/aa0b689c-262a-4768-92d3-3a50ce55d6fb.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/aa0b689c-262a-4768-92d3-3a50ce55d6fb.png"
+                                            },
+                                            "code": "CZE"
+                                        },
+                                        "logicalConfigurationId": 10229226859962,
+                                        "saleConfigurationId": 10229226828289,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "NONE",
+                                        "numbered": true
+                                    },
+                                    {
+                                        "performanceId": 10229226700887,
+                                        "code": "m003",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-12T15:00:00.000Z",
+                                        "end": "2026-06-12T19:00:00.000Z",
+                                        "venue": {
+                                            "de": "Toronto Stadion",
+                                            "en": "Toronto Stadium",
+                                            "fr": "Stade de Toronto",
+                                            "es": "Estadio de Toronto"
+                                        },
+                                        "action": {
+                                            "buy": "https://fwc26-shop-usd.tickets.fifa.com/secured/selection/event/seat?perfId=10229226700887&ot=0"
+                                        },
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/78d41ac8-1c2f-4f70-b4ac-c2d684a03ca1.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/78d41ac8-1c2f-4f70-b4ac-c2d684a03ca1.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/78d41ac8-1c2f-4f70-b4ac-c2d684a03ca1.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/78d41ac8-1c2f-4f70-b4ac-c2d684a03ca1.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 3",
+                                        "roundCode": "M3",
+                                        "roundRank": 3,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "Kanada",
+                                                "en": "Canada",
+                                                "fr": "Canada",
+                                                "es": "Canadá"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/5a359349-c1ba-493e-86de-029f9dad3f1d.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/5a359349-c1ba-493e-86de-029f9dad3f1d.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/5a359349-c1ba-493e-86de-029f9dad3f1d.png"
+                                            },
+                                            "code": "CAN"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Bosnien und Herzegowina",
+                                                "ar": "البوسنة والهرسك",
+                                                "en": "Bosnia and Herzegovina",
+                                                "fr": "Bosnie-et-Herzégovine",
+                                                "es": "Bosnia y Herzegovina"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/f65fbea0-9f03-4daf-9467-3b1b11a76acd.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/f65fbea0-9f03-4daf-9467-3b1b11a76acd.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/f65fbea0-9f03-4daf-9467-3b1b11a76acd.png"
+                                            },
+                                            "code": "BIH"
+                                        },
+                                        "logicalConfigurationId": 10229226859963,
+                                        "saleConfigurationId": 10229226828247,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "LIMITED",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "LIMITED",
+                                        "numbered": true
+                                    },
+                                    {
+                                        "performanceId": 10229226700888,
+                                        "code": "m004",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-12T18:00:00.000Z",
+                                        "end": "2026-06-13T01:00:00.000Z",
+                                        "venue": {
+                                            "de": "Los Angeles Stadion",
+                                            "en": "Los Angeles Stadium",
+                                            "fr": "Stade de Los Angeles",
+                                            "es": "Estadio de Los Ángeles"
+                                        },
+                                        "action": {
+                                            "buy": "https://fwc26-shop-usd.tickets.fifa.com/secured/selection/event/seat?perfId=10229226700888&ot=0"
+                                        },
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/63c37c06-04d2-4fbf-84a4-8eb420826fdd.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/63c37c06-04d2-4fbf-84a4-8eb420826fdd.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/63c37c06-04d2-4fbf-84a4-8eb420826fdd.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/63c37c06-04d2-4fbf-84a4-8eb420826fdd.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 4",
+                                        "roundCode": "M4",
+                                        "roundRank": 4,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "USA",
+                                                "en": "USA",
+                                                "fr": "États-Unis",
+                                                "es": "EEUU"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/17c397c5-4ee7-4202-bd33-933befd4af5f.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/17c397c5-4ee7-4202-bd33-933befd4af5f.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/17c397c5-4ee7-4202-bd33-933befd4af5f.png"
+                                            },
+                                            "code": "USA"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Paraguay",
+                                                "ar": "باراغواي",
+                                                "en": "Paraguay",
+                                                "fr": "Paraguay",
+                                                "es": "Paraguay"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/f641f30a-514f-486f-9b59-27338983471c.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/f641f30a-514f-486f-9b59-27338983471c.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/f641f30a-514f-486f-9b59-27338983471c.png"
+                                            },
+                                            "code": "PAR"
+                                        },
+                                        "logicalConfigurationId": 10229529865011,
+                                        "saleConfigurationId": 10229226828314,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "LIMITED",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "LIMITED",
+                                        "numbered": true
+                                    },
+                                    {
+                                        "performanceId": 10229226700892,
+                                        "code": "m008",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-13T12:00:00.000Z",
+                                        "end": "2026-06-13T19:00:00.000Z",
+                                        "venue": {
+                                            "de": "San Francisco Bay Area Stadion",
+                                            "en": "San Francisco Bay Area Stadium",
+                                            "fr": "Stade de la baie de San Francisco",
+                                            "es": "Estadio de la Bahía de San Francisco"
+                                        },
+                                        "action": {},
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/e83f9c97-fd25-43c3-b3b7-7e3070bf6e90.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/e83f9c97-fd25-43c3-b3b7-7e3070bf6e90.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/e83f9c97-fd25-43c3-b3b7-7e3070bf6e90.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/e83f9c97-fd25-43c3-b3b7-7e3070bf6e90.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 8",
+                                        "roundCode": "M8",
+                                        "roundRank": 8,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "Katar",
+                                                "ar": "قطر",
+                                                "en": "Qatar",
+                                                "fr": "Qatar",
+                                                "es": "Catar"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/0a851149-91dc-40c7-a641-d4540ddd827e.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/0a851149-91dc-40c7-a641-d4540ddd827e.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/0a851149-91dc-40c7-a641-d4540ddd827e.png"
+                                            },
+                                            "code": "QAT"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Schweiz",
+                                                "ar": "سويسرا",
+                                                "en": "Switzerland",
+                                                "fr": "Suisse",
+                                                "es": "Suiza"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/2fc9a7f3-3126-4982-b502-3aeb2f34f56e.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/2fc9a7f3-3126-4982-b502-3aeb2f34f56e.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/2fc9a7f3-3126-4982-b502-3aeb2f34f56e.png"
+                                            },
+                                            "code": "SUI"
+                                        },
+                                        "logicalConfigurationId": 10229226749366,
+                                        "saleConfigurationId": 10229226828328,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "NONE",
+                                        "numbered": true
+                                    },
+                                    {
+                                        "performanceId": 10229226700891,
+                                        "code": "m007",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-13T18:00:00.000Z",
+                                        "end": "2026-06-13T22:00:00.000Z",
+                                        "venue": {
+                                            "de": "New York-New Jersey Stadion",
+                                            "en": "New York/New Jersey Stadium",
+                                            "fr": "Stade de New York – New Jersey",
+                                            "es": "Estadio de Nueva York Nueva Jersey"
+                                        },
+                                        "action": {},
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/94347ae6-54d1-423c-b78b-bd6b330be907.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/94347ae6-54d1-423c-b78b-bd6b330be907.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/94347ae6-54d1-423c-b78b-bd6b330be907.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/94347ae6-54d1-423c-b78b-bd6b330be907.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 7",
+                                        "roundCode": "M7",
+                                        "roundRank": 7,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "Brasilien",
+                                                "ar": "البرازيل",
+                                                "en": "Brazil",
+                                                "fr": "Brésil",
+                                                "es": "Brasil"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/b548be0f-2edd-4bdf-af6a-a4db73e04aa5.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/b548be0f-2edd-4bdf-af6a-a4db73e04aa5.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/b548be0f-2edd-4bdf-af6a-a4db73e04aa5.png"
+                                            },
+                                            "code": "BRA"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Marokko",
+                                                "ar": "المغرب",
+                                                "en": "Morocco",
+                                                "fr": "Maroc",
+                                                "es": "Marruecos"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/1492e65a-938a-4b39-9855-377eb506ef4e.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/1492e65a-938a-4b39-9855-377eb506ef4e.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/1492e65a-938a-4b39-9855-377eb506ef4e.png"
+                                            },
+                                            "code": "MAR"
+                                        },
+                                        "logicalConfigurationId": 10229531626251,
+                                        "saleConfigurationId": 10229226828300,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "NONE",
+                                        "numbered": true
+                                    },
+                                    {
+                                        "performanceId": 10229226700889,
+                                        "code": "m005",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-13T21:00:00.000Z",
+                                        "end": "2026-06-14T01:00:00.000Z",
+                                        "venue": {
+                                            "de": "Boston Stadion",
+                                            "en": "Boston Stadium",
+                                            "fr": "Stade de Boston",
+                                            "es": "Estadio de Boston"
+                                        },
+                                        "action": {},
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/edf51735-ac69-4be7-81d3-7a9cb04d0bfd.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/edf51735-ac69-4be7-81d3-7a9cb04d0bfd.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/edf51735-ac69-4be7-81d3-7a9cb04d0bfd.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/edf51735-ac69-4be7-81d3-7a9cb04d0bfd.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 5",
+                                        "roundCode": "M5",
+                                        "roundRank": 5,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "Haiti",
+                                                "ar": "هاييتي",
+                                                "en": "Haiti",
+                                                "fr": "Haïti",
+                                                "es": "Haití"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/8902e84e-8c76-418c-a494-38dfe826a33c.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/8902e84e-8c76-418c-a494-38dfe826a33c.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/8902e84e-8c76-418c-a494-38dfe826a33c.png"
+                                            },
+                                            "code": "HAI"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Schottland",
+                                                "ar": "اسكتلندا",
+                                                "en": "Scotland",
+                                                "fr": "Écosse",
+                                                "es": "Escocia"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/0c7a3cbd-f0fc-444f-ba05-88bf516d73a1.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/0c7a3cbd-f0fc-444f-ba05-88bf516d73a1.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/0c7a3cbd-f0fc-444f-ba05-88bf516d73a1.png"
+                                            },
+                                            "code": "SCO"
+                                        },
+                                        "logicalConfigurationId": 10229531537773,
+                                        "saleConfigurationId": 10229226828273,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "NONE",
+                                        "numbered": true
+                                    },
+                                    {
+                                        "performanceId": 10229226700890,
+                                        "code": "m006",
+                                        "name": {},
+                                        "subtitle": {},
+                                        "start": "2026-06-13T21:00:00.000Z",
+                                        "end": "2026-06-14T04:00:00.000Z",
+                                        "venue": {
+                                            "de": "BC Place Vancouver",
+                                            "en": "BC Place Vancouver",
+                                            "fr": "BC Place de Vancouver",
+                                            "es": "Estadio BC Place de Vancouver"
+                                        },
+                                        "action": {},
+                                        "image": {
+                                            "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/small/ea29ba9c-64cd-45e3-9723-ec8bbb140d6b.png",
+                                            "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/med/ea29ba9c-64cd-45e3-9723-ec8bbb140d6b.png",
+                                            "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/large/ea29ba9c-64cd-45e3-9723-ec8bbb140d6b.png",
+                                            "xlarge": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/performance/xlarge/ea29ba9c-64cd-45e3-9723-ec8bbb140d6b.png"
+                                        },
+                                        "perfDescription": {},
+                                        "phase": "Group Stage Matches",
+                                        "maxAllowedSeats": 0,
+                                        "roundName": "Match 6",
+                                        "roundCode": "M6",
+                                        "roundRank": 6,
+                                        "hostTeam": {
+                                            "name": {
+                                                "de": "Australien",
+                                                "ar": "أستراليا",
+                                                "en": "Australia",
+                                                "fr": "Australie",
+                                                "es": "Australia"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/eabfa560-1fa7-4b27-9ac6-15e27eefe93f.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/eabfa560-1fa7-4b27-9ac6-15e27eefe93f.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/eabfa560-1fa7-4b27-9ac6-15e27eefe93f.png"
+                                            },
+                                            "code": "AUS"
+                                        },
+                                        "opposingTeam": {
+                                            "name": {
+                                                "de": "Türkei",
+                                                "ar": "تركيا",
+                                                "en": "Türkiye",
+                                                "fr": "Turquie",
+                                                "es": "Turquía"
+                                            },
+                                            "logo": {
+                                                "small": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/6d8c6ead-49d9-4c11-87ae-ed03d8119d5b.png",
+                                                "medium": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/6d8c6ead-49d9-4c11-87ae-ed03d8119d5b.png",
+                                                "large": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/team/med/6d8c6ead-49d9-4c11-87ae-ed03d8119d5b.png"
+                                            },
+                                            "code": "TUR"
+                                        },
+                                        "logicalConfigurationId": 10229226859961,
+                                        "saleConfigurationId": 10229226828253,
+                                        "withAdvantage": true,
+                                        "notOnSales": false,
+                                        "restrictedAdv": false,
+                                        "advantages": [
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10229997072863,
+                                                "name": {
+                                                    "en": "Last Minute Sales"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            },
+                                            {
+                                                "type": "PUBLIC",
+                                                "id": 10230003371090,
+                                                "name": {
+                                                    "en": "LMS - Front Row Seat"
+                                                },
+                                                "description": {},
+                                                "availability": "NONE",
+                                                "isLimited": false,
+                                                "isUsed": false
+                                            }
+                                        ],
+                                        "finalDate": true,
+                                        "availability": "NONE",
+                                        "numbered": true
+                                    }
+                                ],
+                                "timeslots": [],
+                                "isGuidedVisit": false,
+                                "isWithoutVisibleTheme": false,
+                                "minimumGroupSize": 0,
+                                "visitThemes": [],
+                                "packageLines": [],
+                                "prices": [],
+                                "items": [],
+                                "sessions": [],
+                                "jsonLdMetadata": {
+                                    "name": "FIFA World Cup 2026™",
+                                    "image": "https://fifa.static-p23.online-sales-services.quantum.secutix.com/images/catalog/product/med/c5b8c78f-c341-4d34-a8a9-4dc388833281.jpg",
+                                    "startDate": "2026-06-11",
+                                    "endDate": "2026-07-19",
+                                    "offers": {
+                                        "url": "https://fwc26-shop-usd.tickets.fifa.com/api/1/redirect/product?id=10229225515651",
+                                        "availability": "http://schema.org/LimitedAvailability",
+                                        "type": "AggregateOffer",
+                                        "category": "primary"
+                                    },
+                                    "context": "http://schema.org",
+                                    "@type": "Event"
+                                },
+                                "notOnSales": false,
+                                "restrictedAdv": false,
+                                "firstDate": "2026-06-11T13:00:00.000Z",
+                                "lastDate": "2026-06-14T04:00:00.000Z",
+                                "availability": "LIMITED",
+                                "saleAvailability": "LIMITED",
+                                "subTopicsList": [],
+                                "withoutVisibleTheme": false,
+                                "guidedVisit": false
+                            },
+                            "displayAs": "PRODUCT"
+                        }
+                    ]
+                }
+            ],
+            "tours": [],
+            "aspectRatio": "WIDE",
+            "sortByDate": false,
+            "displayPriceInfo": false,
+            "displayDescPreview": true,
+            "displayActionBtn": true,
+            "displayStreamOnlineAction": false
+        }
+    ]
+}
+
